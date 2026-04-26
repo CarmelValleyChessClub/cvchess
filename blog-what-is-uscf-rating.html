@@ -80,6 +80,59 @@
     .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
     .footer-copy { font-family: var(--font-body); font-size: 0.75rem; color: var(--cream); opacity: 0.4; }
     @media (max-width: 768px) { nav { padding: 1rem 1.5rem; } .nav-links { display: none; } .article-hero, .article-body { padding-left: 1.5rem; padding-right: 1.5rem; } }
+
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0.25rem;
+      z-index: 1001;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--cream);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--dark-green);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-title);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--red); }
+    .mobile-menu .mobile-cta {
+      background: var(--red);
+      color: var(--white) !important;
+      padding: 0.75rem 2rem;
+      border-radius: 2px;
+      font-size: 1.25rem !important;
+    }
   </style>
 </head>
 <body>
@@ -96,7 +149,28 @@
       <li><a href="coach-jb.html">About</a></li>
       <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSf-uJ_KOpxwd54iupvSs3w-dALodP_zQbtsqf13zAhK-GR8Sw/viewform?usp=header" target="_blank" class="nav-cta">Summer Camp →</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="after-school.html" onclick="toggleMenu()">After-School</a>
+    <a href="summer-camp.html" onclick="toggleMenu()">Summer Camp</a>
+    <a href="friday-nights.html" onclick="toggleMenu()">$5 Fridays</a>
+    <a href="calendar.html" onclick="toggleMenu()">Calendar</a>
+    <a href="blog.html" onclick="toggleMenu()">Blog</a>
+    <a href="coach-jb.html" onclick="toggleMenu()">About</a>
+    <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    <a href="after-school.html" class="mobile-cta" onclick="toggleMenu()">Enroll Now</a>
+  </div>
+  <script>
+    function toggleMenu() {
+      document.getElementById('hamburger').classList.toggle('open');
+      document.getElementById('mobileMenu').classList.toggle('open');
+      document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+    }
+  </script>
 
   <div class="article-hero">
     <div class="container">
