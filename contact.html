@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Carmel Valley Chess Club | (831) 392-7456</title>
+  <meta name="description" content="Contact Carmel Valley Chess Club. 9 Del Fino Place, Suite 201, Carmel Valley, CA 93924. Call (831) 392-7456 or email chessclubcv@gmail.com. Above Mika Sushi.">
+  <link rel="canonical" href="https://cvchess.com/contact">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700;800;900&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root { --white: #fdfdfd; --red: #a0231d; --green: #14332d; --cream: #e7dcce; --brown: #4b3c28; --dark-green: #172d28; --font-title: 'League Spartan', sans-serif; --font-body: 'Raleway', sans-serif; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); background: var(--dark-green); color: var(--white); overflow-x: hidden; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2.5rem; background: rgba(23,45,40,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(231,220,206,0.1); }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo img { width: 48px; height: 48px; object-fit: contain; }
+    .nav-logo-text { font-family: var(--font-title); font-size: 1rem; font-weight: 800; color: var(--white); line-height: 1.1; }
+    .nav-logo-text span { display: block; font-size: 0.65rem; font-weight: 400; font-family: var(--font-body); color: var(--cream); letter-spacing: 0.1em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: var(--font-body); font-size: 0.85rem; font-weight: 500; color: var(--cream); text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--red) !important; color: var(--white) !important; padding: 0.5rem 1.25rem !important; border-radius: 2px !important; font-weight: 700 !important; }
+
+    .contact-hero { padding: 10rem 2.5rem 5rem; background: var(--green); }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .page-eyebrow { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .page-eyebrow::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--red); }
+    .page-title { font-family: var(--font-title); font-size: clamp(3rem, 6vw, 6rem); font-weight: 900; line-height: 0.95; letter-spacing: -0.03em; color: var(--white); margin-bottom: 1.5rem; }
+    .page-subtitle { font-family: var(--font-body); font-size: 1.1rem; font-weight: 300; color: var(--cream); line-height: 1.7; max-width: 500px; opacity: 0.9; }
+
+    .contact-section { padding: 6rem 2.5rem; background: var(--dark-green); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+
+    .contact-cards { display: flex; flex-direction: column; gap: 1.25rem; }
+    .contact-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(231,220,206,0.1); border-radius: 4px; padding: 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: border-color 0.2s; }
+    .contact-card:hover { border-color: rgba(160,35,29,0.4); }
+    .contact-card-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .contact-card-label { font-family: var(--font-body); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); display: block; margin-bottom: 0.35rem; }
+    .contact-card-value { font-family: var(--font-title); font-size: 1.1rem; font-weight: 700; color: var(--white); text-decoration: none; line-height: 1.3; display: block; }
+    .contact-card-value:hover { color: var(--red); }
+    .contact-card-sub { font-family: var(--font-body); font-size: 0.8rem; color: var(--cream); opacity: 0.65; margin-top: 0.25rem; line-height: 1.5; }
+
+    .contact-map { background: rgba(255,255,255,0.05); border: 1px solid rgba(231,220,206,0.1); border-radius: 4px; overflow: hidden; height: 450px; }
+    .contact-map iframe { width: 100%; height: 100%; border: none; }
+
+    .hours-section { padding: 4rem 2.5rem; background: var(--green); }
+    .hours-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .hours-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(231,220,206,0.1); border-radius: 4px; padding: 2rem; }
+    .hours-card-tag { display: inline-block; background: var(--red); font-family: var(--font-title); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); padding: 0.3rem 0.65rem; border-radius: 2px; margin-bottom: 0.75rem; }
+    .hours-card-title { font-family: var(--font-title); font-size: 1.25rem; font-weight: 800; color: var(--white); margin-bottom: 0.5rem; }
+    .hours-card-times { font-family: var(--font-body); font-size: 0.875rem; color: var(--cream); opacity: 0.8; line-height: 1.8; }
+
+    .social-section { padding: 4rem 2.5rem; background: var(--dark-green); text-align: center; }
+    .social-title { font-family: var(--font-title); font-size: 2rem; font-weight: 900; color: var(--white); margin-bottom: 0.5rem; }
+    .social-sub { font-family: var(--font-body); font-size: 0.9rem; color: var(--cream); opacity: 0.7; margin-bottom: 2rem; }
+    .social-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+    .social-btn { display: inline-flex; align-items: center; gap: 0.75rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(231,220,206,0.15); color: var(--cream); font-family: var(--font-title); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; padding: 0.85rem 1.75rem; border-radius: 2px; transition: all 0.2s; }
+    .social-btn:hover { background: var(--red); border-color: var(--red); color: var(--white); }
+
+    footer { background: #0d1f1b; padding: 3rem 2.5rem 2rem; border-top: 1px solid rgba(231,220,206,0.08); }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-family: var(--font-body); font-size: 0.75rem; color: var(--cream); opacity: 0.4; }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .hours-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Carmel Valley Chess Club Logo">
+      <div class="nav-logo-text">Carmel Valley <span>Chess Club</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="after-school.html">After-School</a></li>
+      <li><a href="summer-camp.html">Summer Camp</a></li>
+      <li><a href="friday-nights.html">$5 Fridays</a></li>
+      <li><a href="coach-jb.html">Coach JB</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="after-school.html" class="nav-cta">Enroll Now</a></li>
+    </ul>
+  </nav>
+
+  <div class="contact-hero">
+    <div class="container">
+      <p class="page-eyebrow">Get in Touch</p>
+      <h1 class="page-title">Find Us.<br>Call Us.<br>Come Play.</h1>
+      <p class="page-subtitle">We're right above Mika Sushi in Carmel Valley. Drop in on a Friday night or reach out anytime.</p>
+    </div>
+  </div>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-cards">
+          <div class="contact-card">
+            <span class="contact-card-icon">📍</span>
+            <div>
+              <span class="contact-card-label">Address</span>
+              <span class="contact-card-value">9 Del Fino Place, Suite 201</span>
+              <p class="contact-card-sub">Carmel Valley, CA 93924<br>Above Mika Sushi — look for Suite 201 upstairs</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="contact-card-icon">📞</span>
+            <div>
+              <span class="contact-card-label">Phone</span>
+              <a href="tel:8313927456" class="contact-card-value">(831) 392-7456</a>
+              <p class="contact-card-sub">Call or text anytime</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="contact-card-icon">✉️</span>
+            <div>
+              <span class="contact-card-label">Email</span>
+              <a href="mailto:chessclubcv@gmail.com" class="contact-card-value">chessclubcv@gmail.com</a>
+              <p class="contact-card-sub">We respond within 24 hours</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="contact-card-icon">📷</span>
+            <div>
+              <span class="contact-card-label">Instagram</span>
+              <a href="https://instagram.com/chessclubcv" target="_blank" class="contact-card-value">@chessclubcv</a>
+              <p class="contact-card-sub">DMs open — follow for updates</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="contact-card-icon">👥</span>
+            <div>
+              <span class="contact-card-label">Facebook</span>
+              <a href="https://www.facebook.com/people/Carmel-Valley-Chess-Club/61581426884697/" target="_blank" class="contact-card-value">Carmel Valley Chess Club</a>
+              <p class="contact-card-sub">Like our page for events and news</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3189.5!2d-121.7318!3d36.4793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s9+Del+Fino+Place%2C+Carmel+Valley%2C+CA+93924!5e0!3m2!1sen!2sus!4v1" allowfullscreen="" loading="lazy" title="Carmel Valley Chess Club Location Map"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hours-section">
+    <div class="container">
+      <h2 style="font-family:var(--font-title);font-size:2rem;font-weight:900;color:var(--white);margin-bottom:0.5rem;">When We're Open</h2>
+      <div class="hours-grid">
+        <div class="hours-card">
+          <span class="hours-card-tag">Youth Program</span>
+          <p class="hours-card-title">After-School Classes</p>
+          <p class="hours-card-times">
+            Monday · 3:15pm & 4:30pm<br>
+            Tuesday · 3:15pm & 4:30pm<br>
+            Thursday · 3:15pm (Competitive)<br>
+            <em style="opacity:0.6;font-size:0.8em;">Follows CUSD School Calendar</em>
+          </p>
+        </div>
+        <div class="hours-card" style="border-color:var(--red);">
+          <span class="hours-card-tag">Adults Only</span>
+          <p class="hours-card-title">$5 Friday Nights</p>
+          <p class="hours-card-times">
+            Every Friday · 5:00pm – 9:00pm<br>
+            No registration needed<br>
+            Just show up<br>
+            <em style="opacity:0.6;font-size:0.8em;">$5 at the door · Bring a beverage</em>
+          </p>
+        </div>
+        <div class="hours-card">
+          <span class="hours-card-tag" style="background:var(--brown);">Summer 2026</span>
+          <p class="hours-card-title">Summer Camp</p>
+          <p class="hours-card-times">
+            June 15–19, 2026<br>
+            9:00am – 3:00pm daily<br>
+            Early drop-off from 8am<br>
+            <em style="opacity:0.6;font-size:0.8em;">Register at cvchess.com/summercamp</em>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="social-section">
+    <p class="social-title">Follow the Club ♟️</p>
+    <p class="social-sub">Stay up to date with events, results, and community news</p>
+    <div class="social-links">
+      <a href="https://instagram.com/chessclubcv" target="_blank" class="social-btn">📷 Instagram</a>
+      <a href="https://www.facebook.com/people/Carmel-Valley-Chess-Club/61581426884697/" target="_blank" class="social-btn">👥 Facebook</a>
+      <a href="mailto:chessclubcv@gmail.com" class="social-btn">✉️ Email Us</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Carmel Valley Chess Club · 9 Del Fino Place Suite 201, Carmel Valley, CA 93924 · (831) 392-7456 · chessclubcv@gmail.com</p>
+      <p class="footer-copy"><a href="index.html" style="color:inherit;text-decoration:none;">← Back to Home</a></p>
+    </div>
+  </footer>
+</body>
+</html>

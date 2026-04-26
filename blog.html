@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Chess Tips, News & Community | Carmel Valley Chess Club</title>
+  <meta name="description" content="Chess tips for kids, local chess news, and community stories from Carmel Valley Chess Club. Insights from Coach JB on chess education, youth development, and the Carmel Valley chess community.">
+  <meta name="keywords" content="chess blog carmel valley, chess tips for kids, youth chess education, chess benefits children, carmel valley chess club blog">
+  <link rel="canonical" href="https://cvchess.com/blog">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Carmel Valley Chess Club Blog",
+    "description": "Chess tips, youth development insights, and community stories from Carmel Valley Chess Club",
+    "url": "https://cvchess.com/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Carmel Valley Chess Club",
+      "url": "https://cvchess.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "9 Del Fino Place, Suite 201",
+        "addressLocality": "Carmel Valley",
+        "addressRegion": "CA",
+        "postalCode": "93924"
+      }
+    }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700;800;900&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root { --white: #fdfdfd; --red: #a0231d; --green: #14332d; --cream: #e7dcce; --brown: #4b3c28; --dark-green: #172d28; --font-title: 'League Spartan', sans-serif; --font-body: 'Raleway', sans-serif; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--dark-green); color: var(--white); overflow-x: hidden; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2.5rem; background: rgba(23,45,40,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(231,220,206,0.1); }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo img { width: 48px; height: 48px; object-fit: contain; }
+    .nav-logo-text { font-family: var(--font-title); font-size: 1rem; font-weight: 800; color: var(--white); line-height: 1.1; }
+    .nav-logo-text span { display: block; font-size: 0.65rem; font-weight: 400; font-family: var(--font-body); color: var(--cream); letter-spacing: 0.1em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 1.75rem; list-style: none; }
+    .nav-links a { font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; color: var(--cream); text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--red) !important; color: var(--white) !important; padding: 0.5rem 1.25rem !important; border-radius: 2px !important; font-weight: 700 !important; }
+
+    .page-hero { padding: 9rem 2.5rem 5rem; background: var(--green); }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .page-eyebrow { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .page-eyebrow::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--red); }
+    .page-title { font-family: var(--font-title); font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; line-height: 0.95; letter-spacing: -0.03em; color: var(--white); margin-bottom: 1.25rem; }
+    .page-subtitle { font-family: var(--font-body); font-size: 1rem; font-weight: 300; color: var(--cream); opacity: 0.8; line-height: 1.7; max-width: 540px; }
+
+    /* BLOG GRID */
+    .blog-section { padding: 5rem 2.5rem 7rem; background: var(--dark-green); }
+    .featured-post { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: rgba(255,255,255,0.03); border: 1px solid rgba(231,220,206,0.1); border-radius: 4px; overflow: hidden; margin-bottom: 3rem; text-decoration: none; transition: border-color 0.2s; }
+    .featured-post:hover { border-color: rgba(160,35,29,0.4); }
+    .featured-post-image { background: var(--green); min-height: 400px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .featured-post-image::before { content: '♟'; font-size: 20rem; color: rgba(255,255,255,0.05); position: absolute; }
+    .featured-post-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .featured-post-body { padding: 3.5rem; display: flex; flex-direction: column; justify-content: center; }
+    .post-tag { display: inline-block; font-family: var(--font-title); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; }
+    .post-title { font-family: var(--font-title); font-size: 2rem; font-weight: 900; color: var(--white); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .post-excerpt { font-family: var(--font-body); font-size: 0.95rem; font-weight: 300; color: var(--cream); opacity: 0.8; line-height: 1.75; margin-bottom: 1.5rem; }
+    .post-meta { font-family: var(--font-body); font-size: 0.75rem; color: var(--cream); opacity: 0.5; margin-bottom: 1.5rem; }
+    .post-read-more { font-family: var(--font-title); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); }
+
+    .posts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .post-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(231,220,206,0.1); border-radius: 4px; overflow: hidden; text-decoration: none; display: block; transition: all 0.2s; }
+    .post-card:hover { border-color: rgba(160,35,29,0.35); transform: translateY(-2px); }
+    .post-card-image { height: 200px; background: var(--green); position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .post-card-image::before { content: '♟'; font-size: 10rem; color: rgba(255,255,255,0.06); position: absolute; }
+    .post-card-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .post-card-body { padding: 1.75rem; }
+
+    footer { background: #0d1f1b; padding: 3rem 2.5rem 2rem; border-top: 1px solid rgba(231,220,206,0.08); }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-family: var(--font-body); font-size: 0.75rem; color: var(--cream); opacity: 0.4; }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
+      .featured-post { grid-template-columns: 1fr; }
+      .featured-post-image { min-height: 250px; }
+      .posts-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="assets/logo.png" alt="Carmel Valley Chess Club Logo">
+      <div class="nav-logo-text">Carmel Valley <span>Chess Club</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="after-school.html">After-School</a></li>
+      <li><a href="summer-camp.html">Summer Camp</a></li>
+      <li><a href="friday-nights.html">$5 Fridays</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="coach-jb.html">Coach JB</a></li>
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdVZObine13tcW1bq5qtUl6tnpQ-Ooimrx_6XDc-kifdbe1Xg/viewform?usp=header" target="_blank" class="nav-cta">Enroll Now</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <p class="page-eyebrow">Blog</p>
+      <h1 class="page-title">Chess. Community.<br>Carmel Valley.</h1>
+      <p class="page-subtitle">Insights from Coach JB on chess education, youth development, and why this game does something for people that very few things can.</p>
+    </div>
+  </div>
+
+  <section class="blog-section">
+    <div class="container">
+      <!-- FEATURED POST -->
+      <a href="blog-chess-benefits-kids.html" class="featured-post">
+        <div class="featured-post-image">
+          <img src="assets/kids-overhead.jpg" alt="Kids playing chess at Carmel Valley Chess Club after-school program">
+        </div>
+        <div class="featured-post-body">
+          <span class="post-tag">Youth Development · Featured</span>
+          <h2 class="post-title">7 Proven Ways Chess Makes Kids Smarter, Calmer, and More Confident</h2>
+          <p class="post-excerpt">Chess isn't just a game — it's one of the most research-backed tools for building the cognitive and emotional skills that help children thrive in school and in life. Here's what the science says, and what Coach JB has seen firsthand at Carmel Valley Chess Club.</p>
+          <p class="post-meta">By Coach JB · April 2026 · 8 min read</p>
+          <span class="post-read-more">Read Full Article →</span>
+        </div>
+      </a>
+
+      <!-- POST GRID -->
+      <div class="posts-grid">
+        <a href="blog-what-is-uscf-rating.html" class="post-card">
+          <div class="post-card-image">
+            <img src="assets/kids-playing-2.jpg" alt="Kids playing chess with chess clock at Carmel Valley Chess Club">
+          </div>
+          <div class="post-card-body">
+            <span class="post-tag">Chess Education</span>
+            <h2 class="post-title" style="font-family:var(--font-title);font-size:1.4rem;font-weight:800;color:var(--white);line-height:1.1;letter-spacing:-0.02em;margin-bottom:0.75rem;">What Is a USCF Chess Rating — And Why Does It Matter for Your Child?</h2>
+            <p class="post-excerpt" style="font-family:var(--font-body);font-size:0.875rem;font-weight:300;color:var(--cream);opacity:0.8;line-height:1.7;margin-bottom:1rem;">Every camper at CV Chess Club Summer Camp 2026 leaves as a rated USCF tournament player. But what does that actually mean? Coach JB explains the rating system, why it matters, and how your child earns their first official chess ranking.</p>
+            <p class="post-meta">By Coach JB · April 2026 · 6 min read</p>
+            <span class="post-read-more" style="font-family:var(--font-title);font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);">Read Article →</span>
+          </div>
+        </a>
+
+        <a href="blog-chess-club-carmel-valley.html" class="post-card">
+          <div class="post-card-image">
+            <img src="assets/club-full.jpg" alt="Carmel Valley Chess Club community event with kids and adults playing chess">
+          </div>
+          <div class="post-card-body">
+            <span class="post-tag">Community · Carmel Valley</span>
+            <h2 class="post-title" style="font-family:var(--font-title);font-size:1.4rem;font-weight:800;color:var(--white);line-height:1.1;letter-spacing:-0.02em;margin-bottom:0.75rem;">Why Carmel Valley Needed a Chess Club — And Why Now Is the Perfect Time</h2>
+            <p class="post-excerpt" style="font-family:var(--font-body);font-size:0.875rem;font-weight:300;color:var(--cream);opacity:0.8;line-height:1.7;margin-bottom:1rem;">Coach JB didn't open Carmel Valley Chess Club because chess clubs are popular. He opened it because Carmel Valley is the kind of community that deserves one — and because he knows firsthand what chess can do for a kid who needs it most.</p>
+            <p class="post-meta">By Coach JB · March 2026 · 7 min read</p>
+            <span class="post-read-more" style="font-family:var(--font-title);font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);">Read Article →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Carmel Valley Chess Club · 9 Del Fino Place Suite 201, Carmel Valley, CA 93924 · (831) 392-7456 · chessclubcv@gmail.com</p>
+      <p class="footer-copy"><a href="index.html" style="color:inherit;text-decoration:none;">← Back to Home</a></p>
+    </div>
+  </footer>
+</body>
+</html>
