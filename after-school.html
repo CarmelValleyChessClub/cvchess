@@ -110,7 +110,7 @@
     /* WHAT TO EXPECT */
     .expect-section { background: var(--green); }
     .expect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-    .expect-image img { width: 100%; height: 500px; object-fit: cover; border-radius: 4px; }
+    .expect-image img { width: 100%; height: 260px; object-fit: cover; border-radius: 4px; }
     .expect-list { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2.5rem; }
     .expect-item { display: flex; gap: 1.25rem; align-items: flex-start; }
     .expect-num { font-family: var(--font-title); font-size: 1.5rem; font-weight: 900; color: var(--red); line-height: 1; flex-shrink: 0; width: 2rem; }
@@ -169,7 +169,7 @@
       <li><a href="friday-nights.html">Adults</a></li>
       <li><a href="calendar.html">Calendar</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="coach-jb.html">Coach JB</a></li>
+      <li><a href="coach-jb.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="after-school.html" class="nav-cta">Enroll Now</a></li>
     </ul>
@@ -241,7 +241,10 @@
     <div class="container">
       <div class="expect-grid">
         <div class="expect-image">
-          <img src="assets/coach-jb-action.jpg" alt="Coach JB teaching chess to kids on beanbags at Carmel Valley Chess Club">
+          <video autoplay muted loop playsinline style="width:100%;height:260px;object-fit:cover;border-radius:4px;display:block;margin-bottom:1rem;">
+            <source src="assets/20260421_154827.mp4" type="video/mp4">
+          </video>
+          <img src="assets/kids-overhead.jpg" alt="Kids playing chess at Carmel Valley Chess Club after-school program" style="width:100%;height:260px;object-fit:cover;border-radius:4px;display:block;">
         </div>
         <div>
           <p class="section-eyebrow">What to Expect</p>
