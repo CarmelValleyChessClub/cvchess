@@ -163,19 +163,41 @@
           <!-- Why I opened the club video -->
           <div style="margin-top:1.25rem;">
             <p style="font-family:var(--font-body);font-size:0.65rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--red);margin-bottom:0.65rem;">Hear It In His Own Words</p>
-            <div style="position:relative;width:100%;overflow:hidden;border-radius:4px;background:#000;aspect-ratio:16/9;">
+            <div style="position:relative;width:100%;overflow:hidden;border-radius:4px;background:#000;aspect-ratio:16/9;" id="whyVideoWrap">
               <div style="position:absolute;top:0;left:0;right:0;height:44px;background:#000;z-index:2;"></div>
               <div style="position:absolute;top:0;left:0;bottom:0;width:8%;background:#000;z-index:2;"></div>
               <div style="position:absolute;top:0;right:0;bottom:0;width:8%;background:#000;z-index:2;"></div>
-              <iframe
-                src="https://www.youtube.com/embed/yeDUuIkBprY?autoplay=1&mute=1&loop=1&playlist=yeDUuIkBprY&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1"
+              <iframe id="whyIframe"
+                src="https://www.youtube.com/embed/yeDUuIkBprY?autoplay=1&mute=1&loop=1&playlist=yeDUuIkBprY&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&enablejsapi=1"
                 style="position:absolute;top:-44px;left:-10%;width:120%;height:calc(100% + 88px);border:none;pointer-events:none;"
                 allow="autoplay; encrypted-media"
                 allowfullscreen
                 title="Why Coach JB opened Carmel Valley Chess Club">
               </iframe>
+              <!-- Unmute button -->
+              <button id="whyMuteBtn" onclick="toggleWhyMute()" style="position:absolute;bottom:10px;right:10px;z-index:10;background:rgba(23,45,40,0.85);border:1px solid rgba(231,220,206,0.3);color:#fdfdfd;font-family:'League Spartan',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.4rem 0.85rem;border-radius:2px;cursor:pointer;display:flex;align-items:center;gap:0.4rem;transition:background 0.2s;">
+                🔇 Unmute
+              </button>
             </div>
           </div>
+          <script>
+            var whyMuted = true;
+            function toggleWhyMute() {
+              var btn = document.getElementById('whyMuteBtn');
+              var wrap = document.getElementById('whyVideoWrap');
+              whyMuted = !whyMuted;
+              // Reload iframe with new mute state
+              var iframe = document.getElementById('whyIframe');
+              var src = iframe.src;
+              if (whyMuted) {
+                iframe.src = src.replace('mute=0', 'mute=1');
+                btn.innerHTML = '🔇 Unmute';
+              } else {
+                iframe.src = src.replace('mute=1', 'mute=0');
+                btn.innerHTML = '🔊 Mute';
+              }
+            }
+          </script>
         </div>
       </div>
     </div>
