@@ -149,6 +149,7 @@
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
+      .hamburger { display: flex; }
       .schedule-grid { grid-template-columns: 1fr; }
       .expect-grid { grid-template-columns: 1fr; }
       .policies-grid { grid-template-columns: 1fr; }
@@ -206,6 +207,11 @@
       padding: 0.75rem 2rem;
       border-radius: 2px;
       font-size: 1.25rem !important;
+    }
+    .mc-outer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    @media (max-width: 900px) {
+      .mc-outer-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+      .mc-name-grid { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
@@ -461,120 +467,39 @@
   </div>
 
   
-  <!-- MAILCHIMP EMAIL SIGNUP -->
-  <section style="background:var(--red);padding:4rem 2.5rem;">
-    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;" class="mc-signup-grid">
-        <style>@media(max-width:900px){.mc-signup-grid{grid-template-columns:1fr !important;gap:2rem !important;}}</style>
-      <div>
-        <p style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:0.75rem;">Stay in the Loop</p>
-        <h2 style="font-family:var(--font-title);font-size:2.25rem;font-weight:900;color:#fdfdfd;letter-spacing:-0.02em;line-height:1.05;margin-bottom:0.75rem;">Get Club News, Camp Updates & Friday Night Reminders.</h2>
-        <p style="font-family:var(--font-body);font-size:0.9rem;font-weight:300;color:rgba(255,255,255,0.8);line-height:1.7;">No spam. Just chess. Unsubscribe anytime.</p>
-      </div>
-      <div>
-        <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
-        <style>
-          #mc_embed_signup { background: transparent !important; }
-          #mc_embed_signup .mc-field-group { margin-bottom: 0.75rem; }
-          #mc_embed_signup .mc-field-group label {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.85);
-            display: block;
-            margin-bottom: 0.35rem;
-          }
-          #mc_embed_signup .mc-field-group input {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(255,255,255,0.25);
-            border-radius: 2px;
-            color: #fdfdfd;
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.9rem;
-            box-sizing: border-box;
-            transition: border-color 0.2s;
-          }
-          #mc_embed_signup .mc-field-group input::placeholder { color: rgba(255,255,255,0.45); }
-          #mc_embed_signup .mc-field-group input:focus {
-            outline: none;
-            border-color: rgba(255,255,255,0.6);
-            background: rgba(255,255,255,0.18);
-          }
-          #mc_embed_signup .clear {
-            margin-top: 0.75rem !important;
-          }
-          #mc_embed_signup .clear input[type="submit"] {
-            display: block !important;
-            background: #172d28 !important;
-            color: #fdfdfd !important;
-            font-family: 'League Spartan', sans-serif !important;
-            font-size: 0.85rem !important;
-            font-weight: 700 !important;
-            letter-spacing: 0.08em !important;
-            text-transform: uppercase !important;
-            padding: 1rem 2rem !important;
-            border: none !important;
-            border-radius: 2px !important;
-            cursor: pointer !important;
-            width: auto !important;
-            min-width: 200px !important;
-            margin: 0 !important;
-            transition: background 0.2s !important;
-            -webkit-appearance: none !important;
-            appearance: none !important;
-          }
-          #mc_embed_signup .clear input[type="submit"]:hover { background: #0d1f1b !important; }
-          #mc_embed_signup h2 { display: none; }
-          #mc_embed_signup .indicates-required { display: none; }
-          #mc_embed_signup .asterisk { display: none; }
-          #mc_embed_signup #mce-responses { margin: 0.5rem 0 0; }
-          #mc_embed_signup .response {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.9);
-            padding: 0.5rem 0;
-          }
-          #mc_embed_signup form { padding: 0 !important; }
-          .mc-field-group.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-          @media (max-width: 900px) {
-            .mc-field-group.two-col { grid-template-columns: 1fr; gap: 0; }
-          }
-        </style>
-        <div id="mc_embed_signup">
-          <form action="https://cvchess.us6.list-manage.com/subscribe/post?u=87a8c9ce62f608e29ac06ecb1&amp;id=11a71ca102&amp;f_id=00c4c6e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
-            <div id="mc_embed_signup_scroll">
-              <div class="mc-field-group two-col">
-                <div>
-                  <label for="mce-FNAME">First Name</label>
-                  <input type="text" name="FNAME" class="text" id="mce-FNAME" value="" placeholder="Justin">
-                </div>
-                <div>
-                  <label for="mce-LNAME">Last Name</label>
-                  <input type="text" name="LNAME" class="text" id="mce-LNAME" value="" placeholder="Bradley">
-                </div>
+
+
+    <!-- MAILCHIMP EMAIL SIGNUP -->
+  <section style="background:var(--red);padding:5rem 2.5rem;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="mc-outer-grid">
+        <div>
+          <p style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:0.75rem;">Stay in the Loop</p>
+          <h2 style="font-family:var(--font-title);font-size:2.25rem;font-weight:900;color:#fdfdfd;letter-spacing:-0.02em;line-height:1.05;margin-bottom:0.75rem;">Get Club News, Camp Updates &amp; Friday Night Reminders.</h2>
+          <p style="font-family:var(--font-body);font-size:0.9rem;font-weight:300;color:rgba(255,255,255,0.8);line-height:1.7;">No spam. Just chess. Unsubscribe anytime.</p>
+        </div>
+        <div>
+          <form action="https://cvchess.us6.list-manage.com/subscribe/post?u=87a8c9ce62f608e29ac06ecb1&amp;id=11a71ca102&amp;f_id=00c4c6e1f0" method="post" target="_blank" style="width:100%;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:0.75rem;" class="mc-name-grid">
+              <div>
+                <label style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.85);display:block;margin-bottom:0.35rem;">First Name</label>
+                <input type="text" name="FNAME" placeholder="First name" style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:2px;color:#fdfdfd;font-family:var(--font-body);font-size:0.9rem;box-sizing:border-box;">
               </div>
-              <div class="mc-field-group">
-                <label for="mce-EMAIL">Email Address <span style="color:rgba(255,255,255,0.5);">*</span></label>
-                <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required value="" placeholder="you@email.com">
-              </div>
-              <div id="mce-responses" class="clear">
-                <div class="response" id="mce-error-response" style="display:none;"></div>
-                <div class="response" id="mce-success-response" style="display:none;"></div>
-              </div>
-              <div aria-hidden="true" style="position:absolute;left:-5000px;">
-                <input type="text" name="b_87a8c9ce62f608e29ac06ecb1_11a71ca102" tabindex="-1" value="">
-              </div>
-              <div class="clear">
-                <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Join the Club ♟️">
+              <div>
+                <label style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.85);display:block;margin-bottom:0.35rem;">Last Name</label>
+                <input type="text" name="LNAME" placeholder="Last name" style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:2px;color:#fdfdfd;font-family:var(--font-body);font-size:0.9rem;box-sizing:border-box;">
               </div>
             </div>
+            <div style="margin-bottom:0.75rem;">
+              <label style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.85);display:block;margin-bottom:0.35rem;">Email Address *</label>
+              <input type="email" name="EMAIL" placeholder="you@email.com" required style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:2px;color:#fdfdfd;font-family:var(--font-body);font-size:0.9rem;box-sizing:border-box;">
+            </div>
+            <div aria-hidden="true" style="position:absolute;left:-5000px;">
+              <input type="text" name="b_87a8c9ce62f608e29ac06ecb1_11a71ca102" tabindex="-1" value="">
+            </div>
+            <button type="submit" style="display:inline-block;background:#172d28;color:#fdfdfd;font-family:var(--font-title);font-size:0.9rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:1rem 2.5rem;border:none;border-radius:2px;cursor:pointer;margin-top:0.25rem;transition:background 0.2s;">Join the Club ♟️</button>
           </form>
         </div>
-        <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-        <script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
       </div>
     </div>
   </section>
