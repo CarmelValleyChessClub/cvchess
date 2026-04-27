@@ -463,7 +463,8 @@
   
   <!-- MAILCHIMP EMAIL SIGNUP -->
   <section style="background:var(--red);padding:4rem 2.5rem;">
-    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;" class="mc-signup-grid">
+        <style>@media(max-width:900px){.mc-signup-grid{grid-template-columns:1fr !important;gap:2rem !important;}}</style>
       <div>
         <p style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:0.75rem;">Stay in the Loop</p>
         <h2 style="font-family:var(--font-title);font-size:2.25rem;font-weight:900;color:#fdfdfd;letter-spacing:-0.02em;line-height:1.05;margin-bottom:0.75rem;">Get Club News, Camp Updates & Friday Night Reminders.</h2>
@@ -502,7 +503,11 @@
             border-color: rgba(255,255,255,0.6);
             background: rgba(255,255,255,0.18);
           }
+          #mc_embed_signup .clear {
+            margin-top: 0.75rem !important;
+          }
           #mc_embed_signup .clear input[type="submit"] {
+            display: block !important;
             background: #172d28 !important;
             color: #fdfdfd !important;
             font-family: 'League Spartan', sans-serif !important;
@@ -510,13 +515,16 @@
             font-weight: 700 !important;
             letter-spacing: 0.08em !important;
             text-transform: uppercase !important;
-            padding: 0.85rem 2rem !important;
+            padding: 1rem 2rem !important;
             border: none !important;
             border-radius: 2px !important;
             cursor: pointer !important;
-            width: 100% !important;
-            margin-top: 0.5rem !important;
+            width: auto !important;
+            min-width: 200px !important;
+            margin: 0 !important;
             transition: background 0.2s !important;
+            -webkit-appearance: none !important;
+            appearance: none !important;
           }
           #mc_embed_signup .clear input[type="submit"]:hover { background: #0d1f1b !important; }
           #mc_embed_signup h2 { display: none; }
