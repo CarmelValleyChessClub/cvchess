@@ -6,6 +6,12 @@
   <title>Meet Coach JB | Justin Bradley | Carmel Valley Chess Club Founder</title>
   <meta name="description" content="Meet Coach JB — Justin Bradley, founder of Carmel Valley Chess Club. A lifelong chess player, trusted local realtor, and Carmel Valley father of two who built the chess community he always wished existed.">
   <meta name="keywords" content="Coach JB chess carmel valley, Justin Bradley chess, carmel valley chess club founder, chess coach monterey county">
+    <meta property="og:image" content="https://cvchess.com/assets/club-full.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Carmel Valley Chess Club">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://cvchess.com/assets/club-full.jpg">
   <link rel="canonical" href="https://cvchess.com/coach-jb">
   <script type="application/ld+json">
   {
@@ -83,8 +89,8 @@
     .footer-copy { font-family: var(--font-body); font-size: 0.75rem; color: var(--cream); opacity: 0.4; }
 
     @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
-      .hamburger { display: flex; }
+      nav { padding: 1rem 1.5rem; overflow: hidden; max-width: 100vw; } .nav-links { display: none !important; }
+      .hamburger { display: flex !important; }
       .coach-hero { grid-template-columns: 1fr; }
       .coach-hero-image { height: 400px; }
       .coach-hero-content { padding: 3rem 1.5rem; }

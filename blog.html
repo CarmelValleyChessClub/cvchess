@@ -6,6 +6,12 @@
   <title>Blog | Chess Tips, News & Community | Carmel Valley Chess Club</title>
   <meta name="description" content="Chess tips for kids, local chess news, and community stories from Carmel Valley Chess Club. Insights from Coach JB on chess education, youth development, and the Carmel Valley chess community.">
   <meta name="keywords" content="chess blog carmel valley, chess tips for kids, youth chess education, chess benefits children, carmel valley chess club blog">
+    <meta property="og:image" content="https://cvchess.com/assets/club-full.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Carmel Valley Chess Club">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://cvchess.com/assets/club-full.jpg">
   <link rel="canonical" href="https://cvchess.com/blog">
   <script type="application/ld+json">
   {
@@ -79,8 +85,8 @@
     .footer-copy { font-family: var(--font-body); font-size: 0.75rem; color: var(--cream); opacity: 0.4; }
 
     @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
-      .hamburger { display: flex; }
+      nav { padding: 1rem 1.5rem; overflow: hidden; max-width: 100vw; } .nav-links { display: none !important; }
+      .hamburger { display: flex !important; }
       .featured-post { grid-template-columns: 1fr; }
       .featured-post-image { min-height: 250px; }
       .posts-grid { grid-template-columns: 1fr; }
@@ -211,6 +217,20 @@
 
       <!-- POST GRID -->
       <div class="posts-grid">
+
+        <a href="blog-first-tournament.html" class="post-card">
+          <div class="post-card-image">
+            <img src="assets/giant-chess.jpg" alt="Carmel Valley Chess Club first USCF rated tournament May 23 2026">
+          </div>
+          <div class="post-card-body">
+            <span class="post-tag">Tournaments · Community</span>
+            <h2 class="post-title" style="font-family:var(--font-title);font-size:1.4rem;font-weight:800;color:var(--white);line-height:1.1;letter-spacing:-0.02em;margin-bottom:0.75rem;">Carmel Valley's First USCF Rated Chess Tournament — Everything You Need to Know</h2>
+            <p class="post-excerpt" style="font-family:var(--font-body);font-size:0.875rem;font-weight:300;color:var(--cream);opacity:0.8;line-height:1.7;margin-bottom:1rem;">May 23rd. All skill levels. Every participant gets USCF membership included. Coach JB breaks down the format, schedule, entry fees, and exactly what to expect if it is your first tournament.</p>
+            <p class="post-meta">By Coach JB · April 2026 · 7 min read</p>
+            <span class="post-read-more" style="font-family:var(--font-title);font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);">Read Article →</span>
+          </div>
+        </a>
+
         <a href="blog-what-is-uscf-rating.html" class="post-card">
           <div class="post-card-image">
             <img src="assets/kids-playing-2.jpg" alt="Kids playing chess with chess clock at Carmel Valley Chess Club">

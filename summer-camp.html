@@ -6,6 +6,12 @@
   <title>Summer Chess Camp 2026 | June 15–19 | Carmel Valley Chess Club</title>
   <meta name="description" content="CV Chess Club Summer Camp 2026 — June 15–19, Carmel Valley CA. Ages 5–17. Chess lessons, pool days, meals, movie day, and every camper leaves as a rated USCF tournament player. $500 all-inclusive. $50 off before May 16th.">
   <meta name="keywords" content="summer chess camp 2026 carmel valley, kids summer camp monterey county, chess camp california, USCF rated chess camp, summer camp ages 5 carmel valley ca">
+    <meta property="og:image" content="https://cvchess.com/assets/club-full.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Carmel Valley Chess Club">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://cvchess.com/assets/club-full.jpg">
   <link rel="canonical" href="https://cvchess.com/summer-camp">
   <script type="application/ld+json">
   {
@@ -171,9 +177,9 @@
     .footer-copy { font-family: var(--font-body); font-size: 0.75rem; color: var(--cream); opacity: 0.4; }
 
     @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
+      nav { padding: 1rem 1.5rem; overflow: hidden; max-width: 100vw; }
+      .nav-links { display: none !important; }
+      .hamburger { display: flex !important; }
       .camp-hero { grid-template-columns: 1fr; }
       .camp-hero-left { padding: 7rem 1.5rem 3rem; }
       .camp-hero-right { height: 300px; }
@@ -290,6 +296,49 @@
   <div class="camp-hero">
     <div class="camp-hero-left">
       <div class="early-bird-badge">⚡ $50 Off — Register Before May 16th</div>
+
+      <!-- COUNTDOWN TIMER -->
+      <div id="countdown-wrap" style="display:flex;gap:0.75rem;margin-bottom:1.5rem;flex-wrap:wrap;">
+        <div style="background:rgba(255,255,255,0.1);border-radius:4px;padding:0.75rem 1rem;text-align:center;min-width:70px;">
+          <span id="cd-days" style="font-family:var(--font-title);font-size:2rem;font-weight:900;color:var(--white);display:block;line-height:1;">--</span>
+          <span style="font-family:var(--font-body);font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);">Days</span>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);border-radius:4px;padding:0.75rem 1rem;text-align:center;min-width:70px;">
+          <span id="cd-hours" style="font-family:var(--font-title);font-size:2rem;font-weight:900;color:var(--white);display:block;line-height:1;">--</span>
+          <span style="font-family:var(--font-body);font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);">Hours</span>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);border-radius:4px;padding:0.75rem 1rem;text-align:center;min-width:70px;">
+          <span id="cd-mins" style="font-family:var(--font-title);font-size:2rem;font-weight:900;color:var(--white);display:block;line-height:1;">--</span>
+          <span style="font-family:var(--font-body);font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);">Minutes</span>
+        </div>
+        <div style="background:rgba(255,255,255,0.1);border-radius:4px;padding:0.75rem 1rem;text-align:center;min-width:70px;">
+          <span id="cd-secs" style="font-family:var(--font-title);font-size:2rem;font-weight:900;color:var(--white);display:block;line-height:1;">--</span>
+          <span style="font-family:var(--font-body);font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);">Seconds</span>
+        </div>
+      </div>
+      <script>
+        (function() {
+          var deadline = new Date('2026-05-16T23:59:59');
+          function tick() {
+            var now = new Date();
+            var diff = deadline - now;
+            if (diff <= 0) {
+              document.getElementById('countdown-wrap').style.display = 'none';
+              return;
+            }
+            var d = Math.floor(diff / 86400000);
+            var h = Math.floor((diff % 86400000) / 3600000);
+            var m = Math.floor((diff % 3600000) / 60000);
+            var s = Math.floor((diff % 60000) / 1000);
+            document.getElementById('cd-days').textContent = d;
+            document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+            document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+            document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+          }
+          tick();
+          setInterval(tick, 1000);
+        })();
+      </script>
       <h1 class="camp-hero-title">Summer<br>Chess<br><span class="year">Camp</span></h1>
       <div class="camp-hero-dates">
         <span class="camp-date-chip">📅 June 15–19, 2026</span>

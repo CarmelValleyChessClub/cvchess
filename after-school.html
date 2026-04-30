@@ -6,6 +6,12 @@
   <title>After-School Chess Program | Kids Ages 5–17 | Carmel Valley Chess Club</title>
   <meta name="description" content="After-school chess program for kids ages 5–17 in Carmel Valley, CA. Small groups of 8 max. Recreational and competitive leagues. Led by Coach JB. Enroll today.">
   <meta name="keywords" content="after school chess carmel valley, kids chess classes monterey county, youth chess program carmel valley, chess for kids ages 5-17, chess lessons carmel valley ca">
+    <meta property="og:image" content="https://cvchess.com/assets/club-full.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Carmel Valley Chess Club">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://cvchess.com/assets/club-full.jpg">
   <link rel="canonical" href="https://cvchess.com/after-school">
   <script type="application/ld+json">
   {
@@ -147,9 +153,9 @@
     .footer-copy { font-family: var(--font-body); font-size: 0.75rem; color: var(--cream); opacity: 0.4; }
 
     @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
+      nav { padding: 1rem 1.5rem; overflow: hidden; max-width: 100vw; }
+      .nav-links { display: none !important; }
+      .hamburger { display: flex !important; }
       .schedule-grid { grid-template-columns: 1fr; }
       .expect-grid { grid-template-columns: 1fr; }
       .policies-grid { grid-template-columns: 1fr; }
@@ -295,8 +301,8 @@
               <span class="schedule-time-hour">4:30 PM – 5:30 PM</span>
             </div>
           </div>
-          <p class="schedule-price">Monthly</p>
-          <p class="schedule-price-note">Same monthly rate regardless of class dates. Follows CUSD calendar.</p>
+          <p class="schedule-price" style="font-size:1.5rem;">Contact for Pricing</p>
+          <p class="schedule-price-note">Monthly rate — same price regardless of class dates that month. Follows CUSD calendar. <a href="mailto:chessclubcv@gmail.com" style="color:var(--red);text-decoration:none;font-weight:600;">Email us</a> or call <a href="tel:8313927456" style="color:var(--red);text-decoration:none;font-weight:600;">(831) 392-7456</a> for current rates.</p>
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVZObine13tcW1bq5qtUl6tnpQ-Ooimrx_6XDc-kifdbe1Xg/viewform?usp=header" target="_blank" class="btn-primary">Enroll in Recreational League →</a>
         </div>
 
@@ -471,7 +477,29 @@
   
 
 
-    <!-- MAILCHIMP EMAIL SIGNUP -->
+    <!-- STICKY MOBILE CTA -->
+  <div style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:998;padding:1rem;background:var(--dark-green);border-top:1px solid rgba(231,220,206,0.15);box-shadow:0 -4px 20px rgba(0,0,0,0.3);" id="sticky-cta">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVZObine13tcW1bq5qtUl6tnpQ-Ooimrx_6XDc-kifdbe1Xg/viewform?usp=header" target="_blank" style="display:block;background:var(--red);color:var(--white);font-family:var(--font-title);font-size:1rem;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;padding:1rem;border-radius:2px;text-align:center;">Enroll Now — Register Online</a>
+  </div>
+  <style>
+    @media (max-width: 900px) {
+      #sticky-cta { display: block !important; }
+      body { padding-bottom: 80px; }
+    }
+  </style>
+
+  <script>
+    // Hide sticky CTA when near the bottom enroll button
+    window.addEventListener('scroll', function() {
+      var cta = document.getElementById('sticky-cta');
+      var bottom = document.documentElement.scrollHeight - window.innerHeight - 300;
+      if (window.scrollY > 200 && window.scrollY < bottom) {
+        cta.style.transform = 'translateY(0)';
+      } else {
+        cta.style.transform = 'translateY(100%)';
+      }
+    });
+  </script>
   <section style="background:var(--red);padding:5rem 2.5rem;">
     <div style="max-width:1200px;margin:0 auto;">
       <div class="mc-outer-grid">
