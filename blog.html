@@ -1,374 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog | Monterey Bay Psychiatry</title>
-  <meta name="description" content="Mental health insights, ADHD resources, parenting tips, and psychiatric care guidance from Monterey Bay Psychiatry." />
-  <link rel="canonical" href="https://www.montereybaypsychiatry.com/blog.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Monterey Bay Psychiatry" />
-  <meta property="og:image" content="https://www.montereybaypsychiatry.com/images/logo.png" />
-  <meta name="twitter:card" content="summary" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Chess Tips, News & Community | Carmel Valley Chess Club</title>
+  <meta name="description" content="Chess tips for kids, local chess news, and community stories from Carmel Valley Chess Club. Insights from Coach JB on chess education, youth development, and the Carmel Valley chess community.">
+  <meta name="keywords" content="chess blog carmel valley, chess tips for kids, youth chess education, chess benefits children, carmel valley chess club blog">
+  <link rel="canonical" href="https://cvchess.com/blog">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Carmel Valley Chess Club Blog",
+    "description": "Chess tips, youth development insights, and community stories from Carmel Valley Chess Club",
+    "url": "https://cvchess.com/blog",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Carmel Valley Chess Club",
+      "url": "https://cvchess.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "9 Del Fino Place, Suite 201",
+        "addressLocality": "Carmel Valley",
+        "addressRegion": "CA",
+        "postalCode": "93924"
+      }
+    }
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700;800;900&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
   <style>
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      margin-top: 16px;
+    :root { --white: #fdfdfd; --red: #a0231d; --green: #14332d; --cream: #e7dcce; --brown: #4b3c28; --dark-green: #172d28; --font-title: 'League Spartan', sans-serif; --font-body: 'Raleway', sans-serif; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--dark-green); color: var(--white); overflow-x: hidden; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2.5rem; background: rgba(23,45,40,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(231,220,206,0.1); }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo img { width: 48px; height: 48px; object-fit: contain; }
+    .nav-logo-text { font-family: var(--font-title); font-size: 1rem; font-weight: 800; color: var(--white); line-height: 1.1; }
+    .nav-logo-text span { display: block; font-size: 0.65rem; font-weight: 400; font-family: var(--font-body); color: var(--cream); letter-spacing: 0.1em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 1.75rem; list-style: none; }
+    .nav-links a { font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; color: var(--cream); text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--red) !important; color: var(--white) !important; padding: 0.5rem 1.25rem !important; border-radius: 2px !important; font-weight: 700 !important; }
+
+    .page-hero { padding: 9rem 2.5rem 5rem; background: var(--green); }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .page-eyebrow { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .page-eyebrow::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--red); }
+    .page-title { font-family: var(--font-title); font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; line-height: 0.95; letter-spacing: -0.03em; color: var(--white); margin-bottom: 1.25rem; }
+    .page-subtitle { font-family: var(--font-body); font-size: 1rem; font-weight: 300; color: var(--cream); opacity: 0.8; line-height: 1.7; max-width: 540px; }
+
+    /* BLOG GRID */
+    .blog-section { padding: 5rem 2.5rem 7rem; background: var(--dark-green); }
+    .featured-post { display: grid; grid-template-columns: 1fr 1fr; gap: 0; background: rgba(255,255,255,0.03); border: 1px solid rgba(231,220,206,0.1); border-radius: 4px; overflow: hidden; margin-bottom: 3rem; text-decoration: none; transition: border-color 0.2s; }
+    .featured-post:hover { border-color: rgba(160,35,29,0.4); }
+    .featured-post-image { background: var(--green); min-height: 400px; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .featured-post-image::before { content: '♟'; font-size: 20rem; color: rgba(255,255,255,0.05); position: absolute; }
+    .featured-post-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .featured-post-body { padding: 3.5rem; display: flex; flex-direction: column; justify-content: center; }
+    .post-tag { display: inline-block; font-family: var(--font-title); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; }
+    .post-title { font-family: var(--font-title); font-size: 2rem; font-weight: 900; color: var(--white); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .post-excerpt { font-family: var(--font-body); font-size: 0.95rem; font-weight: 300; color: var(--cream); opacity: 0.8; line-height: 1.75; margin-bottom: 1.5rem; }
+    .post-meta { font-family: var(--font-body); font-size: 0.75rem; color: var(--cream); opacity: 0.5; margin-bottom: 1.5rem; }
+    .post-read-more { font-family: var(--font-title); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); }
+
+    .posts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .post-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(231,220,206,0.1); border-radius: 4px; overflow: hidden; text-decoration: none; display: block; transition: all 0.2s; }
+    .post-card:hover { border-color: rgba(160,35,29,0.35); transform: translateY(-2px); }
+    .post-card-image { height: 200px; background: var(--green); position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .post-card-image::before { content: '♟'; font-size: 10rem; color: rgba(255,255,255,0.06); position: absolute; }
+    .post-card-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .post-card-body { padding: 1.75rem; }
+
+    footer { background: #0d1f1b; padding: 3rem 2.5rem 2rem; border-top: 1px solid rgba(231,220,206,0.08); }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-family: var(--font-body); font-size: 0.75rem; color: var(--cream); opacity: 0.4; }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .featured-post { grid-template-columns: 1fr; }
+      .featured-post-image { min-height: 250px; }
+      .posts-grid { grid-template-columns: 1fr; }
     }
-    .blog-card {
-      background: var(--white);
-      border: 1.5px solid var(--gray-200);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      transition: box-shadow var(--transition), transform var(--transition);
-      text-decoration: none;
-      display: flex;
+
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
       flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0.25rem;
+      z-index: 1001;
     }
-    .blog-card:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-3px);
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--cream);
+      border-radius: 2px;
+      transition: all 0.3s ease;
     }
-    .blog-card-image {
-      width: 100%;
-      aspect-ratio: 16/9;
-      background: var(--teal-pale);
-      display: flex;
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--dark-green);
+      z-index: 999;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      gap: 2rem;
     }
-    .blog-card-image img {
-      width: 100%; height: 100%; object-fit: cover;
-    }
-    .blog-card-image-placeholder {
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      width: 100%; height: 100%;
-      color: var(--teal); opacity: 0.4;
-    }
-    .blog-card-body {
-      padding: 24px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-    .blog-card-tag {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--teal-light);
-      margin-bottom: 10px;
-    }
-    .blog-card-title {
-      font-family: var(--font-display);
-      font-size: 17px; color: var(--navy);
-      line-height: 1.35; margin-bottom: 10px;
-      letter-spacing: 0.01em;
-    }
-    .blog-card-excerpt {
-      font-size: 14px; color: var(--gray-600);
-      line-height: 1.65; flex: 1; margin-bottom: 16px;
-    }
-    .blog-card-meta {
-      font-size: 12px; color: var(--gray-400);
-      display: flex; align-items: center; gap: 12px;
-      border-top: 1px solid var(--gray-200);
-      padding-top: 14px; margin-top: auto;
-    }
-    .blog-card-read {
-      margin-left: auto; font-size: 12px; font-weight: 600;
-      color: var(--teal); letter-spacing: 0.02em;
-    }
-    .blog-featured {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      background: var(--white);
-      border: 1.5px solid var(--gray-200);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      margin-bottom: 48px;
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-title);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
       text-decoration: none;
-      transition: box-shadow var(--transition);
+      letter-spacing: -0.02em;
+      transition: color 0.2s;
     }
-    .blog-featured:hover { box-shadow: var(--shadow-lg); }
-    .blog-featured-image {
-      min-height: 320px;
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
+    .mobile-menu a:hover { color: var(--red); }
+    .mobile-menu .mobile-cta {
+      background: var(--red);
+      color: var(--white) !important;
+      padding: 0.75rem 2rem;
+      border-radius: 2px;
+      font-size: 1.25rem !important;
     }
-    .blog-featured-image img {
-      width: 100%; height: 100%; object-fit: cover;
-    }
-    .blog-featured-body {
-      padding: 48px 40px;
-      display: flex; flex-direction: column; justify-content: center;
-    }
-    .blog-featured-tag {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--teal-light); margin-bottom: 14px;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .blog-featured-tag::before {
-      content: 'Featured';
-      background: var(--accent); color: var(--navy);
-      padding: 2px 8px; border-radius: 2px; font-size: 10px;
-    }
-    .blog-featured-title {
-      font-family: var(--font-display);
-      font-size: clamp(20px, 2.5vw, 28px); color: var(--navy);
-      line-height: 1.25; margin-bottom: 16px; letter-spacing: 0.01em;
-    }
-    .blog-featured-excerpt {
-      font-size: 15px; color: var(--gray-600); line-height: 1.7; margin-bottom: 24px;
-    }
-    .blog-featured-meta {
-      font-size: 12px; color: var(--gray-400);
-      display: flex; align-items: center; gap: 16px;
-    }
-    .tag-filter {
-      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px;
-    }
-    .tag-btn {
-      padding: 7px 16px; border-radius: 20px;
-      font-size: 13px; font-weight: 500; cursor: pointer;
-      border: 1.5px solid var(--gray-200);
-      background: var(--white); color: var(--gray-600);
-      transition: all var(--transition); font-family: var(--font-body);
-    }
-    .tag-btn:hover, .tag-btn.active {
-      background: var(--teal); color: var(--white); border-color: var(--teal);
-    }
+    .mc-outer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
     @media (max-width: 900px) {
-      .blog-grid { grid-template-columns: 1fr 1fr; }
-      .blog-featured { grid-template-columns: 1fr; }
-      .blog-featured-image { min-height: 220px; }
-      .blog-featured-body { padding: 32px 24px; }
-    }
-    @media (max-width: 600px) {
-      .blog-grid { grid-template-columns: 1fr; }
+      .mc-outer-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+      .mc-name-grid { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
 <body>
-
-<nav>
-  <div class="nav-inner">
+  <nav>
     <a href="index.html" class="nav-logo">
-      <span class="nav-logo-name">Monterey Bay Psychiatry</span>
-      <span class="nav-logo-tag">Child, Teen &amp; Adult Psychiatry</span>
+      <img src="assets/logo.png" alt="Carmel Valley Chess Club Logo">
+      <div class="nav-logo-text">Carmel Valley <span>Chess Club</span></div>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="new-patients.html">New Patients</a></li>
+      <li><a href="after-school.html">After-School</a></li>
+      <li><a href="summer-camp.html">Summer Camp</a></li>
+      <li><a href="friday-nights.html">Adults</a></li>
+      <li><a href="tournaments.html">Tournaments</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+      <li><a href="coach-jb.html">About</a></li>
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdVZObine13tcW1bq5qtUl6tnpQ-Ooimrx_6XDc-kifdbe1Xg/viewform?usp=header" target="_blank" class="nav-cta">Enroll Now</a></li>
     </ul>
-    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="after-school.html" onclick="toggleMenu()">After-School</a>
+    <a href="summer-camp.html" onclick="toggleMenu()">Summer Camp</a>
+    <a href="friday-nights.html" onclick="toggleMenu()">Adults</a>
+    <a href="tournaments.html" onclick="toggleMenu()">Tournaments</a>
+    <a href="calendar.html" onclick="toggleMenu()">Calendar</a>
+    <a href="blog.html" onclick="toggleMenu()">Blog</a>
+    <a href="coach-jb.html" onclick="toggleMenu()">About</a>
+    <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    <a href="after-school.html" class="mobile-cta" onclick="toggleMenu()">Enroll Now</a>
   </div>
-</nav>
-<ul class="mobile-menu">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="about.html">About</a></li>
-  <li><a href="services.html">Services</a></li>
-  <li><a href="new-patients.html">New Patients</a></li>
-  <li><a href="blog.html">Blog</a></li>
-  <li><a href="faq.html">FAQ</a></li>
-  <li><a href="contact.html">Get Started →</a></li>
-</ul>
+  <script>
+    function toggleMenu() {
+      document.getElementById('hamburger').classList.toggle('open');
+      document.getElementById('mobileMenu').classList.toggle('open');
+      document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+    }
+  </script>
 
-<main>
-
-  <div class="page-header">
-    <p class="section-label" style="justify-content:center; color:rgba(255,255,255,0.5);">Mental Health Insights</p>
-    <h1>From the Practice</h1>
-    <p>Evidence-based guidance on ADHD, anxiety, pediatric mental health, and more.</p>
-  </div>
-
-  <section>
+  <div class="page-hero">
     <div class="container">
+      <p class="page-eyebrow">Blog</p>
+      <h1 class="page-title">Chess. Community.<br>Carmel Valley.</h1>
+      <p class="page-subtitle">Insights from Coach JB on chess education, youth development, and why this game does something for people that very few things can.</p>
+    </div>
+  </div>
 
+  <section class="blog-section">
+    <div class="container">
       <!-- FEATURED POST -->
-      <a href="posts/does-my-child-have-adhd.html" class="blog-featured fade-in">
-        <div class="blog-featured-image">
-          <img
-            src="images/blog/adhd-child-hero.jpg"
-            alt="Child working at a desk — featured article on ADHD in children"
-            loading="eager"
-          />
+      <a href="blog-chess-benefits-kids.html" class="featured-post">
+        <div class="featured-post-image">
+          <img src="assets/kids-overhead.jpg" alt="Kids playing chess at Carmel Valley Chess Club after-school program">
         </div>
-        <div class="blog-featured-body">
-          <p class="blog-featured-tag">ADHD</p>
-          <h2 class="blog-featured-title">Does My Child Have ADHD? What Parents Need to Know Before Seeking an Evaluation</h2>
-          <p class="blog-featured-excerpt">ADHD is one of the most commonly diagnosed — and most commonly misunderstood — conditions in childhood. Here's what the symptoms actually look like, how a proper evaluation works, and when it's time to seek professional support.</p>
-          <div class="blog-featured-meta">
-            <span>April 2026</span>
-            <span>·</span>
-            <span>6 min read</span>
-            <span style="margin-left:auto; font-weight:600; color:var(--teal); font-size:13px;">Read article →</span>
-          </div>
+        <div class="featured-post-body">
+          <span class="post-tag">Youth Development · Featured</span>
+          <h2 class="post-title">7 Proven Ways Chess Makes Kids Smarter, Calmer, and More Confident</h2>
+          <p class="post-excerpt">Chess isn't just a game — it's one of the most research-backed tools for building the cognitive and emotional skills that help children thrive in school and in life. Here's what the science says, and what Coach JB has seen firsthand at Carmel Valley Chess Club.</p>
+          <p class="post-meta">By Coach JB · April 2026 · 8 min read</p>
+          <span class="post-read-more">Read Full Article →</span>
         </div>
       </a>
 
-      <!-- TAG FILTERS -->
-      <div class="tag-filter fade-in">
-        <button class="tag-btn active" onclick="filterPosts('all', this)">All Posts</button>
-        <button class="tag-btn" onclick="filterPosts('adhd', this)">ADHD</button>
-        <button class="tag-btn" onclick="filterPosts('anxiety', this)">Anxiety</button>
-        <button class="tag-btn" onclick="filterPosts('pediatric', this)">Pediatric</button>
-        <button class="tag-btn" onclick="filterPosts('depression', this)">Depression</button>
-        <button class="tag-btn" onclick="filterPosts('perinatal', this)">Perinatal</button>
-        <button class="tag-btn" onclick="filterPosts('trauma', this)">Trauma</button>
-        <button class="tag-btn" onclick="filterPosts('medication', this)">Medication</button>
-      </div>
-
-      <!-- BLOG GRID -->
-      <div class="blog-grid" id="blog-grid">
-
-        <a href="posts/does-my-child-have-adhd.html" class="blog-card fade-in" data-tags="adhd pediatric">
-          <div class="blog-card-image">
-            <img
-              src="images/blog/adhd-child-hero.jpg"
-              alt="Child at a desk — ADHD evaluation for children in Monterey, CA"
-              loading="lazy"
-            />
+      <!-- POST GRID -->
+      <div class="posts-grid">
+        <a href="blog-what-is-uscf-rating.html" class="post-card">
+          <div class="post-card-image">
+            <img src="assets/kids-playing-2.jpg" alt="Kids playing chess with chess clock at Carmel Valley Chess Club">
           </div>
-          <div class="blog-card-body">
-            <p class="blog-card-tag">ADHD · Pediatric</p>
-            <h3 class="blog-card-title">Does My Child Have ADHD? What Parents Need to Know</h3>
-            <p class="blog-card-excerpt">The signs of ADHD in children are often misread as behavioral problems or immaturity. Here's how to tell the difference and when to seek an evaluation.</p>
-            <div class="blog-card-meta">
-              <span>April 2026</span>
-              <span>·</span>
-              <span>6 min</span>
-              <span class="blog-card-read">Read →</span>
-            </div>
+          <div class="post-card-body">
+            <span class="post-tag">Chess Education</span>
+            <h2 class="post-title" style="font-family:var(--font-title);font-size:1.4rem;font-weight:800;color:var(--white);line-height:1.1;letter-spacing:-0.02em;margin-bottom:0.75rem;">What Is a USCF Chess Rating — And Why Does It Matter for Your Child?</h2>
+            <p class="post-excerpt" style="font-family:var(--font-body);font-size:0.875rem;font-weight:300;color:var(--cream);opacity:0.8;line-height:1.7;margin-bottom:1rem;">Every camper at CV Chess Club Summer Camp 2026 leaves as a rated USCF tournament player. But what does that actually mean? Coach JB explains the rating system, why it matters, and how your child earns their first official chess ranking.</p>
+            <p class="post-meta">By Coach JB · April 2026 · 6 min read</p>
+            <span class="post-read-more" style="font-family:var(--font-title);font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);">Read Article →</span>
           </div>
         </a>
 
-        <a href="posts/anxiety-in-teens.html" class="blog-card fade-in" data-tags="anxiety pediatric">
-          <div class="blog-card-image">
-            <img
-              src="images/blog/teen-anxiety-hero.jpg"
-              alt="Teenager outdoors in a calm setting — teen anxiety treatment in Monterey, CA"
-              loading="lazy"
-            />
+        <a href="blog-chess-club-carmel-valley.html" class="post-card">
+          <div class="post-card-image">
+            <img src="assets/club-full.jpg" alt="Carmel Valley Chess Club community event with kids and adults playing chess">
           </div>
-          <div class="blog-card-body">
-            <p class="blog-card-tag">Anxiety · Pediatric</p>
-            <h3 class="blog-card-title">Is My Teen Just Stressed, or Is It Anxiety? How to Tell the Difference</h3>
-            <p class="blog-card-excerpt">Teen stress is normal. Teen anxiety is a clinical condition that responds well to treatment. Here's what distinguishes the two — and what parents can do.</p>
-            <div class="blog-card-meta">
-              <span>April 2026</span>
-              <span>·</span>
-              <span>5 min</span>
-              <span class="blog-card-read">Read →</span>
-            </div>
+          <div class="post-card-body">
+            <span class="post-tag">Community · Carmel Valley</span>
+            <h2 class="post-title" style="font-family:var(--font-title);font-size:1.4rem;font-weight:800;color:var(--white);line-height:1.1;letter-spacing:-0.02em;margin-bottom:0.75rem;">Why Carmel Valley Needed a Chess Club — And Why Now Is the Perfect Time</h2>
+            <p class="post-excerpt" style="font-family:var(--font-body);font-size:0.875rem;font-weight:300;color:var(--cream);opacity:0.8;line-height:1.7;margin-bottom:1rem;">Coach JB didn't open Carmel Valley Chess Club because chess clubs are popular. He opened it because Carmel Valley is the kind of community that deserves one — and because he knows firsthand what chess can do for a kid who needs it most.</p>
+            <p class="post-meta">By Coach JB · March 2026 · 7 min read</p>
+            <span class="post-read-more" style="font-family:var(--font-title);font-size:0.8rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);">Read Article →</span>
           </div>
         </a>
-
-        <a href="posts/postpartum-depression-vs-baby-blues.html" class="blog-card fade-in" data-tags="perinatal depression">
-          <div class="blog-card-image">
-            <img
-              src="images/blog/postpartum-hero.jpg"
-              alt="Mother holding newborn — postpartum depression treatment in Monterey, CA"
-              loading="lazy"
-            />
-          </div>
-          <div class="blog-card-body">
-            <p class="blog-card-tag">Perinatal · Depression</p>
-            <h3 class="blog-card-title">Baby Blues vs. Postpartum Depression: What Every New Mother Should Know</h3>
-            <p class="blog-card-excerpt">The "baby blues" affect up to 80% of new mothers and resolve on their own. Postpartum depression is different — and very treatable with the right support.</p>
-            <div class="blog-card-meta">
-              <span>April 2026</span>
-              <span>·</span>
-              <span>5 min</span>
-              <span class="blog-card-read">Read →</span>
-            </div>
-          </div>
-        </a>
-
       </div>
-      <!-- END BLOG GRID — add new .blog-card blocks above this line -->
-
-      <!-- Empty state -->
-      <div id="no-results" style="display:none; text-align:center; padding:60px 20px; color:var(--gray-400);">
-        <p style="font-size:16px;">No posts in this category yet — check back soon.</p>
-      </div>
-
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="bg-navy" style="padding:72px 32px;">
-    <div class="container" style="text-align:center; max-width:580px;">
-      <h2 class="section-title fade-in" style="color:var(--white); margin-bottom:16px;">Ready to get started?</h2>
-      <p style="font-size:17px; color:rgba(255,255,255,0.6); margin-bottom:36px;" class="fade-in">New patients typically seen within 1–2 weeks.</p>
-      <a href="contact.html" class="btn-primary fade-in">Request an Appointment</a>
-    </div>
-  </section>
+  
 
-</main>
 
-<footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand-name">Monterey Bay Psychiatry</div>
-      <div class="footer-brand-tag">Child, Teen &amp; Adult Psychiatry</div>
-      <p class="footer-brand-desc">Expert psychiatric care for patients ages 5–85 in Monterey, CA and throughout California via telehealth.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Navigate</h4>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services &amp; Pricing</a></li>
-        <li><a href="new-patients.html">New Patients</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="contact.html">Send a message</a></li>
-        <li><a href="mailto:office@montereybaypsychiatry.com">office@montereybaypsychiatry.com</a></li>
-        <li><a href="tel:+18312003758">(831) 200-3758</a></li>
-      </ul>
-      <div style="margin-top:20px;" class="footer-crisis">
-        <strong>Crisis?</strong> Call or text <strong>988</strong> or call <strong>911</strong>.
+    <!-- MAILCHIMP EMAIL SIGNUP -->
+  <section style="background:var(--red);padding:5rem 2.5rem;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="mc-outer-grid">
+        <div>
+          <p style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:0.75rem;">Stay in the Loop</p>
+          <h2 style="font-family:var(--font-title);font-size:2.25rem;font-weight:900;color:#fdfdfd;letter-spacing:-0.02em;line-height:1.05;margin-bottom:0.75rem;">Get Club News, Camp Updates &amp; Friday Night Reminders.</h2>
+          <p style="font-family:var(--font-body);font-size:0.9rem;font-weight:300;color:rgba(255,255,255,0.8);line-height:1.7;">No spam. Just chess. Unsubscribe anytime.</p>
+        </div>
+        <div>
+          <form action="https://cvchess.us6.list-manage.com/subscribe/post?u=87a8c9ce62f608e29ac06ecb1&amp;id=11a71ca102&amp;f_id=00c4c6e1f0" method="post" target="_blank" style="width:100%;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:0.75rem;" class="mc-name-grid">
+              <div>
+                <label style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.85);display:block;margin-bottom:0.35rem;">First Name</label>
+                <input type="text" name="FNAME" placeholder="First name" style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:2px;color:#fdfdfd;font-family:var(--font-body);font-size:0.9rem;box-sizing:border-box;">
+              </div>
+              <div>
+                <label style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.85);display:block;margin-bottom:0.35rem;">Last Name</label>
+                <input type="text" name="LNAME" placeholder="Last name" style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:2px;color:#fdfdfd;font-family:var(--font-body);font-size:0.9rem;box-sizing:border-box;">
+              </div>
+            </div>
+            <div style="margin-bottom:0.75rem;">
+              <label style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.85);display:block;margin-bottom:0.35rem;">Email Address *</label>
+              <input type="email" name="EMAIL" placeholder="you@email.com" required style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:2px;color:#fdfdfd;font-family:var(--font-body);font-size:0.9rem;box-sizing:border-box;">
+            </div>
+            <div aria-hidden="true" style="position:absolute;left:-5000px;">
+              <input type="text" name="b_87a8c9ce62f608e29ac06ecb1_11a71ca102" tabindex="-1" value="">
+            </div>
+            <button type="submit" style="display:inline-block;background:#172d28;color:#fdfdfd;font-family:var(--font-title);font-size:0.9rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:1rem 2.5rem;border:none;border-radius:2px;cursor:pointer;margin-top:0.25rem;transition:background 0.2s;">Join the Club ♟️</button>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2026 Monterey Bay Psychiatry. All rights reserved.</p>
-    <p>&nbsp;Carmel Valley, CA &nbsp;|&nbsp; Telehealth available throughout California</p>
-  </div>
-</footer>
+  </section>
+  <!-- END MAILCHIMP -->
 
-<script src="shared.js"></script>
-<script src="seo.js"></script>
-<script>
-function filterPosts(tag, btn) {
-  document.querySelectorAll('.tag-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  const cards = document.querySelectorAll('.blog-card');
-  let visible = 0;
-  cards.forEach(card => {
-    const tags = card.getAttribute('data-tags') || '';
-    const show = tag === 'all' || tags.includes(tag);
-    card.style.display = show ? 'flex' : 'none';
-    if (show) visible++;
-  });
-  document.getElementById('no-results').style.display = visible === 0 ? 'block' : 'none';
-}
-</script>
-
+  <footer>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Carmel Valley Chess Club · 9 Del Fino Place Suite 201, Carmel Valley, CA 93924 · (831) 392-7456 · chessclubcv@gmail.com</p>
+      <p class="footer-copy"><a href="index.html" style="color:inherit;text-decoration:none;">← Back to Home</a></p>
+    </div>
+  </footer>
+  <!-- Mailchimp -->
+  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/87a8c9ce62f608e29ac06ecb1/2448991586edb7873bd736314.js");</script>
 </body>
 </html>

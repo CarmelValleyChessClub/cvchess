@@ -1,266 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact | Monterey Bay Psychiatry</title>
-  <meta name="description" content="Contact Monterey Bay Psychiatry to request a new patient appointment. Serving Monterey, CA and all of California via telehealth." />
-  <link rel="canonical" href="https://www.montereybaypsychiatry.com/contact.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Monterey Bay Psychiatry" />
-  <meta property="og:image" content="https://www.montereybaypsychiatry.com/images/logo.png" />
-  <meta name="twitter:card" content="summary" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Carmel Valley Chess Club | (831) 392-7456</title>
+  <meta name="description" content="Contact Carmel Valley Chess Club. 9 Del Fino Place, Suite 201, Carmel Valley, CA 93924. Call (831) 392-7456 or email chessclubcv@gmail.com. Above Mika Sushi.">
+  <link rel="canonical" href="https://cvchess.com/contact">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700;800;900&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root { --white: #fdfdfd; --red: #a0231d; --green: #14332d; --cream: #e7dcce; --brown: #4b3c28; --dark-green: #172d28; --font-title: 'League Spartan', sans-serif; --font-body: 'Raleway', sans-serif; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); background: var(--dark-green); color: var(--white); overflow-x: hidden; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2.5rem; background: rgba(23,45,40,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(231,220,206,0.1); }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo img { width: 48px; height: 48px; object-fit: contain; }
+    .nav-logo-text { font-family: var(--font-title); font-size: 1rem; font-weight: 800; color: var(--white); line-height: 1.1; }
+    .nav-logo-text span { display: block; font-size: 0.65rem; font-weight: 400; font-family: var(--font-body); color: var(--cream); letter-spacing: 0.1em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: var(--font-body); font-size: 0.85rem; font-weight: 500; color: var(--cream); text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--red) !important; color: var(--white) !important; padding: 0.5rem 1.25rem !important; border-radius: 2px !important; font-weight: 700 !important; }
+
+    .contact-hero { padding: 10rem 2.5rem 5rem; background: var(--green); }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .page-eyebrow { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .page-eyebrow::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--red); }
+    .page-title { font-family: var(--font-title); font-size: clamp(3rem, 6vw, 6rem); font-weight: 900; line-height: 0.95; letter-spacing: -0.03em; color: var(--white); margin-bottom: 1.5rem; }
+    .page-subtitle { font-family: var(--font-body); font-size: 1.1rem; font-weight: 300; color: var(--cream); line-height: 1.7; max-width: 500px; opacity: 0.9; }
+
+    .contact-section { padding: 6rem 2.5rem; background: var(--dark-green); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+
+    .contact-cards { display: flex; flex-direction: column; gap: 1.25rem; }
+    .contact-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(231,220,206,0.1); border-radius: 4px; padding: 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: border-color 0.2s; }
+    .contact-card:hover { border-color: rgba(160,35,29,0.4); }
+    .contact-card-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .contact-card-label { font-family: var(--font-body); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); display: block; margin-bottom: 0.35rem; }
+    .contact-card-value { font-family: var(--font-title); font-size: 1.1rem; font-weight: 700; color: var(--white); text-decoration: none; line-height: 1.3; display: block; }
+    .contact-card-value:hover { color: var(--red); }
+    .contact-card-sub { font-family: var(--font-body); font-size: 0.8rem; color: var(--cream); opacity: 0.65; margin-top: 0.25rem; line-height: 1.5; }
+
+    .contact-map { background: rgba(255,255,255,0.05); border: 1px solid rgba(231,220,206,0.1); border-radius: 4px; overflow: hidden; height: 450px; }
+    .contact-map iframe { width: 100%; height: 100%; border: none; }
+
+    .hours-section { padding: 4rem 2.5rem; background: var(--green); }
+    .hours-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .hours-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(231,220,206,0.1); border-radius: 4px; padding: 2rem; }
+    .hours-card-tag { display: inline-block; background: var(--red); font-family: var(--font-title); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); padding: 0.3rem 0.65rem; border-radius: 2px; margin-bottom: 0.75rem; }
+    .hours-card-title { font-family: var(--font-title); font-size: 1.25rem; font-weight: 800; color: var(--white); margin-bottom: 0.5rem; }
+    .hours-card-times { font-family: var(--font-body); font-size: 0.875rem; color: var(--cream); opacity: 0.8; line-height: 1.8; }
+
+    .social-section { padding: 4rem 2.5rem; background: var(--dark-green); text-align: center; }
+    .social-title { font-family: var(--font-title); font-size: 2rem; font-weight: 900; color: var(--white); margin-bottom: 0.5rem; }
+    .social-sub { font-family: var(--font-body); font-size: 0.9rem; color: var(--cream); opacity: 0.7; margin-bottom: 2rem; }
+    .social-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+    .social-btn { display: inline-flex; align-items: center; gap: 0.75rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(231,220,206,0.15); color: var(--cream); font-family: var(--font-title); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; padding: 0.85rem 1.75rem; border-radius: 2px; transition: all 0.2s; }
+    .social-btn:hover { background: var(--red); border-color: var(--red); color: var(--white); }
+
+    footer { background: #0d1f1b; padding: 3rem 2.5rem 2rem; border-top: 1px solid rgba(231,220,206,0.08); }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-family: var(--font-body); font-size: 0.75rem; color: var(--cream); opacity: 0.4; }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .hours-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0.25rem;
+      z-index: 1001;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--cream);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--dark-green);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-title);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--red); }
+    .mobile-menu .mobile-cta {
+      background: var(--red);
+      color: var(--white) !important;
+      padding: 0.75rem 2rem;
+      border-radius: 2px;
+      font-size: 1.25rem !important;
+    }
+    .mc-outer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    @media (max-width: 900px) {
+      .mc-outer-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+      .mc-name-grid { grid-template-columns: 1fr !important; }
+    }
+  </style>
 </head>
 <body>
-
-<nav>
-  <div class="nav-inner">
+  <nav>
     <a href="index.html" class="nav-logo">
-      <span class="nav-logo-name">Monterey Bay Psychiatry</span>
-      <span class="nav-logo-tag">Child, Teen &amp; Adult Psychiatry</span>
+      <img src="assets/logo.png" alt="Carmel Valley Chess Club Logo">
+      <div class="nav-logo-text">Carmel Valley <span>Chess Club</span></div>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="new-patients.html">New Patients</a></li>
+      <li><a href="after-school.html">After-School</a></li>
+      <li><a href="summer-camp.html">Summer Camp</a></li>
+      <li><a href="friday-nights.html">Adults</a></li>
+      <li><a href="tournaments.html">Tournaments</a></li>
+      <li><a href="calendar.html">Calendar</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+      <li><a href="coach-jb.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="after-school.html" class="nav-cta">Enroll Now</a></li>
     </ul>
-    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="after-school.html" onclick="toggleMenu()">After-School</a>
+    <a href="summer-camp.html" onclick="toggleMenu()">Summer Camp</a>
+    <a href="friday-nights.html" onclick="toggleMenu()">Adults</a>
+    <a href="tournaments.html" onclick="toggleMenu()">Tournaments</a>
+    <a href="calendar.html" onclick="toggleMenu()">Calendar</a>
+    <a href="blog.html" onclick="toggleMenu()">Blog</a>
+    <a href="coach-jb.html" onclick="toggleMenu()">About</a>
+    <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    <a href="after-school.html" class="mobile-cta" onclick="toggleMenu()">Enroll Now</a>
   </div>
-</nav>
-<ul class="mobile-menu">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="about.html">About</a></li>
-  <li><a href="services.html">Services</a></li>
-  <li><a href="new-patients.html">New Patients</a></li>
-  <li><a href="blog.html">Blog</a></li>
-  <li><a href="faq.html">FAQ</a></li>
-  <li><a href="contact.html">Get Started →</a></li>
-</ul>
+  <script>
+    function toggleMenu() {
+      document.getElementById('hamburger').classList.toggle('open');
+      document.getElementById('mobileMenu').classList.toggle('open');
+      document.body.style.overflow = document.getElementById('mobileMenu').classList.contains('open') ? 'hidden' : '';
+    }
+  </script>
 
-<main>
-
-  <div class="page-header">
-    <p class="section-label" style="justify-content:center; color:rgba(255,255,255,0.5);">Get In Touch</p>
-    <h1>Request an Appointment</h1>
-    <p>We'll respond within one business day. New patients typically seen within 1–2 weeks.</p>
+  <div class="contact-hero">
+    <div class="container">
+      <p class="page-eyebrow">Get in Touch</p>
+      <h1 class="page-title">Find Us.<br>Call Us.<br>Come Play.</h1>
+      <p class="page-subtitle">We're right above Mika Sushi in Carmel Valley. Drop in on a Friday night or reach out anytime.</p>
+    </div>
   </div>
 
-  <section>
+  <section class="contact-section">
     <div class="container">
       <div class="contact-grid">
-
-        <!-- LEFT: Info -->
-        <div class="contact-info">
-          <div>
-            <p class="section-label fade-in">Contact Information</p>
-            <h2 class="section-title fade-in" style="margin-bottom:8px;">Let's connect</h2>
-            <p style="font-size:15px; color:var(--gray-600); line-height:1.7; margin-bottom:32px;" class="fade-in">Fill out the form and we'll be in touch within one business day to discuss your needs and schedule your first appointment.</p>
-          </div>
-
-          <div class="contact-detail fade-in">
-            <div class="contact-detail-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
+        <div class="contact-cards">
+          <div class="contact-card">
+            <span class="contact-card-icon">📍</span>
             <div>
-              <h4>Email</h4>
-              <a href="mailto:office@montereybaypsychiatry.com">office@montereybaypsychiatry.com</a>
+              <span class="contact-card-label">Address</span>
+              <span class="contact-card-value">9 Del Fino Place, Suite 201</span>
+              <p class="contact-card-sub">Carmel Valley, CA 93924<br>Above Mika Sushi — look for Suite 201 upstairs</p>
             </div>
           </div>
-
-          <div class="contact-detail fade-in">
-            <div class="contact-detail-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
+          <div class="contact-card">
+            <span class="contact-card-icon">📞</span>
             <div>
-              <h4>Location</h4>
-              <p>Monterey, CA<br><span style="font-size:13px; color:var(--gray-400);">In-person + telehealth throughout California</span></p>
+              <span class="contact-card-label">Phone</span>
+              <a href="tel:8313927456" class="contact-card-value">(831) 392-7456</a>
+              <p class="contact-card-sub">Call or text anytime</p>
             </div>
           </div>
-
-          <div class="contact-detail fade-in">
-            <div class="contact-detail-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            </div>
+          <div class="contact-card">
+            <span class="contact-card-icon">✉️</span>
             <div>
-              <h4>Response Time</h4>
-              <p>Within one business day</p>
+              <span class="contact-card-label">Email</span>
+              <a href="mailto:chessclubcv@gmail.com" class="contact-card-value">chessclubcv@gmail.com</a>
+              <p class="contact-card-sub">We respond within 24 hours</p>
             </div>
           </div>
-
-          <div class="contact-detail fade-in">
-            <div class="contact-detail-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.58a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.5 16l.42.92z"/></svg>
-            </div>
+          <div class="contact-card">
+            <span class="contact-card-icon">📷</span>
             <div>
-              <h4>Phone</h4>
-              <a href="tel:+18312003758">(831) 200-3758</a>
+              <span class="contact-card-label">Instagram</span>
+              <a href="https://instagram.com/chessclubcv" target="_blank" class="contact-card-value">@chessclubcv</a>
+              <p class="contact-card-sub">DMs open — follow for updates</p>
             </div>
           </div>
-
-          <div class="contact-detail fade-in">
-            <div class="contact-detail-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            </div>
+          <div class="contact-card">
+            <span class="contact-card-icon">👥</span>
             <div>
-              <h4>Telehealth</h4>
-              <p>Available throughout California</p>
+              <span class="contact-card-label">Facebook</span>
+              <a href="https://www.facebook.com/people/Carmel-Valley-Chess-Club/61581426884697/" target="_blank" class="contact-card-value">Carmel Valley Chess Club</a>
+              <p class="contact-card-sub">Like our page for events and news</p>
             </div>
-          </div>
-
-          <!-- Crisis box -->
-          <div class="fade-in" style="margin-top:8px; padding:20px 24px; background:var(--gray-100); border-radius:var(--radius-lg); border-left:3px solid #c0392b;">
-            <p style="font-size:13px; font-weight:700; color:#c0392b; margin-bottom:6px;">⚠️ Mental Health Emergency</p>
-            <p style="font-size:13px; color:var(--gray-600); line-height:1.6;">This form is not monitored 24/7. If you or someone you know is in crisis, please call or text <strong>988</strong>, text HOME to <strong>741741</strong>, or call <strong>911</strong>.</p>
           </div>
         </div>
-
-        <!-- RIGHT: Form -->
-        <div class="fade-in">
-          <form id="contact-form" action="https://formspree.io/f/mojybplq" method="POST" style="background:var(--white); padding:40px; border-radius:var(--radius-lg); border:1.5px solid var(--gray-200); box-shadow:var(--shadow);">
-            <h3 style="font-family:var(--font-display); font-size:22px; color:var(--navy); margin-bottom:24px;">New Patient Inquiry</h3>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="first-name">First Name *</label>
-                <input type="text" id="first-name" name="first_name" required placeholder="Jane" />
-              </div>
-              <div class="form-group">
-                <label for="last-name">Last Name *</label>
-                <input type="text" id="last-name" name="last_name" required placeholder="Smith" />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="email">Email Address *</label>
-              <input type="email" id="email" name="email" required placeholder="jane@example.com" />
-            </div>
-
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="(831) 555-0000" />
-            </div>
-
-            <div class="form-group">
-              <label for="patient-type">Who is seeking care? *</label>
-              <select id="patient-type" name="patient_type" required>
-                <option value="" disabled selected>Select one</option>
-                <option value="myself-adult">Myself (adult)</option>
-                <option value="myself-teen">Myself (teen, 13–17)</option>
-                <option value="child">My child (under 13)</option>
-                <option value="teen">My teen (13–17)</option>
-                <option value="other">Other / unsure</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="reason">Primary reason for seeking care *</label>
-              <select id="reason" name="reason" required>
-                <option value="" disabled selected>Select one</option>
-                <option value="adhd">ADHD evaluation or treatment</option>
-                <option value="anxiety">Anxiety</option>
-                <option value="depression">Depression or mood concerns</option>
-                <option value="trauma">Trauma or PTSD</option>
-                <option value="perinatal">Pregnancy or postpartum mental health</option>
-                <option value="general">General psychiatric evaluation</option>
-                <option value="medication">Medication management (existing diagnosis)</option>
-                <option value="other">Other / multiple concerns</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="appointment-type">Appointment preference</label>
-              <select id="appointment-type" name="appointment_type">
-                <option value="no-preference">No preference</option>
-                <option value="telehealth">Telehealth (video)</option>
-                <option value="in-person">In-person (Monterey, CA)</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="message">Anything else you'd like us to know?</label>
-              <textarea id="message" name="message" placeholder="Brief description of what's going on, any previous psychiatric history, or questions you have..."></textarea>
-            </div>
-
-            <div class="form-group">
-              <label style="display:flex; align-items:flex-start; gap:10px; cursor:pointer; font-weight:400; color:var(--gray-600); font-size:14px; letter-spacing:0;">
-                <input type="checkbox" name="consent" required style="width:auto; margin-top:3px; flex-shrink:0;" />
-                I understand that submitting this form does not establish a patient-provider relationship and that Monterey Bay Psychiatry will contact me to discuss next steps. *
-              </label>
-            </div>
-
-            <input type="text" name="_gotcha" style="display:none" />
-            <input type="hidden" name="_subject" value="New Patient Inquiry — Monterey Bay Psychiatry" />
-
-            <button type="submit" class="btn-primary" style="width:100%; text-align:center; border:none; cursor:pointer; font-size:16px; padding:16px;">
-              Submit Inquiry
-            </button>
-
-            <p class="form-notice">
-              We respond to all inquiries within one business day (Monday–Friday). This form is not monitored after hours or on weekends. For urgent (non-emergency) questions, email office@montereybaypsychiatry.com directly.
-            </p>
-          </form>
-
-          <div id="form-success" class="form-success">
-            <div style="font-size:48px; margin-bottom:16px;">✅</div>
-            <h3>Message received!</h3>
-            <p>Thank you for reaching out to Monterey Bay Psychiatry. We'll be in touch within one business day.</p>
-          </div>
+        <div class="contact-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3189.5!2d-121.7318!3d36.4793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s9+Del+Fino+Place%2C+Carmel+Valley%2C+CA+93924!5e0!3m2!1sen!2sus!4v1" allowfullscreen="" loading="lazy" title="Carmel Valley Chess Club Location Map"></iframe>
         </div>
-
       </div>
     </div>
   </section>
 
-</main>
-
-<footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand-name">Monterey Bay Psychiatry</div>
-      <div class="footer-brand-tag">Child, Teen &amp; Adult Psychiatry</div>
-      <p class="footer-brand-desc">Expert psychiatric care for patients ages 5–85 in Monterey, CA and throughout California via telehealth.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Navigate</h4>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services &amp; Pricing</a></li>
-        <li><a href="new-patients.html">New Patients</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="contact.html">Send a message</a></li>
-        <li><a href="mailto:office@montereybaypsychiatry.com">office@montereybaypsychiatry.com</a></li>
-        <li><a href="tel:+18312003758">(831) 200-3758</a></li>
-      </ul>
-      <div style="margin-top:20px;" class="footer-crisis">
-        <strong>Crisis?</strong> Call or text <strong>988</strong> or call <strong>911</strong>.
+  <section class="hours-section">
+    <div class="container">
+      <h2 style="font-family:var(--font-title);font-size:2rem;font-weight:900;color:var(--white);margin-bottom:0.5rem;">When We're Open</h2>
+      <div class="hours-grid">
+        <div class="hours-card">
+          <span class="hours-card-tag">Youth Program</span>
+          <p class="hours-card-title">After-School Classes</p>
+          <p class="hours-card-times">
+            Monday · 3:15pm & 4:30pm<br>
+            Tuesday · 3:15pm & 4:30pm<br>
+            Thursday · 3:15pm (Competitive)<br>
+            <em style="opacity:0.6;font-size:0.8em;">Follows CUSD School Calendar</em>
+          </p>
+        </div>
+        <div class="hours-card" style="border-color:var(--red);">
+          <span class="hours-card-tag">Adults Only</span>
+          <p class="hours-card-title">$5 Friday Nights</p>
+          <p class="hours-card-times">
+            Every Friday · 5:00pm – 9:00pm<br>
+            No registration needed<br>
+            Just show up<br>
+            <em style="opacity:0.6;font-size:0.8em;">$5 at the door · Bring a beverage</em>
+          </p>
+        </div>
+        <div class="hours-card">
+          <span class="hours-card-tag" style="background:var(--brown);">Summer 2026</span>
+          <p class="hours-card-title">Summer Camp</p>
+          <p class="hours-card-times">
+            June 15–19, 2026<br>
+            9:00am – 3:00pm daily<br>
+            Early drop-off from 8am<br>
+            <em style="opacity:0.6;font-size:0.8em;">Register at cvchess.com/summer-camp.html</em>
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2026 Monterey Bay Psychiatry. All rights reserved.</p>
-    <p>&nbsp;Carmel Valley, CA &nbsp;|&nbsp; Telehealth available throughout California</p>
-  </div>
-</footer>
+  </section>
 
-<script src="shared.js"></script>
-<script src="seo.js"></script>
-<script>
-window.addEventListener('DOMContentLoaded', () => {
-  initPageSchema([{"@context":"https://schema.org","@type":"ContactPage","name":"Contact Monterey Bay Psychiatry","url":"https://www.montereybaypsychiatry.com/contact.html"}]);
-});
-</script>
+  <section class="social-section">
+    <p class="social-title">Follow the Club ♟️</p>
+    <p class="social-sub">Stay up to date with events, results, and community news</p>
+    <div class="social-links">
+      <a href="https://instagram.com/chessclubcv" target="_blank" class="social-btn">📷 Instagram</a>
+      <a href="https://www.facebook.com/people/Carmel-Valley-Chess-Club/61581426884697/" target="_blank" class="social-btn">👥 Facebook</a>
+      <a href="mailto:chessclubcv@gmail.com" class="social-btn">✉️ Email Us</a>
+    </div>
+  </section>
+
+  
+
+
+    <!-- MAILCHIMP EMAIL SIGNUP -->
+  <section style="background:var(--red);padding:5rem 2.5rem;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="mc-outer-grid">
+        <div>
+          <p style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:0.75rem;">Stay in the Loop</p>
+          <h2 style="font-family:var(--font-title);font-size:2.25rem;font-weight:900;color:#fdfdfd;letter-spacing:-0.02em;line-height:1.05;margin-bottom:0.75rem;">Get Club News, Camp Updates &amp; Friday Night Reminders.</h2>
+          <p style="font-family:var(--font-body);font-size:0.9rem;font-weight:300;color:rgba(255,255,255,0.8);line-height:1.7;">No spam. Just chess. Unsubscribe anytime.</p>
+        </div>
+        <div>
+          <form action="https://cvchess.us6.list-manage.com/subscribe/post?u=87a8c9ce62f608e29ac06ecb1&amp;id=11a71ca102&amp;f_id=00c4c6e1f0" method="post" target="_blank" style="width:100%;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:0.75rem;" class="mc-name-grid">
+              <div>
+                <label style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.85);display:block;margin-bottom:0.35rem;">First Name</label>
+                <input type="text" name="FNAME" placeholder="First name" style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:2px;color:#fdfdfd;font-family:var(--font-body);font-size:0.9rem;box-sizing:border-box;">
+              </div>
+              <div>
+                <label style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.85);display:block;margin-bottom:0.35rem;">Last Name</label>
+                <input type="text" name="LNAME" placeholder="Last name" style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:2px;color:#fdfdfd;font-family:var(--font-body);font-size:0.9rem;box-sizing:border-box;">
+              </div>
+            </div>
+            <div style="margin-bottom:0.75rem;">
+              <label style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.85);display:block;margin-bottom:0.35rem;">Email Address *</label>
+              <input type="email" name="EMAIL" placeholder="you@email.com" required style="width:100%;padding:0.8rem 1rem;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:2px;color:#fdfdfd;font-family:var(--font-body);font-size:0.9rem;box-sizing:border-box;">
+            </div>
+            <div aria-hidden="true" style="position:absolute;left:-5000px;">
+              <input type="text" name="b_87a8c9ce62f608e29ac06ecb1_11a71ca102" tabindex="-1" value="">
+            </div>
+            <button type="submit" style="display:inline-block;background:#172d28;color:#fdfdfd;font-family:var(--font-title);font-size:0.9rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:1rem 2.5rem;border:none;border-radius:2px;cursor:pointer;margin-top:0.25rem;transition:background 0.2s;">Join the Club ♟️</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END MAILCHIMP -->
+
+  <footer>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Carmel Valley Chess Club · 9 Del Fino Place Suite 201, Carmel Valley, CA 93924 · (831) 392-7456 · chessclubcv@gmail.com</p>
+      <p class="footer-copy"><a href="index.html" style="color:inherit;text-decoration:none;">← Back to Home</a></p>
+    </div>
+  </footer>
+  <!-- Mailchimp -->
+  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/87a8c9ce62f608e29ac06ecb1/2448991586edb7873bd736314.js");</script>
 </body>
 </html>
