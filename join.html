@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join the Club — Carmel Valley Chess Club</title>
+  <meta name="description" content="Join the Carmel Valley Chess Club email list. Get camp updates, tournament dates, Friday Night Chess reminders, and exclusive early bird deals.">
+  <meta property="og:title" content="Join the CV Chess Club Email List">
+  <meta property="og:description" content="Be the first to know about Summer Camp openings, tournaments, and Friday Night Chess. No spam. Just chess.">
+  <meta property="og:image" content="https://cvchess.com/assets/club-full.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="canonical" href="https://cvchess.com/join.html">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3PWWHZQSSM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-3PWWHZQSSM');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700;800;900&family=Raleway:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #fdfdfd;
+      --red: #a0231d;
+      --green: #14332d;
+      --cream: #e7dcce;
+      --dark-green: #172d28;
+      --font-title: 'League Spartan', sans-serif;
+      --font-body: 'Raleway', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--dark-green);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/club-full.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.25);
+      z-index: 0;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Logo */
+    .logo-wrap { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 2rem; }
+    .logo-wrap img { width: 52px; height: 52px; object-fit: contain; }
+    .logo-text { font-family: var(--font-title); font-size: 1rem; font-weight: 800; color: var(--white); text-align: left; line-height: 1.2; }
+    .logo-text span { display: block; font-size: 0.65rem; font-weight: 400; font-family: var(--font-body); color: var(--cream); letter-spacing: 0.1em; text-transform: uppercase; }
+
+    /* Headline */
+    .eyebrow { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; }
+    h1 { font-family: var(--font-title); font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 900; line-height: 1; letter-spacing: -0.03em; color: var(--white); margin-bottom: 1rem; }
+    h1 .accent { color: var(--red); }
+    .sub { font-family: var(--font-body); font-size: 1rem; font-weight: 300; color: var(--cream); line-height: 1.75; opacity: 0.9; margin-bottom: 2rem; }
+
+    /* Benefits pills */
+    .benefits { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-bottom: 2rem; }
+    .pill {
+      font-family: var(--font-body); font-size: 0.75rem; font-weight: 600;
+      color: var(--cream); background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(231,220,206,0.2); border-radius: 100px;
+      padding: 0.35rem 0.85rem;
+    }
+
+    /* Form card */
+    .form-card {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(231,220,206,0.15);
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: left;
+    }
+    .form-title { font-family: var(--font-title); font-size: 1.1rem; font-weight: 800; color: var(--white); margin-bottom: 1.25rem; text-align: center; }
+
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+    .field { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 0.75rem; }
+    label { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); }
+    input[type="text"], input[type="email"] {
+      width: 100%; padding: 0.85rem 1rem;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 4px;
+      color: var(--white);
+      font-family: var(--font-body); font-size: 0.95rem;
+      transition: border-color 0.2s, background 0.2s;
+      outline: none;
+    }
+    input::placeholder { color: rgba(255,255,255,0.35); }
+    input:focus { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.15); }
+
+    .submit-btn {
+      width: 100%; padding: 1rem;
+      background: var(--red); color: var(--white);
+      font-family: var(--font-title); font-size: 1rem; font-weight: 800;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      border: none; border-radius: 4px; cursor: pointer;
+      margin-top: 0.25rem; transition: background 0.2s, transform 0.1s;
+    }
+    .submit-btn:hover { background: #c0291d; transform: translateY(-1px); }
+    .submit-btn:active { transform: translateY(0); }
+
+    .fine-print { font-family: var(--font-body); font-size: 0.75rem; color: var(--cream); opacity: 0.5; text-align: center; margin-top: 0.85rem; line-height: 1.5; }
+
+    /* Lead magnet banner */
+    .lead-magnet {
+      background: rgba(196,131,26,0.15);
+      border: 1px solid rgba(196,131,26,0.35);
+      border-radius: 6px;
+      padding: 0.85rem 1rem;
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .lead-magnet-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .lead-magnet-text { font-family: var(--font-body); font-size: 0.85rem; color: var(--cream); line-height: 1.5; }
+    .lead-magnet-text strong { color: #f4d090; font-weight: 600; }
+
+    /* Social proof */
+    .social-proof { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(231,220,206,0.1); }
+    .quote { font-family: var(--font-body); font-size: 0.875rem; font-style: italic; color: var(--cream); opacity: 0.8; line-height: 1.7; margin-bottom: 0.4rem; }
+    .quote-author { font-family: var(--font-body); font-size: 0.75rem; color: var(--cream); opacity: 0.5; }
+
+    /* Bottom nav */
+    .bottom-nav { padding: 1.5rem; text-align: center; background: rgba(0,0,0,0.2); }
+    .bottom-nav a { font-family: var(--font-body); font-size: 0.8rem; color: var(--cream); opacity: 0.6; text-decoration: none; margin: 0 0.75rem; transition: opacity 0.2s; }
+    .bottom-nav a:hover { opacity: 1; }
+
+    @media (max-width: 500px) {
+      .field-row { grid-template-columns: 1fr; }
+      .hero { padding: 2rem 1rem; }
+      .form-card { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+
+      <!-- Logo -->
+      <div class="logo-wrap">
+        <img src="assets/logo.png" alt="Carmel Valley Chess Club">
+        <div class="logo-text">Carmel Valley <span>Chess Club</span></div>
+      </div>
+
+      <!-- Headline -->
+      <p class="eyebrow">Join the Club</p>
+      <h1>Chess News.<br><span class="accent">Zero Spam.</span></h1>
+      <p class="sub">Get Summer Camp updates, tournament dates, Friday Night Chess reminders, and exclusive early bird deals — delivered straight to your inbox.</p>
+
+      <!-- Benefits -->
+      <div class="benefits">
+        <span class="pill">🏕 Summer Camp Updates</span>
+        <span class="pill">🏆 Tournament Dates</span>
+        <span class="pill">♟ Friday Night Reminders</span>
+        <span class="pill">⚡ Early Bird Deals</span>
+        <span class="pill">📰 Club News</span>
+      </div>
+
+      <!-- Form Card -->
+      <div class="form-card">
+
+        <!-- Lead magnet -->
+        <div class="lead-magnet">
+          <span class="lead-magnet-icon">🎁</span>
+          <div class="lead-magnet-text">
+            <strong>Free when you join:</strong> "5 Things Every Chess Beginner Should Know" — a quick-start guide for parents and new players.
+          </div>
+        </div>
+
+        <p class="form-title">Join 100+ Carmel Valley chess fans ♟️</p>
+
+        <form action="https://cvchess.us6.list-manage.com/subscribe/post?u=87a8c9ce62f608e29ac06ecb1&amp;id=11a71ca102&amp;f_id=00c4c6e1f0" method="post" target="_blank">
+
+          <div class="field-row">
+            <div class="field">
+              <label for="FNAME">First Name</label>
+              <input type="text" name="FNAME" id="FNAME" placeholder="First name">
+            </div>
+            <div class="field">
+              <label for="LNAME">Last Name</label>
+              <input type="text" name="LNAME" id="LNAME" placeholder="Last name">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="EMAIL">Email Address *</label>
+            <input type="email" name="EMAIL" id="EMAIL" placeholder="you@email.com" required>
+          </div>
+
+          <!-- Honeypot -->
+          <div aria-hidden="true" style="position:absolute;left:-5000px;">
+            <input type="text" name="b_87a8c9ce62f608e29ac06ecb1_11a71ca102" tabindex="-1" value="">
+          </div>
+
+          <button type="submit" class="submit-btn">Join the Club — It's Free →</button>
+
+          <p class="fine-print">No spam. No selling your email. Unsubscribe anytime with one click.<br>Carmel Valley Chess Club · chessclubcv@gmail.com</p>
+
+        </form>
+
+        <!-- Social proof -->
+        <div class="social-proof">
+          <p class="quote">"This club is such a blessing to our kids."</p>
+          <p class="quote-author">— CV Chess Club Parent</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom nav -->
+  <div class="bottom-nav">
+    <a href="index.html">Home</a>
+    <a href="summer-camp.html">Summer Camp</a>
+    <a href="after-school.html">After-School</a>
+    <a href="friday-nights.html">Adults</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/87a8c9ce62f608e29ac06ecb1/2448991586edb7873bd736314.js");</script>
+
+</body>
+</html>
