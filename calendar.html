@@ -338,7 +338,7 @@
           <div class="weekly-day">
             <p class="weekly-day-name">Thursday</p>
             <div class="weekly-event youth">
-              <span class="weekly-event-name">♟️ Youth Chess — Competitive</span>
+              <span class="weekly-event-name">♟️ Youth Chess — Recreational</span>
               <span class="weekly-event-time">3:15 – 4:15 PM</span>
             </div>
           </div>
@@ -571,9 +571,9 @@
             html += `<span class="event-pill youth" data-type="youth-tue-315" data-date="${date.toDateString()}">♟ Youth 3:15pm</span>`;
             html += `<span class="event-pill youth" data-type="youth-tue-430" data-date="${date.toDateString()}">♟ Youth 4:30pm</span>`;
           }
-          // Thursday competitive
+          // Thursday youth class
           if (dow === 4) {
-            html += `<span class="event-pill youth" data-type="youth-thu" data-date="${date.toDateString()}">♟ Competitive 3:15pm</span>`;
+            html += `<span class="event-pill youth" data-type="youth-thu" data-date="${date.toDateString()}">♟ Youth 3:15pm</span>`;
           }
           // Friday nights
           if (dow === 5) {
@@ -619,7 +619,7 @@
       if (type.startsWith('youth')) {
         const dayName = type.includes('mon') ? 'Monday' : type.includes('tue') ? 'Tuesday' : 'Thursday';
         const time = type.includes('315') ? '3:15 – 4:15 PM' : type.includes('430') ? '4:30 – 5:30 PM' : '3:15 – 4:15 PM';
-        const league = type.includes('thu') ? 'Competitive League' : 'Recreational League';
+        const league = 'Recreational League';
 
         tag.className = 'modal-tag youth';
         tag.textContent = 'Youth Chess Class';
