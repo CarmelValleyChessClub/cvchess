@@ -362,40 +362,40 @@
     .day-item {
       display: grid;
       grid-template-columns: auto 1fr;
-      gap: 1.25rem;
-      align-items: start;
-      padding: 1.25rem 1.5rem;
+      gap: 1.4rem;
+      align-items: center;
+      padding: 1rem;
       background: rgba(255,255,255,0.035);
       border: 1px solid rgba(231,220,206,0.1);
       border-radius: 10px;
       transition: all 0.25s ease;
+      text-decoration: none;
+      color: inherit;
     }
     .day-item:hover {
       background: rgba(255,255,255,0.06);
       border-color: rgba(231,220,206,0.2);
       transform: translateX(4px);
     }
-    .day-num-big {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      width: 56px; height: 56px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--red), #6e1814);
-      color: var(--white);
-      font-family: var(--font-title);
+    .day-item:hover .day-thumb {
+      transform: scale(1.03);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.5);
+    }
+    .day-thumb {
+      display: block;
+      width: 180px; height: auto;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid rgba(231,220,206,0.15);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
       flex-shrink: 0;
     }
-    .day-num-big .label {
-      font-size: 0.55rem; font-weight: 700; letter-spacing: 0.18em;
-      text-transform: uppercase; opacity: 0.8; line-height: 1;
-    }
-    .day-num-big .num {
-      font-size: 1.7rem; font-weight: 900; line-height: 1;
-      margin-top: 0.15rem;
-    }
-    .day-body { padding-top: 0.15rem; }
+    .day-body { padding-top: 0.05rem; }
     .day-title {
       font-family: var(--font-title); font-size: 1.05rem; font-weight: 800;
-      color: var(--white); margin-bottom: 0.3rem; letter-spacing: -0.01em;
+      color: var(--white); margin-bottom: 0.35rem; letter-spacing: -0.01em;
     }
     .day-desc {
       font-family: var(--font-body); font-size: 0.875rem; font-weight: 400;
@@ -542,11 +542,15 @@
       .form-card { padding: 1.5rem 1.25rem; }
       .field-row { grid-template-columns: 1fr; gap: 0; }
       h1 .accent { font-size: 0.6em; }
-      .day-item { padding: 1rem 1.15rem; gap: 1rem; }
-      .day-num-big { width: 48px; height: 48px; }
-      .day-num-big .num { font-size: 1.45rem; }
+      .day-item { padding: 0.85rem; gap: 0.95rem; }
+      .day-thumb { width: 110px; }
+      .day-title { font-size: 0.95rem; }
+      .day-desc { font-size: 0.8rem; }
       .topbar { padding: 0.7rem 1rem; }
       .topbar-back { font-size: 0.72rem; padding: 0.35rem 0.75rem; }
+    }
+    @media (max-width: 380px) {
+      .day-thumb { width: 90px; }
     }
 
     /* ============ DESKTOP REFINEMENTS ============ */
@@ -668,45 +672,45 @@
 
       <div class="day-list">
 
-        <div class="day-item">
-          <div class="day-num-big"><span class="label">Day</span><span class="num">1</span></div>
+        <a href="#signup" class="day-item">
+          <img class="day-thumb" src="assets/day-1-thumbnail.jpg" alt="Day 1 — How to Teach Your Kids Chess" loading="lazy">
           <div class="day-body">
             <h3 class="day-title">Mindset, Story &amp; Equipment</h3>
             <p class="day-desc">The three things you need to know before you teach a single move. Most parents skip this — and that's why teaching chess goes sideways.</p>
           </div>
-        </div>
+        </a>
 
-        <div class="day-item">
-          <div class="day-num-big"><span class="label">Day</span><span class="num">2</span></div>
+        <a href="#signup" class="day-item">
+          <img class="day-thumb" src="assets/day-2-thumbnail.jpg" alt="Day 2 — Rook, Bishop, Queen" loading="lazy">
           <div class="day-body">
             <h3 class="day-title">Rook, Bishop, Queen</h3>
             <p class="day-desc">The three easiest pieces to teach a kid (because they all move in straight lines). Includes a 5-minute mini-game to set up tonight.</p>
           </div>
-        </div>
+        </a>
 
-        <div class="day-item">
-          <div class="day-num-big"><span class="label">Day</span><span class="num">3</span></div>
+        <a href="#signup" class="day-item">
+          <img class="day-thumb" src="assets/day-3-thumbnail.jpg" alt="Day 3 — King, Knight, Pawn" loading="lazy">
           <div class="day-body">
             <h3 class="day-title">King, Knight &amp; Pawn</h3>
             <p class="day-desc">The three weird ones. The L-shape, the one-square crawl, and the piece with more rules than any other on the board.</p>
           </div>
-        </div>
+        </a>
 
-        <div class="day-item">
-          <div class="day-num-big"><span class="label">Day</span><span class="num">4</span></div>
+        <a href="#signup" class="day-item">
+          <img class="day-thumb" src="assets/day-4-thumbnail.jpg" alt="Day 4 — Check and Checkmate" loading="lazy">
           <div class="day-body">
             <h3 class="day-title">Check &amp; Checkmate</h3>
             <p class="day-desc">The only goal in chess — and the rule most kids learn last. We teach it first. Your kid plays with purpose from move one.</p>
           </div>
-        </div>
+        </a>
 
-        <div class="day-item">
-          <div class="day-num-big"><span class="label">Day</span><span class="num">5</span></div>
+        <a href="#signup" class="day-item">
+          <img class="day-thumb" src="assets/day-5-thumbnail.jpg" alt="Day 5 — Board Setup and Castling" loading="lazy">
           <div class="day-body">
             <h3 class="day-title">Board Setup &amp; Castling</h3>
             <p class="day-desc">The most common rookie mistake (you'll never make again), plus the strangest move in the game. Your kid finishes the week playing a full game.</p>
           </div>
-        </div>
+        </a>
 
       </div>
     </div>
