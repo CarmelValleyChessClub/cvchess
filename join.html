@@ -630,33 +630,35 @@
         <p class="form-headline">Start Day 1 today.</p>
         <p class="form-subhead">Get the first video delivered to your inbox in minutes.</p>
 
-        <form action="https://cvchess.us6.list-manage.com/subscribe/post?u=87a8c9ce62f608e29ac06ecb1&amp;id=11a71ca102&amp;f_id=00cac6e1f0&amp;SOURCE=join-5day" method="post" target="_blank">
+        <form action="https://cvchess.us6.list-manage.com/subscribe/post?u=87a8c9ce62f608e29ac06ecb1&amp;id=11a71ca102&amp;f_id=00cac6e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
 
           <div class="field-row">
             <div class="field">
-              <label for="FNAME">First Name</label>
-              <input type="text" name="FNAME" id="FNAME" placeholder="First name">
+              <label for="mce-FNAME">First Name</label>
+              <input type="text" name="FNAME" id="mce-FNAME" placeholder="First name">
             </div>
             <div class="field">
-              <label for="LNAME">Last Name</label>
-              <input type="text" name="LNAME" id="LNAME" placeholder="Last name">
+              <label for="mce-LNAME">Last Name</label>
+              <input type="text" name="LNAME" id="mce-LNAME" placeholder="Last name">
             </div>
           </div>
 
           <div class="field">
-            <label for="EMAIL">Email Address *</label>
-            <input type="email" name="EMAIL" id="EMAIL" placeholder="you@email.com" required>
+            <label for="mce-EMAIL">Email Address *</label>
+            <input type="email" name="EMAIL" id="mce-EMAIL" placeholder="you@email.com" class="required email" required>
           </div>
+
+          <!-- Tag: 5-day-series (Mailchimp tag ID 27175) -->
+          <div hidden=""><input type="hidden" name="tags" value="27175"></div>
 
           <!-- Honeypot -->
           <div aria-hidden="true" style="position:absolute;left:-5000px;">
             <input type="text" name="b_87a8c9ce62f608e29ac06ecb1_11a71ca102" tabindex="-1" value="">
           </div>
 
-          <!-- Hidden field marker for join page signups -->
-          <input type="hidden" name="SOURCE" value="join-5day">
-
-          <button type="submit" class="submit-btn">Send Me Day 1 →</button>
+          <div class="clear">
+            <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="submit-btn">Send Me Day 1 →</button>
+          </div>
 
           <p class="trust-line">
             Free forever. No spam. Unsubscribe anytime with one click.
@@ -786,8 +788,9 @@
     </p>
   </footer>
 
-  <!-- Mailchimp tracking -->
-  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/87a8c9ce62f608e29ac06ecb1/2448991586edb7873bd736314.js");</script>
+  <!-- Mailchimp connected site / popup script intentionally omitted on join.html.
+       This is a dedicated lead-magnet landing page; the embedded form above is the
+       only opt-in path. Keep this script on other pages of the site as normal. -->
 
 </body>
 </html>
