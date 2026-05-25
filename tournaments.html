@@ -255,6 +255,8 @@
       .master-stat-value { font-size: 1.5rem; }
       .master-quote p { font-size: 1.15rem; }
       .policies-2col { grid-template-columns: 1fr !important; gap: 1.25rem !important; }
+      .past-tourney-grid { grid-template-columns: 1fr !important; }
+      .past-tourney-grid > div:first-child { min-height: 280px !important; max-height: 320px; }
     }
   </style>
 </head>
@@ -731,6 +733,54 @@
       </div>
       <div style="flex-shrink:0;">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJjHyYkt_KMhe8aD1VuxyZh4KN7al8qxv2jfoUIwMafLwDkg/viewform?usp=dialog" target="_blank" class="btn-primary" style="font-size:1rem;padding:1.25rem 3rem;">Register Now →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAST TOURNAMENTS -->
+  <section id="past-tournaments" class="section" style="background:var(--dark-green);">
+    <div class="container">
+      <p class="section-eyebrow">What We've Done Before</p>
+      <h2 class="section-title">Past Tournaments</h2>
+      <p class="section-subtitle">Real USCF rated chess. Real players. Real ratings. Here's what we've already pulled off.</p>
+
+      <div style="margin-top:3rem;background:rgba(255,255,255,0.03);border:1px solid rgba(231,220,206,0.1);border-radius:4px;overflow:hidden;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;" class="past-tourney-grid">
+          <div style="overflow:hidden;min-height:380px;">
+            <img src="assets/inaugural-tournament.jpg" alt="Inaugural USCF Membership Drive Tournament at Carmel Valley Chess Club, May 23 2026" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div style="padding:2.5rem;display:flex;flex-direction:column;justify-content:center;">
+            <p style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(244,208,144,0.85);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.5rem;">
+              <span style="display:inline-block;width:0.6rem;height:0.6rem;border-radius:50%;background:rgba(196,131,26,0.5);"></span>
+              Saturday, May 23, 2026
+            </p>
+            <h3 style="font-family:var(--font-title);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:var(--white);line-height:1.05;letter-spacing:-0.02em;margin-bottom:1rem;">Inaugural USCF Membership Drive</h3>
+            <p style="font-family:var(--font-body);font-size:0.95rem;font-weight:300;color:var(--cream);opacity:0.85;line-height:1.75;margin-bottom:1.5rem;">5-round Swiss · G/30 · USCF Rated · Two divisions · 18 registered players. The first official tournament at Carmel Valley Chess Club. The first day this club existed as a place where USCF ratings get made.</p>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;padding:1.25rem;background:rgba(196,131,26,0.08);border-left:2px solid rgba(196,131,26,0.5);border-radius:2px;">
+              <div>
+                <p style="font-family:var(--font-body);font-size:0.65rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(244,208,144,0.7);margin-bottom:0.35rem;">Division 1 Champion</p>
+                <p style="font-family:var(--font-title);font-size:1.05rem;font-weight:800;color:var(--white);letter-spacing:-0.01em;">Tom Gonda 🏆</p>
+              </div>
+              <div>
+                <p style="font-family:var(--font-body);font-size:0.65rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:rgba(244,208,144,0.7);margin-bottom:0.35rem;">Division 2 Champion</p>
+                <p style="font-family:var(--font-title);font-size:1.05rem;font-weight:800;color:var(--white);letter-spacing:-0.01em;">Michael Gorback 🏆</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- The kid story callout -->
+        <div style="padding:2.5rem;background:rgba(0,0,0,0.15);border-top:1px solid rgba(231,220,206,0.08);">
+          <p style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem;">
+            <span style="display:block;width:1.5rem;height:1px;background:var(--red);"></span>
+            The Moment That Made the Day
+          </p>
+          <p style="font-family:var(--font-body);font-size:1.05rem;font-style:italic;font-weight:300;color:var(--cream);line-height:1.75;margin-bottom:1rem;max-width:780px;">There was a young player who'd registered for tournaments before but always backed out at the last minute. His mom called it "chickening out." Every time. He'd never gotten his rating.</p>
+          <p style="font-family:var(--font-body);font-size:1.05rem;font-style:italic;font-weight:300;color:var(--cream);line-height:1.75;margin-bottom:1rem;max-width:780px;">So I had him come in early. Showed him around. Walked him through exactly what was going to happen — pairings, the clock, where to sit, what to do if his opponent did something weird. Told him to grab me if anything came up.</p>
+          <p style="font-family:var(--font-body);font-size:1.05rem;font-style:italic;font-weight:300;color:var(--cream);line-height:1.75;margin-bottom:0;max-width:780px;"><strong style="color:var(--white);font-weight:600;font-style:normal;">He played every round. He had a great day. He left with his first USCF rating.</strong> That's the kind of thing I built this club for.</p>
+          <p style="font-family:var(--font-title);font-size:0.75rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#c4831a;margin-top:1.5rem;">— Coach JB</p>
+        </div>
       </div>
     </div>
   </section>

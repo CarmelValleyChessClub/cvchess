@@ -65,6 +65,7 @@
     .legend-dot.friday { background: #c4831a; }
     .legend-dot.camp { background: #1a7a4a; }
     .legend-dot.closed { background: #555; }
+    .legend-dot.past { background: rgba(196,131,26,0.4); border:1px solid rgba(196,131,26,0.6); }
     .legend-label { font-family: var(--font-body); font-size: 0.75rem; font-weight: 500; color: var(--cream); opacity: 0.75; }
 
     /* CALENDAR WRAPPER */
@@ -273,6 +274,7 @@
         <div class="legend-item"><div class="legend-dot friday"></div><span class="legend-label">$5 Friday Night Chess</span></div>
         <div class="legend-item"><div class="legend-dot camp"></div><span class="legend-label">Summer Camp 2026</span></div>
         <div class="legend-item"><div class="legend-dot" style="background:#c4831a;"></div><span class="legend-label">🍣 Sushi Slam Tournament (June 20)</span></div>
+        <div class="legend-item"><div class="legend-dot past"></div><span class="legend-label">✓ Past Tournament</span></div>
         <div class="legend-item"><div class="legend-dot closed"></div><span class="legend-label">Club Closed</span></div>
       </div>
     </div>
@@ -402,7 +404,7 @@
 
           <div class="reg-notice" style="border-color:rgba(196,131,26,0.4);background:rgba(196,131,26,0.1);">
             <p class="reg-notice-title" style="color:#f4d090;">⚡ $50 Early Bird Through June 7</p>
-            <p class="reg-notice-text">Entry includes 3 rated games, sushi lunch from Mika Sushi (gratuity included), and a live digital lecture from WCM Clara Isabel Peña Gonzalez with Q&amp;A. $65 after June 7. Space is limited.</p>
+            <p class="reg-notice-text">Entry includes 3 rated games, a catered sushi lunch delivered to the club (gratuity included), and a live digital lecture from WCM Clara Isabel Peña Gonzalez with Q&amp;A. $65 after June 7. Space is limited.</p>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJjHyYkt_KMhe8aD1VuxyZh4KN7al8qxv2jfoUIwMafLwDkg/viewform?usp=dialog" target="_blank" class="btn-primary" style="background:#c4831a;">Register for the Sushi Slam →</a>
           </div>
 
@@ -512,8 +514,9 @@
       { start: new Date(2026,9,12), end: new Date(2026,9,16), label: 'Fall Break' },
     ];
 
-    // Tournament date
-    const TOURNAMENT_DATE = new Date(2026, 5, 20); // June 20 2026
+    // Tournament dates
+    const TOURNAMENT_DATE = new Date(2026, 5, 20); // June 20 2026 — Sushi Slam
+    const INAUGURAL_TOURNAMENT_DATE = new Date(2026, 4, 23); // May 23 2026 — Inaugural USCF Membership Drive
     const CAMP_START = new Date(2026,5,15); // June 15 2026
     const CAMP_END   = new Date(2026,5,19); // June 19 2026
 
@@ -571,9 +574,14 @@
         if (closed) {
           html += `<span class="closed-banner">Closed — ${getClosureLabel(date)}</span>`;
         } else {
-          // Tournament
+          // Tournament (Sushi Slam)
           if (date.getTime() === TOURNAMENT_DATE.getTime()) {
             html += `<span class="event-pill" style="background:rgba(75,60,40,0.35);color:#f4d090;border-left:2px solid #c4831a;" data-type="tournament" data-date="${date.toDateString()}">🍣 Sushi Slam 10am</span>`;
+          }
+
+          // Past tournament (Inaugural USCF Membership Drive — May 23, 2026)
+          if (date.getTime() === INAUGURAL_TOURNAMENT_DATE.getTime()) {
+            html += `<span class="event-pill" style="background:rgba(196,131,26,0.08);color:rgba(244,208,144,0.65);border-left:2px solid rgba(196,131,26,0.4);opacity:0.85;" data-type="past-tournament" data-date="${date.toDateString()}">✓ Inaugural Tournament</span>`;
           }
 
           // Camp days (Mon–Fri June 15-19)
@@ -663,10 +671,23 @@
         tag.textContent = '🍣 USCF Rated Tournament';
         title.textContent = 'Carmel Valley Sushi Slam';
         date.textContent = `${dateFormatted} · 10:00 AM – 2:45 PM`;
-        desc.textContent = 'Three rounds of USCF dual rated chess (G/30 quads), followed by a sushi lunch from Mika Sushi downstairs and a live digital lecture from WCM Clara Isabel Peña Gonzalez with Q&A. Come for the chess, stay for the lunch and the lecture.';
+        desc.textContent = 'Three rounds of USCF dual rated chess (G/30 quads), followed by a catered sushi lunch delivered to the club and a live digital lecture from WCM Clara Isabel Peña Gonzalez with Q&A. Come for the chess, stay for the lunch and the lecture.';
         notice.innerHTML = `<strong>Entry Fee:</strong> $50 early bird through June 7 · $65 after.<br><br><strong>Includes:</strong> 3 rated games, sushi lunch (with gratuity), live master lecture + Q&A.<br><br><strong>Bring your own equipment</strong> or email the tournament director before June 20 to arrange loaner equipment.`;
         btn.textContent = 'Register for the Sushi Slam →';
         btn.href = 'https://docs.google.com/forms/d/e/1FAIpQLSdJjHyYkt_KMhe8aD1VuxyZh4KN7al8qxv2jfoUIwMafLwDkg/viewform?usp=dialog';
+        btn.className = 'modal-btn';
+        btn.style.background = '#c4831a';
+      }
+
+      if (type === 'past-tournament') {
+        tag.className = 'modal-tag'; tag.style.background = 'rgba(196,131,26,0.7)';
+        tag.textContent = '✓ Past Tournament';
+        title.textContent = 'Inaugural USCF Membership Drive';
+        date.textContent = `${dateFormatted} · 5-Round Swiss · G/30`;
+        desc.textContent = 'Our first USCF rated tournament. 18 players in two divisions. Division 1 Champion: Tom Gonda. Division 2 Champion: Michael Gorback. And the day a kid who used to "chicken out" before every tournament finally got his rating.';
+        notice.innerHTML = `<strong>This tournament has already taken place.</strong><br><br>The next tournament is the Carmel Valley Sushi Slam on Saturday June 20, 2026.`;
+        btn.textContent = 'Read the Full Story →';
+        btn.href = 'tournaments.html#past-tournaments';
         btn.className = 'modal-btn';
         btn.style.background = '#c4831a';
       }
