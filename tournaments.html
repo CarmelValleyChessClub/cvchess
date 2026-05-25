@@ -626,6 +626,79 @@
     </div>
   </section>
 
+  <!-- CURRENT ROSTER (auto-fed from Google Sheet) -->
+  <section class="section" style="background:var(--dark-green);">
+    <div class="container">
+      <p class="section-eyebrow">Who's Playing</p>
+      <h2 class="section-title">Current Roster</h2>
+      <p class="section-subtitle">Updated automatically when a new player registers. Your name appears here once registration is complete.</p>
+
+      <div id="roster-container" style="margin-top:3rem;">
+        <p style="font-family:var(--font-body);color:var(--cream);opacity:0.6;text-align:center;padding:2rem;">Loading roster...</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  (async function loadRoster() {
+    const SHEET_ID = '1tUc4tmLrqsTJPgWIryE01wyzRtvdj_i7Y7HYJ8rQ--g';
+    const SHEET_NAME = 'June 20th Sushi Slam Roster';
+    const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_NAME)}`;
+    const container = document.getElementById('roster-container');
+
+    try {
+      const response = await fetch(url);
+      const text = await response.text();
+      const json = JSON.parse(text.substring(47).slice(0, -2));
+      const rows = (json.table && json.table.rows) || [];
+
+      const playerRows = rows.filter(r => {
+        const c = r.c || [];
+        return (c[0] && c[0].v) || (c[1] && c[1].v);
+      });
+
+      if (playerRows.length === 0) {
+        container.innerHTML = '<p style="font-family:var(--font-body);font-size:1rem;color:var(--cream);opacity:0.7;text-align:center;padding:2rem;border:1px dashed rgba(231,220,206,0.15);border-radius:4px;">Registration is open. Be among the first to sign up.</p>';
+        return;
+      }
+
+      let html = '<div style="overflow-x:auto;background:rgba(255,255,255,0.03);border:1px solid rgba(231,220,206,0.1);border-radius:4px;padding:1rem 1.5rem;">';
+      html += '<table style="width:100%;border-collapse:collapse;font-family:var(--font-body);">';
+      html += '<thead><tr style="border-bottom:1px solid rgba(231,220,206,0.2);">';
+      html += '<th style="text-align:left;padding:1rem 0.75rem;font-family:var(--font-title);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#f4d090;">Player</th>';
+      html += '<th style="text-align:left;padding:1rem 0.75rem;font-family:var(--font-title);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#f4d090;">USCF ID</th>';
+      html += '<th style="text-align:left;padding:1rem 0.75rem;font-family:var(--font-title);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#f4d090;">Rating</th>';
+      html += '<th style="text-align:left;padding:1rem 0.75rem;font-family:var(--font-title);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#f4d090;">Section</th>';
+      html += '</tr></thead><tbody>';
+
+      playerRows.forEach(row => {
+        const c = row.c || [];
+        const last = (c[0] && c[0].v) ? String(c[0].v) : '';
+        const first = (c[1] && c[1].v) ? String(c[1].v) : '';
+        const uscf = (c[2] && c[2].v) ? String(c[2].v) : '';
+        const rating = (c[3] && c[3].v) ? String(c[3].v) : 'Unrated';
+        const section = (c[4] && c[4].v) ? String(c[4].v) : 'TBD';
+        const fullName = (first + ' ' + last).trim();
+
+        html += '<tr style="border-bottom:1px solid rgba(231,220,206,0.08);">';
+        html += '<td style="padding:0.85rem 0.75rem;color:var(--white);font-size:0.95rem;">' + fullName + '</td>';
+        html += '<td style="padding:0.85rem 0.75rem;color:var(--cream);opacity:0.8;font-size:0.9rem;">' + (uscf || '—') + '</td>';
+        html += '<td style="padding:0.85rem 0.75rem;color:var(--cream);opacity:0.8;font-size:0.9rem;">' + rating + '</td>';
+        html += '<td style="padding:0.85rem 0.75rem;color:var(--cream);opacity:0.8;font-size:0.9rem;">' + section + '</td>';
+        html += '</tr>';
+      });
+
+      html += '</tbody></table></div>';
+      const count = playerRows.length;
+      html += '<p style="margin-top:1.5rem;font-family:var(--font-body);font-size:0.85rem;color:var(--cream);opacity:0.6;text-align:center;">' + count + ' ' + (count === 1 ? 'player' : 'players') + ' registered. Space is limited.</p>';
+
+      container.innerHTML = html;
+    } catch (err) {
+      container.innerHTML = '<p style="font-family:var(--font-body);color:var(--cream);opacity:0.6;text-align:center;padding:2rem;">Roster temporarily unavailable. Check back soon — or email chessclubcv@gmail.com for the current list.</p>';
+    }
+  })();
+  </script>
+
   <!-- REGISTER CTA -->
   <section class="register-section">
     <div class="register-inner">
