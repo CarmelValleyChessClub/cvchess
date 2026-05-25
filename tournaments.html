@@ -11,10 +11,12 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>USCF Rated Tournament | May 23, 2026 | Carmel Valley Chess Club</title>
-  <meta name="description" content="Carmel Valley Chess Club hosts its first USCF rated tournament on May 23, 2026. 5-round Swiss, G/30, all participants receive or renew USCF membership. Register now.">
-  <meta name="keywords" content="USCF tournament carmel valley, chess tournament monterey county, rated chess tournament 2026, carmel valley chess club tournament, chess tournament may 2026">
-    <meta property="og:image" content="https://cvchess.com/assets/club-full.jpg">
+  <title>Carmel Valley Sushi Slam | USCF Rated Tournament + Sushi Lunch + Master Lecture | June 20, 2026</title>
+  <meta name="description" content="Carmel Valley Sushi Slam — Saturday June 20, 2026. A 3-round USCF rated quad tournament with sushi lunch from Mika Sushi and a live lecture from WCM Clara Isabel Peña Gonzalez. $50 early bird through June 7. Register at Carmel Valley Chess Club.">
+  <meta name="keywords" content="carmel valley sushi slam, USCF rated tournament june 2026, chess tournament monterey county, carmel valley chess club tournament, chess tournament with lunch, quad tournament california">
+  <meta property="og:title" content="Carmel Valley Sushi Slam — June 20, 2026">
+  <meta property="og:description" content="Three rounds of USCF rated chess. Sushi lunch from Mika Sushi. A live lecture from WCM Clara Isabel Peña Gonzalez. All included.">
+  <meta property="og:image" content="https://cvchess.com/assets/club-full.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="Carmel Valley Chess Club">
@@ -25,10 +27,10 @@
   {
     "@context": "https://schema.org",
     "@type": "SportsEvent",
-    "name": "USCF Membership Drive Tournament",
-    "description": "5-round Swiss USCF rated chess tournament. All participants receive or renew USCF membership for 1 year.",
-    "startDate": "2026-05-23T10:00",
-    "endDate": "2026-05-23T16:00",
+    "name": "Carmel Valley Sushi Slam",
+    "description": "USCF dual rated 3-round quad tournament with sushi lunch from Mika Sushi and a live digital lecture from WCM Clara Isabel Peña Gonzalez. Lunch and lecture included with entry.",
+    "startDate": "2026-06-20T10:00",
+    "endDate": "2026-06-20T14:45",
     "location": {
       "@type": "Place",
       "name": "Carmel Valley Chess Club",
@@ -41,17 +43,14 @@
       }
     },
     "organizer": {
-      "@type": "Organization",
-      "name": "Carmel Valley Chess Club",
-      "url": "https://cvchess.com",
+      "@type": "Person",
+      "name": "Justin Bradley",
+      "email": "chessclubcv@gmail.com",
       "telephone": "+18313927456"
     },
     "offers": [
-      {"@type": "Offer", "name": "Youth (up to 18)", "price": "25", "priceCurrency": "USD"},
-      {"@type": "Offer", "name": "Young Adult (19-24)", "price": "34", "priceCurrency": "USD"},
-      {"@type": "Offer", "name": "General Adult (25-64)", "price": "55", "priceCurrency": "USD"},
-      {"@type": "Offer", "name": "Senior (65+)", "price": "49", "priceCurrency": "USD"},
-      {"@type": "Offer", "name": "Existing Life Member", "price": "0", "priceCurrency": "USD"}
+      {"@type": "Offer", "name": "Early Bird (through June 7)", "price": "50", "priceCurrency": "USD"},
+      {"@type": "Offer", "name": "Regular Registration", "price": "65", "priceCurrency": "USD"}
     ]
   }
   </script>
@@ -65,6 +64,7 @@
       --cream: #e7dcce;
       --brown: #4b3c28;
       --dark-green: #172d28;
+      --gold: #c4831a;
       --font-title: 'League Spartan', sans-serif;
       --font-body: 'Raleway', sans-serif;
     }
@@ -94,7 +94,7 @@
 
     /* HERO */
     .tournament-hero {
-      min-height: 70vh;
+      min-height: 75vh;
       display: flex;
       align-items: flex-end;
       padding: 9rem 2.5rem 5rem;
@@ -117,7 +117,11 @@
     .hero-tag { display: inline-block; background: var(--red); font-family: var(--font-title); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); padding: 0.35rem 0.85rem; border-radius: 2px; margin-bottom: 1.5rem; }
     .hero-title { font-family: var(--font-title); font-size: clamp(3rem, 6vw, 6rem); font-weight: 900; line-height: 0.95; letter-spacing: -0.03em; color: var(--white); margin-bottom: 1.5rem; }
     .hero-title .accent { color: var(--red); }
-    .hero-subtitle { font-family: var(--font-body); font-size: 1.1rem; font-weight: 300; color: var(--cream); line-height: 1.7; max-width: 540px; opacity: 0.9; }
+    .hero-subtitle { font-family: var(--font-body); font-size: 1.1rem; font-weight: 300; color: var(--cream); line-height: 1.7; max-width: 580px; opacity: 0.9; }
+    .hero-subtitle strong { color: var(--white); font-weight: 600; }
+    .hero-includes { display: flex; gap: 1.25rem; margin-top: 1.75rem; flex-wrap: wrap; }
+    .hero-include { display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-body); font-size: 0.85rem; color: var(--cream); opacity: 0.9; }
+    .hero-include::before { content: '✓'; color: var(--gold); font-weight: 800; font-size: 1rem; }
     .hero-date-box { background: var(--red); border-radius: 4px; padding: 2.5rem 2rem; text-align: center; flex-shrink: 0; min-width: 180px; }
     .hero-date-month { font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 0.5rem; }
     .hero-date-day { font-family: var(--font-title); font-size: 5rem; font-weight: 900; color: var(--white); line-height: 1; }
@@ -130,8 +134,17 @@
     .section-eyebrow { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
     .section-eyebrow::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--red); }
     .section-title { font-family: var(--font-title); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1; letter-spacing: -0.02em; color: var(--white); margin-bottom: 1.25rem; }
+    .section-lead { font-family: var(--font-body); font-size: 1.05rem; font-weight: 300; color: var(--cream); line-height: 1.8; max-width: 720px; opacity: 0.9; margin-bottom: 1rem; }
+    .section-lead strong { color: var(--white); font-weight: 600; }
     .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--red); color: var(--white); font-family: var(--font-title); font-size: 0.9rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; padding: 1rem 2.5rem; border-radius: 2px; transition: all 0.2s; }
     .btn-primary:hover { background: #c0291d; transform: translateY(-1px); }
+
+    /* COACH BLURB / WHY THIS TOURNAMENT */
+    .why-section { background: var(--brown); padding: 5rem 2.5rem; }
+    .why-inner { max-width: 900px; margin: 0 auto; }
+    .why-quote { font-family: var(--font-body); font-size: 1.35rem; font-weight: 300; font-style: italic; color: var(--white); line-height: 1.6; margin-bottom: 1.5rem; }
+    .why-quote::before { content: '"'; font-family: var(--font-title); font-size: 5rem; line-height: 0; color: var(--red); vertical-align: -0.6rem; margin-right: 0.4rem; }
+    .why-attribution { font-family: var(--font-title); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream); opacity: 0.7; }
 
     /* DETAILS GRID */
     .details-section { background: var(--green); }
@@ -147,7 +160,9 @@
     .schedule-row { display: grid; grid-template-columns: auto 1fr auto; gap: 1.5rem; align-items: center; padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(231,220,206,0.08); transition: background 0.15s; }
     .schedule-row:hover { background: rgba(255,255,255,0.03); }
     .schedule-row.header { border-bottom: 2px solid var(--red); padding-bottom: 0.75rem; margin-bottom: 0; }
+    .schedule-row.feature { background: rgba(196,131,26,0.08); border-left: 3px solid var(--gold); }
     .schedule-round { font-family: var(--font-title); font-size: 1.5rem; font-weight: 900; color: var(--red); line-height: 1; width: 3rem; text-align: center; }
+    .schedule-round.feature { color: var(--gold); font-size: 1.2rem; }
     .schedule-name { font-family: var(--font-title); font-size: 1rem; font-weight: 700; color: var(--white); }
     .schedule-note { font-family: var(--font-body); font-size: 0.8rem; color: var(--cream); opacity: 0.6; }
     .schedule-time { font-family: var(--font-title); font-size: 1rem; font-weight: 700; color: var(--cream); white-space: nowrap; }
@@ -155,19 +170,25 @@
 
     /* PRICING */
     .pricing-section { background: var(--green); }
-    .pricing-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 3rem; }
-    .price-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(231,220,206,0.1); border-radius: 4px; padding: 1.75rem 1.25rem; text-align: center; }
-    .price-card.featured { background: rgba(160,35,29,0.15); border-color: var(--red); }
-    .price-amount { font-family: var(--font-title); font-size: 2.5rem; font-weight: 900; color: var(--white); line-height: 1; margin-bottom: 0.5rem; }
-    .price-amount.free { color: var(--red); }
-    .price-category { font-family: var(--font-title); font-size: 0.85rem; font-weight: 700; color: var(--white); margin-bottom: 0.35rem; }
-    .price-note { font-family: var(--font-body); font-size: 0.75rem; color: var(--cream); opacity: 0.65; line-height: 1.5; }
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; max-width: 700px; }
+    .price-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(231,220,206,0.1); border-radius: 4px; padding: 2.25rem 1.75rem; text-align: center; position: relative; }
+    .price-card.featured { background: rgba(196,131,26,0.12); border-color: var(--gold); }
+    .price-card.featured::before { content: 'Best Deal'; position: absolute; top: -0.65rem; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--dark-green); font-family: var(--font-title); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.25rem 0.85rem; border-radius: 2px; }
+    .price-amount { font-family: var(--font-title); font-size: 3.5rem; font-weight: 900; color: var(--white); line-height: 1; margin-bottom: 0.5rem; }
+    .price-category { font-family: var(--font-title); font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.35rem; }
+    .price-note { font-family: var(--font-body); font-size: 0.85rem; color: var(--cream); opacity: 0.75; line-height: 1.5; }
+    .price-deadline { font-family: var(--font-body); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-top: 0.75rem; }
 
-    /* PRIZE / MEMBERSHIP */
-    .membership-section { background: var(--red); padding: 5rem 2.5rem; text-align: center; }
-    .membership-section h2 { font-family: var(--font-title); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; color: var(--white); letter-spacing: -0.02em; margin-bottom: 1rem; }
-    .membership-section p { font-family: var(--font-body); font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.75; }
-    .btn-white { background: var(--white); color: var(--red); font-family: var(--font-title); font-size: 0.9rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; padding: 1rem 2.5rem; border-radius: 2px; display: inline-block; transition: all 0.2s; }
+    /* PRIZES / INCLUDED */
+    .included-section { background: var(--red); padding: 5rem 2.5rem; text-align: center; }
+    .included-section h2 { font-family: var(--font-title); font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 900; color: var(--white); letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .included-section .lead { font-family: var(--font-body); font-size: 1.05rem; font-weight: 300; color: rgba(255,255,255,0.92); max-width: 700px; margin: 0 auto 3rem; line-height: 1.75; }
+    .included-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1000px; margin: 0 auto 3rem; }
+    .included-card { background: rgba(255,255,255,0.1); border-radius: 4px; padding: 2rem 1.5rem; text-align: left; }
+    .included-icon { font-size: 2.25rem; margin-bottom: 1rem; }
+    .included-title { font-family: var(--font-title); font-size: 1.1rem; font-weight: 800; color: var(--white); margin-bottom: 0.5rem; }
+    .included-desc { font-family: var(--font-body); font-size: 0.875rem; color: rgba(255,255,255,0.85); line-height: 1.65; }
+    .btn-white { background: var(--white); color: var(--red); font-family: var(--font-title); font-size: 0.9rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; padding: 1.1rem 2.75rem; border-radius: 2px; display: inline-block; transition: all 0.2s; }
     .btn-white:hover { background: var(--cream); transform: translateY(-1px); }
 
     /* FORMAT */
@@ -178,30 +199,26 @@
     .format-title { font-family: var(--font-title); font-size: 1.1rem; font-weight: 800; color: var(--white); margin-bottom: 0.5rem; }
     .format-desc { font-family: var(--font-body); font-size: 0.875rem; font-weight: 300; color: var(--cream); opacity: 0.8; line-height: 1.65; }
 
-    /* ROSTER SECTION */
-    .roster-section { background: var(--green); }
-    .roster-intro { font-family: var(--font-body); font-size: 1rem; font-weight: 300; color: var(--cream); opacity: 0.85; line-height: 1.7; max-width: 640px; margin-bottom: 2.5rem; }
-    .roster-frame {
-      background: var(--white);
-      border-radius: 4px;
-      padding: 0.5rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-      overflow: hidden;
-    }
-    .roster-frame iframe {
-      border: none;
-      display: block;
-      width: 100%;
-      height: 500px;
-    }
-    .roster-disclaimer {
-      font-family: var(--font-body);
-      font-size: 0.8rem;
-      color: var(--cream);
-      opacity: 0.6;
-      margin-top: 1.25rem;
-      line-height: 1.6;
-    }
+    /* MENU PLACEHOLDER */
+    .menu-section { background: var(--green); }
+    .menu-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(231,220,206,0.1); border-radius: 4px; padding: 3rem; margin-top: 2rem; text-align: center; }
+    .menu-card h3 { font-family: var(--font-title); font-size: 1.5rem; font-weight: 800; color: var(--white); margin-bottom: 0.75rem; }
+    .menu-card p { font-family: var(--font-body); font-size: 1rem; color: var(--cream); opacity: 0.8; line-height: 1.7; max-width: 580px; margin: 0 auto; }
+
+    /* MASTER SECTION */
+    .master-section { padding: 6rem 2.5rem; }
+    .master-grid { display: grid; grid-template-columns: 380px 1fr; gap: 4rem; align-items: start; margin-top: 3rem; }
+    .master-photo { border-radius: 4px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.45); border: 1px solid rgba(231,220,206,0.1); }
+    .master-photo img { display: block; width: 100%; height: auto; }
+    .master-content { padding-top: 0.5rem; }
+    .master-quote { border-left: 3px solid var(--gold); padding-left: 1.5rem; margin-bottom: 2rem; }
+    .master-quote p { font-family: var(--font-body); font-size: 1.35rem; font-weight: 400; font-style: italic; color: var(--white); line-height: 1.5; }
+    .master-bio { font-family: var(--font-body); font-size: 1rem; font-weight: 300; color: var(--cream); line-height: 1.85; margin-bottom: 1.5rem; opacity: 0.92; }
+    .master-bio strong { color: var(--white); font-weight: 600; }
+    .master-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(231,220,206,0.1); }
+    .master-stat { display: flex; flex-direction: column; gap: 0.35rem; }
+    .master-stat-label { font-family: var(--font-body); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+    .master-stat-value { font-family: var(--font-title); font-size: 2rem; font-weight: 900; color: var(--white); line-height: 1; }
 
     /* REGISTER CTA */
     .register-section { background: var(--brown); padding: 6rem 2.5rem; }
@@ -222,12 +239,21 @@
       .hero-inner { grid-template-columns: 1fr; }
       .hero-date-box { display: none; }
       .details-grid { grid-template-columns: 1fr; gap: 0; }
-      .pricing-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 100%; }
       .format-grid { grid-template-columns: 1fr; }
+      .included-grid { grid-template-columns: 1fr; }
       .register-inner { grid-template-columns: 1fr; }
       .mc-outer-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
       .section { padding: 4rem 1.5rem; }
-      .roster-frame iframe { height: 420px; }
+      .why-section { padding: 3.5rem 1.5rem; }
+      .why-quote { font-size: 1.1rem; }
+      .menu-card { padding: 2rem 1.5rem; }
+      .master-section { padding: 4rem 1.5rem; }
+      .master-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .master-photo { max-width: 320px; margin: 0 auto; }
+      .master-stats { grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; }
+      .master-stat-value { font-size: 1.5rem; }
+      .master-quote p { font-size: 1.15rem; }
     }
   </style>
 </head>
@@ -248,7 +274,7 @@
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="coach-jb.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
-      <li><a href="https://forms.gle/DY7t2oRqGSi6bxmh8" target="_blank" class="nav-cta">Register Now</a></li>
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdJjHyYkt_KMhe8aD1VuxyZh4KN7al8qxv2jfoUIwMafLwDkg/viewform?usp=publish-editor" target="_blank" class="nav-cta">Register Now</a></li>
     </ul>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu">
       <span></span><span></span><span></span>
@@ -265,7 +291,7 @@
     <a href="faq.html" onclick="toggleMenu()">FAQ</a>
     <a href="coach-jb.html" onclick="toggleMenu()">About</a>
     <a href="contact.html" onclick="toggleMenu()">Contact</a>
-    <a href="https://forms.gle/DY7t2oRqGSi6bxmh8" target="_blank" class="mobile-cta" onclick="toggleMenu()">Register Now</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJjHyYkt_KMhe8aD1VuxyZh4KN7al8qxv2jfoUIwMafLwDkg/viewform?usp=publish-editor" target="_blank" class="mobile-cta" onclick="toggleMenu()">Register Now</a>
   </div>
 
   <script>
@@ -280,20 +306,24 @@
   <div class="tournament-hero">
     <div class="hero-inner">
       <div>
-        <span class="hero-tag">USCF Rated Tournament</span>
-        <h1 class="hero-title">Carmel Valley<br>Chess Club's<br><span class="accent">First Tournament.</span></h1>
-        <p class="hero-subtitle">A 5-round Swiss USCF rated tournament open to all skill levels. Every participant receives or renews their USCF membership for one year.</p>
+        <span class="hero-tag">🍣 USCF Rated Tournament</span>
+        <h1 class="hero-title">Carmel Valley<br><span class="accent">Sushi Slam.</span></h1>
+        <p class="hero-subtitle">Three rounds of USCF rated chess. <strong>Sushi lunch from Mika Sushi</strong> downstairs. A live digital lecture from <strong>WCM Clara Isabel Peña Gonzalez</strong> with Q&amp;A. All included in your entry.</p>
+        <div class="hero-includes">
+          <span class="hero-include">3-round quad · G/30 dual rated</span>
+          <span class="hero-include">Sushi lunch included</span>
+          <span class="hero-include">Master lecture &amp; Q&amp;A</span>
+        </div>
         <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;">
-          <a href="https://forms.gle/DY7t2oRqGSi6bxmh8" target="_blank" class="btn-primary">Register Now →</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJjHyYkt_KMhe8aD1VuxyZh4KN7al8qxv2jfoUIwMafLwDkg/viewform?usp=publish-editor" target="_blank" class="btn-primary">Register Now →</a>
           <a href="#details" style="display:inline-flex;align-items:center;gap:0.5rem;color:var(--cream);font-family:var(--font-title);font-size:0.9rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;padding:1rem 2rem;border:1px solid rgba(231,220,206,0.3);border-radius:2px;">View Details →</a>
         </div>
       </div>
       <div class="hero-date-box">
-        <p class="hero-date-month">May 2026</p>
-        <p class="hero-date-day">23</p>
+        <p class="hero-date-month">June 2026</p>
+        <p class="hero-date-day">20</p>
         <p class="hero-date-year">Saturday</p>
-        <p class="hero-date-time">Round 1 at 10:00am<br>9 Del Fino Place<br>Suite 201</p>
-        <!-- Tournament countdown -->
+        <p class="hero-date-time">Round 1 at 10:00am<br>Ends ~2:45pm<br>9 Del Fino Place<br>Suite 201</p>
         <div style="margin-top:1rem;display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;">
           <div style="background:rgba(255,255,255,0.15);border-radius:2px;padding:0.5rem 0.65rem;text-align:center;">
             <span id="td-days" style="font-family:var(--font-title);font-size:1.5rem;font-weight:900;color:var(--white);display:block;line-height:1;">--</span>
@@ -310,7 +340,7 @@
         </div>
         <script>
           (function() {
-            var d = new Date('2026-05-23T10:00:00');
+            var d = new Date('2026-06-20T10:00:00');
             function tick() {
               var diff = d - new Date();
               if (diff <= 0) return;
@@ -325,6 +355,14 @@
     </div>
   </div>
 
+  <!-- WHY THIS TOURNAMENT -->
+  <section class="why-section">
+    <div class="why-inner">
+      <p class="why-quote">Most chess tournaments end and everyone goes home. I wanted one where the chess is the start of the day, not the whole day. So we play three rounds. Then we eat sushi together. Then we listen to a Woman Candidate Master tell us something we don't know and ask her questions. Come for the chess. Stay for the lunch and the lecture. That's the whole idea.</p>
+      <p class="why-attribution">— Coach JB, Tournament Director</p>
+    </div>
+  </section>
+
   <!-- DETAILS -->
   <section class="section details-section" id="details">
     <div class="container">
@@ -334,44 +372,45 @@
         <div>
           <div class="detail-block">
             <span class="detail-label">Date</span>
-            <p class="detail-value">Saturday, May 23, 2026</p>
+            <p class="detail-value">Saturday, June 20, 2026</p>
+            <p class="detail-sub">Round 1 starts at 10:00am sharp. Whole event wraps by 2:45pm.</p>
           </div>
           <div class="detail-block">
             <span class="detail-label">Location</span>
             <p class="detail-value">9 Del Fino Place, Suite 201</p>
-            <p class="detail-sub">Carmel Valley, CA 93924<br>Upstairs above Mika Sushi</p>
+            <p class="detail-sub">Carmel Valley, CA 93924<br>Upstairs — above Mika Sushi (our lunch sponsor)</p>
           </div>
           <div class="detail-block">
             <span class="detail-label">Format</span>
-            <p class="detail-value">5-Round Swiss · G/30</p>
-            <p class="detail-sub">USCF Dual Rated (Quick and Regular). Each player gets 30 minutes. Every player plays all 5 rounds.</p>
+            <p class="detail-value">3-Round Quad · G/30</p>
+            <p class="detail-sub">USCF Dual Rated (Quick &amp; Regular). Round robin in groups of 4 — you play every other person in your quad once. No eliminations.</p>
           </div>
           <div class="detail-block">
             <span class="detail-label">Sections</span>
-            <p class="detail-value">Two Sections</p>
-            <p class="detail-sub">Players split in half by rating. Top half in one section, bottom half and unrated players in the other.</p>
+            <p class="detail-value">Grouped by Rating</p>
+            <p class="detail-sub">We sort all entries by rating and break you into quads of 4 with similarly rated players. You're matched against people you can actually beat — and people who can actually beat you.</p>
           </div>
         </div>
         <div>
           <div class="detail-block">
             <span class="detail-label">Registration</span>
-            <p class="detail-value">Pre-Registration Strongly Recommended</p>
-            <p class="detail-sub">Space is limited. Walk-ins may not be accommodated. Register at the link below before the tournament fills.</p>
+            <p class="detail-value">Space Is Limited</p>
+            <p class="detail-sub">Register early. Spots fill on a first-paid basis. Walk-ins may not be accommodated.</p>
           </div>
           <div class="detail-block">
             <span class="detail-label">Equipment</span>
-            <p class="detail-value">Please Bring Your Own</p>
-            <p class="detail-sub">If you don't have access to a board, set, and clock contact the tournament director before May 22nd and equipment will be provided.</p>
+            <p class="detail-value">Bring Your Own Set &amp; Clock</p>
+            <p class="detail-sub">If you don't have access to a board, set, and clock, email the tournament director and one will be provided for you.</p>
           </div>
           <div class="detail-block">
             <span class="detail-label">Bye Requests</span>
-            <p class="detail-value">Allowed with Notice</p>
-            <p class="detail-sub">Half-point byes: 2 maximum. Zero-point byes: unlimited. All bye requests must be submitted before the day of the tournament via email.</p>
+            <p class="detail-value">Email Before Tournament Day</p>
+            <p class="detail-sub">No bye requests will be accepted on the day of the event. Email the tournament director before June 20 if you need to skip a round.</p>
           </div>
           <div class="detail-block">
             <span class="detail-label">Contact</span>
             <p class="detail-value">chessclubcv@gmail.com</p>
-            <p class="detail-sub">(831) 392-7456</p>
+            <p class="detail-sub">(831) 392-7456 · Justin Bradley, Tournament Director</p>
           </div>
         </div>
       </div>
@@ -381,38 +420,43 @@
   <!-- SCHEDULE -->
   <section class="section schedule-section">
     <div class="container">
-      <p class="section-eyebrow">Round Schedule</p>
-      <h2 class="section-title">Saturday, May 23, 2026</h2>
+      <p class="section-eyebrow">Day-of Schedule</p>
+      <h2 class="section-title">Saturday, June 20, 2026</h2>
       <div class="schedule-table">
         <div class="schedule-row header">
           <span class="schedule-header-text">#</span>
-          <span class="schedule-header-text">Round</span>
+          <span class="schedule-header-text">What</span>
           <span class="schedule-header-text">Time</span>
         </div>
         <div class="schedule-row">
           <span class="schedule-round">1</span>
-          <div><p class="schedule-name">Round 1</p></div>
+          <div><p class="schedule-name">Round 1</p><p class="schedule-note">Doors open at 9:30am for check-in</p></div>
           <span class="schedule-time">10:00 AM</span>
         </div>
         <div class="schedule-row">
           <span class="schedule-round">2</span>
           <div><p class="schedule-name">Round 2</p></div>
-          <span class="schedule-time">11:05 AM</span>
+          <span class="schedule-time">11:15 AM</span>
         </div>
         <div class="schedule-row">
           <span class="schedule-round">3</span>
-          <div><p class="schedule-name">Round 3</p><p class="schedule-note">Short lunch break after this round</p></div>
-          <span class="schedule-time">12:10 PM</span>
+          <div><p class="schedule-name">Round 3</p></div>
+          <span class="schedule-time">12:30 PM</span>
+        </div>
+        <div class="schedule-row feature">
+          <span class="schedule-round feature">🍣</span>
+          <div><p class="schedule-name">Sushi Lunch from Mika Sushi</p><p class="schedule-note">Lunch served — your pre-order is waiting for you</p></div>
+          <span class="schedule-time">1:45 PM</span>
+        </div>
+        <div class="schedule-row feature">
+          <span class="schedule-round feature">🎓</span>
+          <div><p class="schedule-name">Live Digital Lecture + Q&amp;A</p><p class="schedule-note">WCM Clara Isabel Peña Gonzalez — topic chosen by the master, your questions answered live</p></div>
+          <span class="schedule-time">~2:00 PM</span>
         </div>
         <div class="schedule-row">
-          <span class="schedule-round">4</span>
-          <div><p class="schedule-name">Round 4</p></div>
-          <span class="schedule-time">1:30 PM</span>
-        </div>
-        <div class="schedule-row">
-          <span class="schedule-round">5</span>
-          <div><p class="schedule-name">Round 5</p></div>
-          <span class="schedule-time">2:35 PM</span>
+          <span class="schedule-round" style="color:var(--cream);opacity:0.5;font-size:1rem;">END</span>
+          <div><p class="schedule-name">Wrap</p><p class="schedule-note">Head home with full belly and a better understanding of the game</p></div>
+          <span class="schedule-time">2:45 PM</span>
         </div>
       </div>
     </div>
@@ -422,101 +466,132 @@
   <section class="section pricing-section">
     <div class="container">
       <p class="section-eyebrow">Entry Fees</p>
-      <h2 class="section-title">Register Before It Fills</h2>
-      <p style="font-family:var(--font-body);font-size:1rem;font-weight:300;color:var(--cream);opacity:0.8;line-height:1.7;max-width:560px;">All participants receive or renew their USCF membership for one year — included in your entry fee.</p>
+      <h2 class="section-title">Register Before June 7 &amp; Save</h2>
+      <p class="section-lead">Entry covers your tournament play, your sushi lunch from Mika Sushi (including gratuity for the restaurant staff), and the live digital lecture from WCM Clara Isabel Peña Gonzalez. <strong>Register early — space is limited and it'll fill.</strong></p>
       <div class="pricing-grid">
-        <div class="price-card">
-          <p class="price-amount">$25</p>
-          <p class="price-category">Youth</p>
-          <p class="price-note">Up to age 18</p>
-        </div>
-        <div class="price-card">
-          <p class="price-amount">$34</p>
-          <p class="price-category">Young Adult</p>
-          <p class="price-note">Ages 19–24</p>
-        </div>
-        <div class="price-card">
-          <p class="price-amount">$55</p>
-          <p class="price-category">General Adult</p>
-          <p class="price-note">Ages 25–64</p>
-        </div>
-        <div class="price-card">
-          <p class="price-amount">$49</p>
-          <p class="price-category">Senior</p>
-          <p class="price-note">Ages 65+</p>
-        </div>
         <div class="price-card featured">
-          <p class="price-amount free">FREE</p>
-          <p class="price-category">Life Member</p>
-          <p class="price-note">Existing USCF Life Members — thank you for building the chess community</p>
+          <p class="price-amount">$50</p>
+          <p class="price-category">Early Bird</p>
+          <p class="price-note">Includes chess, sushi, and the lecture</p>
+          <p class="price-deadline">Through June 7</p>
+        </div>
+        <div class="price-card">
+          <p class="price-amount">$65</p>
+          <p class="price-category">Regular Registration</p>
+          <p class="price-note">After June 7 — same everything, just less savings</p>
+          <p class="price-deadline">June 8 – June 19</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MEMBERSHIP PRIZE -->
-  <div class="membership-section">
-    <h2>Every Player Leaves with a USCF Membership.</h2>
-    <p>This isn't just a tournament — it's a USCF Membership Drive. Every single participant receives or renews their USCF membership for one full year as part of their entry. New players get their first official rating. Returning players extend their membership. Everyone wins something.</p>
-    <a href="https://forms.gle/DY7t2oRqGSi6bxmh8" target="_blank" class="btn-white">Register Now — Space Is Limited</a>
+  <!-- WHAT'S INCLUDED -->
+  <div class="included-section">
+    <h2>Every Entry Includes Everything.</h2>
+    <p class="lead">No upsells. No à la carte. You register, you show up, you play, you eat, you learn. That's it.</p>
+    <div class="included-grid">
+      <div class="included-card">
+        <div class="included-icon">♟️</div>
+        <p class="included-title">3 Rated Games</p>
+        <p class="included-desc">USCF dual rated (Quick &amp; Regular). G/30 quads. You play three games against three different opponents in your rating bracket. Three games means three chances to learn something.</p>
+      </div>
+      <div class="included-card">
+        <div class="included-icon">🍣</div>
+        <p class="included-title">Sushi from Mika</p>
+        <p class="included-desc">Lunch catered by Mika Sushi from downstairs. You pre-order your dish when you register. Gratuity for the restaurant staff is built into your entry — no need to tip on top.</p>
+      </div>
+      <div class="included-card">
+        <div class="included-icon">🎓</div>
+        <p class="included-title">Master Lecture &amp; Q&amp;A</p>
+        <p class="included-desc">A live digital lecture from <strong>Woman Candidate Master Clara Isabel Peña Gonzalez</strong>. The master picks the topic, and you get to ask her your own questions afterward.</p>
+      </div>
+    </div>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJjHyYkt_KMhe8aD1VuxyZh4KN7al8qxv2jfoUIwMafLwDkg/viewform?usp=publish-editor" target="_blank" class="btn-white">Register Now — Space Is Limited</a>
   </div>
 
-  <!-- FORMAT -->
+  <!-- MEET THE MASTER -->
+  <section class="section master-section" style="background:var(--dark-green);">
+    <div class="container">
+      <p class="section-eyebrow">Meet the Master</p>
+      <h2 class="section-title">WCM Clara Isabel Peña Gonzalez</h2>
+      <div class="master-grid">
+        <div class="master-photo">
+          <img src="assets/wcm-clara-pena.jpg" alt="WCM Clara Isabel Peña Gonzalez at a chess tournament" loading="lazy">
+        </div>
+        <div class="master-content">
+          <blockquote class="master-quote">
+            <p>"I don't believe in psychology. I believe in good moves."</p>
+          </blockquote>
+          <p class="master-bio">Clara is a <strong>22-year-old Woman Candidate Master</strong> from Lara, Venezuela. She was a member of the <strong>2024 Venezuelan Olympic Chess Team</strong> and is currently competing in the qualification cycle for the next Olympiad. She's also in her seventh semester studying Informatics Engineering — which is why her chess is as structured and analytical as it is.</p>
+          <p class="master-bio">She'll join us live, pick the topic herself, and take your questions afterward. Bring a notebook.</p>
+          <div class="master-stats">
+            <div class="master-stat">
+              <span class="master-stat-label">FIDE Standard</span>
+              <span class="master-stat-value">1947</span>
+            </div>
+            <div class="master-stat">
+              <span class="master-stat-label">FIDE Rapid</span>
+              <span class="master-stat-value">1967</span>
+            </div>
+            <div class="master-stat">
+              <span class="master-stat-label">FIDE Blitz</span>
+              <span class="master-stat-value">2096</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU PLACEHOLDER -->
+  <section class="section menu-section">
+    <div class="container">
+      <p class="section-eyebrow">Mika Sushi Lunch Menu</p>
+      <h2 class="section-title">Choose Your Roll</h2>
+      <div class="menu-card">
+        <h3>Menu Coming Soon</h3>
+        <p>The Mika Sushi menu for the Sushi Slam will be published before the June 7 early bird deadline. The registration form will let you pre-order your dish so it's ready when you walk away from your last round. Check back closer to the event — or get on the mailing list below and we'll send it to you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMAT EXPLAINER -->
   <section class="section format-section">
     <div class="container">
-      <p class="section-eyebrow">Tournament Format</p>
-      <h2 class="section-title">What to Expect</h2>
+      <p class="section-eyebrow">What to Expect</p>
+      <h2 class="section-title">How the Day Actually Works</h2>
       <div class="format-grid">
         <div class="format-card">
           <span class="format-icon">⏱️</span>
           <p class="format-title">G/30 Time Control</p>
-          <p class="format-desc">Each player gets 30 minutes for the entire game. Fast enough to play 5 rounds in one day, slow enough to think.</p>
+          <p class="format-desc">Each player gets 30 minutes for the whole game. Fast enough to play three rounds before lunch, slow enough to think about your moves.</p>
         </div>
         <div class="format-card">
           <span class="format-icon">♟️</span>
-          <p class="format-title">5-Round Swiss</p>
-          <p class="format-desc">Every player plays all 5 rounds. No elimination. Paired by performance so you face opponents of similar strength as the tournament progresses.</p>
-        </div>
-        <div class="format-card">
-          <span class="format-icon">🏆</span>
-          <p class="format-title">Two Sections</p>
-          <p class="format-desc">Players split into two sections by rating. Unrated players start in the lower section — the perfect place for your first tournament experience.</p>
+          <p class="format-title">3-Round Quad Round Robin</p>
+          <p class="format-desc">You're placed in a group of 4 players with similar ratings. You play each of the other three players in your quad once. Three rounds, three opponents, no eliminations.</p>
         </div>
         <div class="format-card">
           <span class="format-icon">📊</span>
           <p class="format-title">USCF Dual Rated</p>
-          <p class="format-desc">Games count toward both your Quick rating and Regular rating. Two ratings updated in one tournament.</p>
+          <p class="format-desc">Games count toward both your Quick rating and your Regular rating. Two ratings updated in one tournament.</p>
         </div>
         <div class="format-card">
           <span class="format-icon">🆕</span>
           <p class="format-title">First Tournament?</p>
-          <p class="format-desc">Email Coach JB before the event with any questions. He will make sure you know exactly what to expect before you walk in the door.</p>
+          <p class="format-desc">Email me before the day with any questions. I'll make sure you know exactly what to expect before you walk in the door. — Coach JB</p>
+        </div>
+        <div class="format-card">
+          <span class="format-icon">🍱</span>
+          <p class="format-title">Lunch Is Pre-Ordered</p>
+          <p class="format-desc">You order your sushi dish when you register. That way it's ready as soon as the last round wraps. No standing in line, no decisions to make on the day.</p>
         </div>
         <div class="format-card">
           <span class="format-icon">📍</span>
           <p class="format-title">Right Here in Carmel Valley</p>
-          <p class="format-desc">No long drive. No crowded convention center. A real USCF rated tournament in our beautiful club space above Mika Sushi.</p>
+          <p class="format-desc">No long drive. No crowded convention center. A real USCF rated tournament in our airy, bright club space above Mika Sushi.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ROSTER -->
-  <section class="section roster-section">
-    <div class="container">
-      <p class="section-eyebrow">Registered Players</p>
-      <h2 class="section-title">Who's Coming</h2>
-     <p class="roster-intro">Early registrants. Roster updates live as new players sign up — check back as we get closer to May 23.</p>
-
-      <div class="roster-frame">
-        <iframe
-          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT3ZQCPAIZAt4GmKzvmXmgHJ7m8eef1mm1mFqAA5PBt5azH9geHxCVFIllu2Canefe_Rh0HwvraKgwC/pubhtml?widget=true&amp;headers=false"
-          loading="lazy"
-          title="Tournament registered players roster">
-        </iframe>
-      </div>
-
-      <p class="roster-disclaimer">USCF IDs and ratings shown as registered.</p>
     </div>
   </section>
 
@@ -524,12 +599,12 @@
   <section class="register-section">
     <div class="register-inner">
       <div>
-        <p style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--cream);opacity:0.7;margin-bottom:1rem;">Saturday, May 23, 2026</p>
+        <p style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--cream);opacity:0.7;margin-bottom:1rem;">Saturday, June 20, 2026</p>
         <h2 style="font-family:var(--font-title);font-size:clamp(2.5rem,5vw,4rem);font-weight:900;color:var(--white);letter-spacing:-0.02em;margin-bottom:1rem;">Ready to Play?</h2>
-        <p style="font-family:var(--font-body);font-size:1rem;font-weight:300;color:var(--cream);opacity:0.85;line-height:1.75;max-width:480px;">Pre-registration is strongly recommended — space is limited. Questions? Email chessclubcv@gmail.com or call (831) 392-7456.</p>
+        <p style="font-family:var(--font-body);font-size:1rem;font-weight:300;color:var(--cream);opacity:0.85;line-height:1.75;max-width:520px;">Space is limited and the early bird deadline is June 7. Register through the link, pick your sushi, and we'll see you at 10am sharp. Questions? Email chessclubcv@gmail.com or call (831) 392-7456.</p>
       </div>
       <div style="flex-shrink:0;">
-        <a href="https://forms.gle/DY7t2oRqGSi6bxmh8" target="_blank" class="btn-primary" style="font-size:1rem;padding:1.25rem 3rem;">Register Now →</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJjHyYkt_KMhe8aD1VuxyZh4KN7al8qxv2jfoUIwMafLwDkg/viewform?usp=publish-editor" target="_blank" class="btn-primary" style="font-size:1rem;padding:1.25rem 3rem;">Register Now →</a>
       </div>
     </div>
   </section>

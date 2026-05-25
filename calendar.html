@@ -12,8 +12,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Schedule & Calendar | Carmel Valley Chess Club</title>
-  <meta name="description" content="View the full schedule for Carmel Valley Chess Club — after-school youth chess classes, $5 Friday Night Chess, Summer Camp 2026, and club closures. Pre-registration required for youth classes.">
-  <meta name="keywords" content="carmel valley chess club schedule, chess class schedule carmel valley, youth chess calendar monterey, chess club hours carmel valley ca">
+  <meta name="description" content="The full schedule for Carmel Valley Chess Club — after-school youth classes, $5 Friday Night Chess, Summer Camp June 15–19, the Carmel Valley Sushi Slam tournament on June 20, and club closures.">
+  <meta name="keywords" content="carmel valley chess club schedule, sushi slam tournament june 20, chess class schedule carmel valley, youth chess calendar monterey, chess club hours carmel valley ca">
     <meta property="og:image" content="https://cvchess.com/assets/club-full.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -267,11 +267,12 @@
     <div class="container">
       <p class="page-eyebrow">Schedule</p>
       <h1 class="page-title">Club Calendar</h1>
-      <p class="page-subtitle">All youth classes, Friday Night Chess events, Summer Camp dates, and club closures in one place. Click any event for details.</p>
+      <p class="page-subtitle">Everything happening at the club — after-school classes, Friday nights, Summer Camp, the upcoming Sushi Slam tournament, and the days we're closed. Click any event for details.</p>
       <div class="legend">
         <div class="legend-item"><div class="legend-dot youth"></div><span class="legend-label">Youth Classes (Pre-registration required)</span></div>
         <div class="legend-item"><div class="legend-dot friday"></div><span class="legend-label">$5 Friday Night Chess</span></div>
         <div class="legend-item"><div class="legend-dot camp"></div><span class="legend-label">Summer Camp 2026</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#c4831a;"></div><span class="legend-label">🍣 Sushi Slam Tournament (June 20)</span></div>
         <div class="legend-item"><div class="legend-dot closed"></div><span class="legend-label">Club Closed</span></div>
       </div>
     </div>
@@ -375,9 +376,34 @@
           </div>
 
           <div class="reg-notice" style="border-color:rgba(26,122,74,0.4);background:rgba(26,122,74,0.1);">
-            <p class="reg-notice-title" style="color:#7af4b0;">🔥 Early Bird — $50 Off Before May 16th</p>
-            <p class="reg-notice-text">Summer Camp is $500 per child, all-inclusive. Register before May 16th to save $50. Limited spots available — held on a first-paid basis.</p>
+            <p class="reg-notice-title" style="color:#7af4b0;">⚡ Only a Few Spots Left</p>
+            <p class="reg-notice-text">Summer Camp is $500 per child, all-inclusive — chess, pool days, meals, movie day, and every camper leaves with a USCF rating. We only run one class. Once it's full, that's it.</p>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-uJ_KOpxwd54iupvSs3w-dALodP_zQbtsqf13zAhK-GR8Sw/viewform?usp=header" target="_blank" class="btn-primary" style="background:#1a7a4a;">Register for Summer Camp →</a>
+          </div>
+
+          <h2 class="schedule-title" style="margin-top:2.5rem;">🍣 Sushi Slam</h2>
+          <p class="schedule-sub">Saturday, June 20 — a 3-round USCF rated tournament with sushi lunch and a master lecture all included in your entry.</p>
+
+          <div class="weekly-day">
+            <p class="weekly-day-name">Saturday, June 20, 2026</p>
+            <div class="weekly-event" style="border-left-color:#c4831a;">
+              <span class="weekly-event-name" style="color:#f4d090;">♟️ 3 Rounds USCF Rated (G/30 Quads)</span>
+              <span class="weekly-event-time">10:00 AM – 1:30 PM</span>
+            </div>
+            <div class="weekly-event" style="border-left-color:#c4831a;margin-top:0.25rem;">
+              <span class="weekly-event-name" style="color:#f4d090;">🍣 Sushi Lunch from Mika</span>
+              <span class="weekly-event-time">1:45 PM</span>
+            </div>
+            <div class="weekly-event" style="border-left-color:#c4831a;margin-top:0.25rem;">
+              <span class="weekly-event-name" style="color:#f4d090;">🎓 Live Master Lecture + Q&amp;A</span>
+              <span class="weekly-event-time">~2:00 – 2:45 PM</span>
+            </div>
+          </div>
+
+          <div class="reg-notice" style="border-color:rgba(196,131,26,0.4);background:rgba(196,131,26,0.1);">
+            <p class="reg-notice-title" style="color:#f4d090;">⚡ $50 Early Bird Through June 7</p>
+            <p class="reg-notice-text">Entry includes 3 rated games, sushi lunch from Mika Sushi (gratuity included), and a live digital lecture from WCM Clara Isabel Peña Gonzalez with Q&amp;A. $65 after June 7. Space is limited.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJjHyYkt_KMhe8aD1VuxyZh4KN7al8qxv2jfoUIwMafLwDkg/viewform?usp=publish-editor" target="_blank" class="btn-primary" style="background:#c4831a;">Register for the Sushi Slam →</a>
           </div>
 
           <h2 class="schedule-title" style="margin-top:2.5rem;">$5 Fridays</h2>
@@ -487,7 +513,7 @@
     ];
 
     // Tournament date
-    const TOURNAMENT_DATE = new Date(2026, 4, 23); // May 23 2026
+    const TOURNAMENT_DATE = new Date(2026, 5, 20); // June 20 2026
     const CAMP_START = new Date(2026,5,15); // June 15 2026
     const CAMP_END   = new Date(2026,5,19); // June 19 2026
 
@@ -547,7 +573,7 @@
         } else {
           // Tournament
           if (date.getTime() === TOURNAMENT_DATE.getTime()) {
-            html += `<span class="event-pill" style="background:rgba(75,60,40,0.35);color:#f4d090;border-left:2px solid #c4831a;" data-type="tournament" data-date="${date.toDateString()}">🏆 USCF Tournament 10am</span>`;
+            html += `<span class="event-pill" style="background:rgba(75,60,40,0.35);color:#f4d090;border-left:2px solid #c4831a;" data-type="tournament" data-date="${date.toDateString()}">🍣 Sushi Slam 10am</span>`;
           }
 
           // Camp days (Mon–Fri June 15-19)
@@ -634,13 +660,13 @@
 
       if (type === 'tournament') {
         tag.className = 'modal-tag'; tag.style.background = '#c4831a';
-        tag.textContent = 'USCF Rated Tournament';
-        title.textContent = 'USCF Membership Drive Tournament';
-        date.textContent = `${dateFormatted} · 10:00 AM – ~4:00 PM`;
-        desc.textContent = 'Carmel Valley Chess Club hosts a USCF rated tournament. 5-round Swiss, G/30. Two sections. Every participant receives or renews their USCF membership for one year. Pre-registration strongly recommended — space is limited.';
-        notice.innerHTML = `<strong>Entry Fees:</strong> Youth $25 · Young Adult $34 · General Adult $55 · Senior $49 · Life Members FREE<br><br><strong>Bring your own equipment</strong> or contact Coach JB before May 22nd to arrange loaner equipment.`;
-        btn.textContent = 'Register for the Tournament →';
-        btn.href = 'https://forms.gle/DY7t2oRqGSi6bxmh8';
+        tag.textContent = '🍣 USCF Rated Tournament';
+        title.textContent = 'Carmel Valley Sushi Slam';
+        date.textContent = `${dateFormatted} · 10:00 AM – 2:45 PM`;
+        desc.textContent = 'Three rounds of USCF dual rated chess (G/30 quads), followed by a sushi lunch from Mika Sushi downstairs and a live digital lecture from WCM Clara Isabel Peña Gonzalez with Q&A. Come for the chess, stay for the lunch and the lecture.';
+        notice.innerHTML = `<strong>Entry Fee:</strong> $50 early bird through June 7 · $65 after.<br><br><strong>Includes:</strong> 3 rated games, sushi lunch (with gratuity), live master lecture + Q&A.<br><br><strong>Bring your own equipment</strong> or email the tournament director before June 20 to arrange loaner equipment.`;
+        btn.textContent = 'Register for the Sushi Slam →';
+        btn.href = 'https://docs.google.com/forms/d/e/1FAIpQLSdJjHyYkt_KMhe8aD1VuxyZh4KN7al8qxv2jfoUIwMafLwDkg/viewform?usp=publish-editor';
         btn.className = 'modal-btn';
         btn.style.background = '#c4831a';
       }
@@ -671,7 +697,7 @@
           desc.textContent = 'Full day of chess lessons, puzzles, tournament play, and activities. Breakfast, snack, and lunch provided. Ages 5–17 welcome. Every camper leaves as a rated USCF tournament player.';
         }
         date.textContent = `${dateFormatted} · 9:00 AM – 3:00 PM`;
-        notice.innerHTML = `<strong>🔥 Early Bird:</strong> Register before May 16th and save $50 — just $450 instead of $500. All-inclusive: meals, USCF membership, activities, and pool days included.`;
+        notice.innerHTML = `<strong>⚡ Only a few spots left.</strong> $500 per child, all-inclusive. Chess instruction, USCF rating, pool days, meals, movie day, and a closing trophy ceremony all included. We run one class. When it's full, it's full.`;
         btn.textContent = 'Register for Summer Camp →';
         btn.href = CAMP_URL;
         btn.className = 'modal-btn';
