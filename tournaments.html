@@ -626,16 +626,14 @@
     </div>
   </section>
 
-  <!-- CURRENT ROSTER (auto-fed from Google Sheet) -->
-  <section class="section" style="background:var(--dark-green);">
+  <!-- CURRENT ROSTER (auto-fed from Google Sheet) - hidden until real registrations -->
+  <section id="roster-section" class="section" style="background:var(--dark-green);display:none;">
     <div class="container">
       <p class="section-eyebrow">Who's Playing</p>
       <h2 class="section-title">Current Roster</h2>
       <p class="section-subtitle">Updated automatically when a new player registers. Your name appears here once registration is complete.</p>
 
-      <div id="roster-container" style="margin-top:3rem;">
-        <p style="font-family:var(--font-body);color:var(--cream);opacity:0.6;text-align:center;padding:2rem;">Loading roster...</p>
-      </div>
+      <div id="roster-container" style="margin-top:3rem;"></div>
     </div>
   </section>
 
@@ -644,7 +642,21 @@
     const SHEET_ID = '1tUc4tmLrqsTJPgWIryE01wyzRtvdj_i7Y7HYJ8rQ--g';
     const SHEET_NAME = 'June 20th Sushi Slam Roster';
     const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_NAME)}`;
+    const section = document.getElementById('roster-section');
     const container = document.getElementById('roster-container');
+
+    // Detect placeholder/header text that shouldn't render as a real registration
+    const isPlaceholderText = (val) => {
+      if (val === null || val === undefined) return true;
+      const v = String(val).trim().toLowerCase();
+      if (v === '') return true;
+      if (v === '#n/a' || v === '#ref!' || v === '#name?') return true;
+      if (v === 'last name' || v === 'first name') return true;
+      if (v === 'uscf id' || v === 'rating' || v === 'section' || v === 'bye request') return true;
+      if (v.includes('existing u.s. chess federation id')) return true;
+      if (v.includes('u.s. chess federation')) return true;
+      return false;
+    };
 
     try {
       const response = await fetch(url);
@@ -654,13 +666,19 @@
 
       const playerRows = rows.filter(r => {
         const c = r.c || [];
-        return (c[0] && c[0].v) || (c[1] && c[1].v);
+        const last = c[0] && c[0].v;
+        const first = c[1] && c[1].v;
+        // Both first AND last must be real (non-placeholder) text
+        return !isPlaceholderText(last) && !isPlaceholderText(first);
       });
 
+      // If no real players, keep the section hidden
       if (playerRows.length === 0) {
-        container.innerHTML = '<p style="font-family:var(--font-body);font-size:1rem;color:var(--cream);opacity:0.7;text-align:center;padding:2rem;border:1px dashed rgba(231,220,206,0.15);border-radius:4px;">Registration is open. Be among the first to sign up.</p>';
         return;
       }
+
+      // Real players present — show the section and render
+      section.style.display = 'block';
 
       let html = '<div style="overflow-x:auto;background:rgba(255,255,255,0.03);border:1px solid rgba(231,220,206,0.1);border-radius:4px;padding:1rem 1.5rem;">';
       html += '<table style="width:100%;border-collapse:collapse;font-family:var(--font-body);">';
@@ -675,16 +693,19 @@
         const c = row.c || [];
         const last = (c[0] && c[0].v) ? String(c[0].v) : '';
         const first = (c[1] && c[1].v) ? String(c[1].v) : '';
-        const uscf = (c[2] && c[2].v) ? String(c[2].v) : '';
-        const rating = (c[3] && c[3].v) ? String(c[3].v) : 'Unrated';
-        const section = (c[4] && c[4].v) ? String(c[4].v) : 'TBD';
+        const uscfRaw = c[2] && c[2].v;
+        const ratingRaw = c[3] && c[3].v;
+        const sectionRaw = c[4] && c[4].v;
+        const uscf = isPlaceholderText(uscfRaw) ? '' : String(uscfRaw);
+        const rating = isPlaceholderText(ratingRaw) ? 'Unrated' : String(ratingRaw);
+        const sectionName = isPlaceholderText(sectionRaw) ? 'TBD' : String(sectionRaw);
         const fullName = (first + ' ' + last).trim();
 
         html += '<tr style="border-bottom:1px solid rgba(231,220,206,0.08);">';
         html += '<td style="padding:0.85rem 0.75rem;color:var(--white);font-size:0.95rem;">' + fullName + '</td>';
         html += '<td style="padding:0.85rem 0.75rem;color:var(--cream);opacity:0.8;font-size:0.9rem;">' + (uscf || '—') + '</td>';
         html += '<td style="padding:0.85rem 0.75rem;color:var(--cream);opacity:0.8;font-size:0.9rem;">' + rating + '</td>';
-        html += '<td style="padding:0.85rem 0.75rem;color:var(--cream);opacity:0.8;font-size:0.9rem;">' + section + '</td>';
+        html += '<td style="padding:0.85rem 0.75rem;color:var(--cream);opacity:0.8;font-size:0.9rem;">' + sectionName + '</td>';
         html += '</tr>';
       });
 
@@ -694,7 +715,8 @@
 
       container.innerHTML = html;
     } catch (err) {
-      container.innerHTML = '<p style="font-family:var(--font-body);color:var(--cream);opacity:0.6;text-align:center;padding:2rem;">Roster temporarily unavailable. Check back soon — or email chessclubcv@gmail.com for the current list.</p>';
+      // On fetch/parse failure, keep the section hidden
+      return;
     }
   })();
   </script>
