@@ -11,11 +11,11 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carmel Valley Chess Club | Chess Classes, Camps & Events | Carmel Valley, CA</title>
-  <meta name="description" content="Carmel Valley Chess Club offers after-school chess programs for kids ages 5–17, Summer Chess Camp 2026, and adult Friday Night Chess events in Carmel Valley, CA. Led by Coach JB. Enroll today.">
-  <meta name="keywords" content="chess club carmel valley, kids chess classes monterey county, after school chess carmel valley, summer chess camp 2026, adult chess night carmel valley, Coach JB chess, youth chess program monterey">
+  <title>Carmel Valley Chess Club | Chess Classes, Camp, Tournaments & Friday Nights | Carmel Valley, CA</title>
+  <meta name="description" content="Carmel Valley Chess Club — Coach JB built the club Carmel Valley always needed. After-school chess for kids 5–17, Summer Camp June 15–19, the Sushi Slam USCF tournament June 20, and $5 Friday Nights for adults.">
+  <meta name="keywords" content="chess club carmel valley, sushi slam tournament june 2026, kids chess classes monterey county, after school chess carmel valley, summer chess camp 2026, adult chess night carmel valley, Coach JB chess, youth chess program monterey">
   <meta property="og:title" content="Carmel Valley Chess Club | More Than Just Chess">
-  <meta property="og:description" content="Chess classes for kids, Summer Camp 2026, and adult Friday Night Chess in Carmel Valley, CA. Led by Coach JB.">
+  <meta property="og:description" content="The club Carmel Valley always needed. Chess for kids, adults, and everyone in between — built by Coach JB.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://cvchess.com">
     <meta property="og:image" content="https://cvchess.com/assets/club-full.jpg">
@@ -1155,6 +1155,15 @@
         gap: 2.5rem !important;
       }
 
+      /* Sushi Slam banner — stack on mobile */
+      .sushi-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+      }
+      .sushi-grid > div:last-child {
+        height: 280px !important;
+      }
+
       .testimonials-grid { grid-template-columns: 1fr; }
       .proof-grid { grid-template-columns: repeat(2, 1fr); }
       .coach-grid { grid-template-columns: 1fr; }
@@ -1231,31 +1240,31 @@
         Chess.
       </h1>
       <p class="hero-subtitle">
-        Chess classes for kids, summer camp, and adult Friday nights — all in one extraordinary space in the heart of Carmel Valley.
+        Chess for kids who want to play. Chess for adults who used to play. Chess for everyone in between. This is the club I wish I'd had as a kid — built right here in Carmel Valley.
       </p>
       <div class="hero-actions">
-        <a href="summer-camp.html" class="btn-primary">⚡ Summer Camp 2026</a>
-        <a href="after-school.html" class="btn-secondary">After-School Program →</a>
+        <a href="tournaments.html" class="btn-primary">🍣 Sushi Slam — June 20</a>
+        <a href="summer-camp.html" class="btn-secondary">Summer Camp →</a>
       </div>
       <div class="hero-stats">
         <div>
           <span class="hero-stat-number">3</span>
-          <span class="hero-stat-label">Programs for Kids & Adults</span>
+          <span class="hero-stat-label">Programs · Kids, Adults, Tournaments</span>
         </div>
         <div>
           <span class="hero-stat-number">All<br>Ages</span>
           <span class="hero-stat-label">Kids 5+ & Adults Welcome</span>
         </div>
         <div>
-          <span class="hero-stat-number">CV</span>
-          <span class="hero-stat-label">Carmel Valley, California</span>
+          <span class="hero-stat-number">1<br>of 1</span>
+          <span class="hero-stat-label">Only Chess Club in Carmel Valley</span>
         </div>
       </div>
     </div>
     <div class="hero-right">
       <img src="assets/club-full.jpg" alt="Kids and adults playing chess at Carmel Valley Chess Club grand opening">
       <div class="hero-badge">
-        Summer Camp<br>June 15–19, 2026<br>Now Enrolling
+        🍣 Sushi Slam<br>June 20, 2026<br>Now Registering
       </div>
     </div>
   </section>
@@ -1263,18 +1272,20 @@
   <!-- MARQUEE -->
   <div class="marquee-strip" aria-hidden="true">
     <div class="marquee-inner">
+      <span>🍣 Sushi Slam — June 20</span>
       <span>After-School Program</span>
       <span>Summer Camp 2026</span>
       <span>$5 Friday Nights</span>
-      <span>USCF Rated Players</span>
-      <span>Ages 5 & Up</span>
+      <span>USCF Rated Tournaments</span>
+      <span>Ages 5 &amp; Up</span>
       <span>Carmel Valley CA</span>
       <span>Make Your First Move</span>
+      <span>🍣 Sushi Slam — June 20</span>
       <span>After-School Program</span>
       <span>Summer Camp 2026</span>
       <span>$5 Friday Nights</span>
-      <span>USCF Rated Players</span>
-      <span>Ages 5 & Up</span>
+      <span>USCF Rated Tournaments</span>
+      <span>Ages 5 &amp; Up</span>
       <span>Carmel Valley CA</span>
       <span>Make Your First Move</span>
     </div>
@@ -1283,9 +1294,9 @@
   <!-- PROGRAMS -->
   <section class="programs">
     <div class="container">
-      <p class="section-eyebrow">What We Offer</p>
+      <p class="section-eyebrow">What's Going On Here</p>
       <h2 class="section-title">Three Ways to Play</h2>
-      <p class="section-subtitle">Whether your child is just learning or you're an adult ready to make your move — there's a place for you at Carmel Valley Chess Club.</p>
+      <p class="section-subtitle">Whether your kid is just learning the rules or you're an adult who used to play and forgot how much you loved it — there's a place for you here.</p>
 
       <div class="programs-grid">
 
@@ -1294,10 +1305,10 @@
           <div class="program-card-body">
             <span class="program-card-tag">Youth Program</span>
             <h3 class="program-card-title">After-School Chess</h3>
-            <p class="program-card-desc">Structured weekly chess instruction for kids ages 5–17. Small groups of 8 max. Recreational League meets Monday, Tuesday, and Thursday.</p>
+            <p class="program-card-desc">Kids ages 5–17. Small groups of eight max — past eight I'm refereeing, not coaching. Monday, Tuesday, and Thursday afternoons.</p>
             <div class="program-card-footer">
               <span class="program-card-price">Monthly</span>
-              <span class="program-card-cta">Enroll Now →</span>
+              <span class="program-card-cta">Enroll →</span>
             </div>
           </div>
         </a>
@@ -1305,9 +1316,9 @@
         <a href="summer-camp.html" class="program-card">
           <img src="assets/pool.jpg" alt="Summer Chess Camp 2026 at Carmel Valley Chess Club - pool days included" class="program-card-image">
           <div class="program-card-body">
-            <span class="program-card-tag">🔥 Early Bird — $50 Off</span>
+            <span class="program-card-tag">⚡ A Few Spots Left</span>
             <h3 class="program-card-title">Summer Camp 2026</h3>
-            <p class="program-card-desc">June 15–19. Chess, pool days, meals, movie day, and every camper leaves as a rated USCF tournament player.</p>
+            <p class="program-card-desc">June 15–19. Chess, pool days, meals every day, a movie day, and every kid leaves with an official USCF rating. We run one class. When it's full, it's full.</p>
             <div class="program-card-footer">
               <span class="program-card-price">$500</span>
               <span class="program-card-cta">Register →</span>
@@ -1320,14 +1331,32 @@
           <div class="program-card-body">
             <span class="program-card-tag">Adults Only</span>
             <h3 class="program-card-title">$5 Friday Nights</h3>
-            <p class="program-card-desc">Every Friday 5–9pm. No registration. No experience needed. Just show up, bring a beverage, and play.</p>
+            <p class="program-card-desc">Every Friday, 5–9pm. No registration. No sign-up. No commitment. Bring a beverage, $5 at the door, sit down across from someone. That's it.</p>
             <div class="program-card-footer">
               <span class="program-card-price">$5</span>
-              <span class="program-card-cta">Learn More →</span>
+              <span class="program-card-cta">Just Show Up →</span>
             </div>
           </div>
         </a>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- SUSHI SLAM CTA BANNER -->
+  <section style="background:var(--brown);padding:5rem 2.5rem;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;" class="sushi-grid">
+        <div>
+          <p style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#f4d090;margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem;"><span style="display:block;width:1.5rem;height:1px;background:#c4831a;"></span>Saturday, June 20, 2026</p>
+          <h2 style="font-family:var(--font-title);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:900;line-height:1;letter-spacing:-0.02em;color:var(--white);margin-bottom:1.25rem;">🍣 Carmel Valley<br>Sushi Slam.</h2>
+          <p style="font-family:var(--font-body);font-size:1.05rem;font-weight:300;color:var(--cream);opacity:0.92;line-height:1.75;margin-bottom:1.5rem;">Three rounds of USCF rated chess in the morning. <strong style="color:var(--white);font-weight:600;">Sushi lunch from Mika Sushi</strong> downstairs at 1:45. Then a live digital lecture from <strong style="color:var(--white);font-weight:600;">WCM Clara Isabel Peña Gonzalez</strong> — a 22-year-old master from Venezuela's 2024 Olympic team — with Q&amp;A.</p>
+          <p style="font-family:var(--font-body);font-size:1.05rem;font-weight:300;color:var(--cream);opacity:0.92;line-height:1.75;margin-bottom:2rem;">All included. $50 early bird through June 7. Space is limited.</p>
+          <a href="tournaments.html" style="display:inline-flex;align-items:center;gap:0.5rem;background:#c4831a;color:var(--dark-green);font-family:var(--font-title);font-size:0.9rem;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;padding:1rem 2.25rem;border-radius:2px;transition:all 0.2s;">Tournament Details &amp; Registration →</a>
+        </div>
+        <div style="border-radius:4px;overflow:hidden;height:420px;">
+          <img src="assets/giant-chess.jpg" alt="USCF tournament chess play at Carmel Valley Chess Club" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+        </div>
       </div>
     </div>
   </section>
@@ -1343,23 +1372,23 @@
         <div>
           <p class="section-eyebrow">Why Chess</p>
           <h2 class="section-title">Chess Builds What School Can't Teach Alone</h2>
-          <p class="section-subtitle">Every move on the board is yours — the brilliant ones and the blunders. Chess teaches children to think, to be accountable, and to grow.</p>
+          <p class="section-subtitle">Every move on the board is your kid's. The brilliant ones and the blunders. Chess teaches them to think, to own their decisions, and to keep going when they lose. Which they will. Often.</p>
           <div class="why-pillars">
             <div class="pillar">
               <p class="pillar-title">Focus</p>
-              <p class="pillar-desc">Sitting still with a hard problem is a skill. Chess builds it.</p>
+              <p class="pillar-desc">Sitting still with a hard problem is a skill most kids don't get to practice anymore. Chess makes them practice it for fun.</p>
             </div>
             <div class="pillar">
               <p class="pillar-title">Resilience</p>
-              <p class="pillar-desc">Losing gracefully is as important as winning well.</p>
+              <p class="pillar-desc">Losing happens. Every game. Even grandmasters lose. What chess teaches is how to lose and come back tomorrow.</p>
             </div>
             <div class="pillar">
               <p class="pillar-title">Strategy</p>
-              <p class="pillar-desc">Think three moves ahead — on the board and in life.</p>
+              <p class="pillar-desc">Think three moves ahead. Then change your plan because your opponent did something you didn't expect. That's chess. That's also life.</p>
             </div>
             <div class="pillar">
               <p class="pillar-title">Confidence</p>
-              <p class="pillar-desc">It grows after mistakes. After trying again. After one good move.</p>
+              <p class="pillar-desc">It doesn't come from being told you're smart. It comes from solving the puzzle yourself, after twenty tries. Chess gives kids that — at the board, every week.</p>
             </div>
           </div>
           <div style="margin-top: 2.5rem;">
@@ -1435,10 +1464,10 @@
       <div class="grand-opening-grid">
         <div>
           <p style="font-family:var(--font-body);font-size:0.7rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;display:flex;align-items:center;gap:0.75rem;"><span style="display:block;width:1.5rem;height:1px;background:var(--red);"></span>The Community Showed Up</p>
-          <h2 style="font-family:var(--font-title);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:900;line-height:1;letter-spacing:-0.02em;color:var(--white);margin-bottom:1.25rem;">We Opened Our Doors.<br>Carmel Valley Filled Them.</h2>
-          <p style="font-family:var(--font-body);font-size:1rem;font-weight:300;color:var(--cream);opacity:0.85;line-height:1.8;margin-bottom:1.5rem;">This is what our grand opening looked like. Kids. Adults. Neighbors. Families who had never met each other sitting down across a chess board. The room was full from the moment we unlocked the door.</p>
+          <h2 style="font-family:var(--font-title);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:900;line-height:1;letter-spacing:-0.02em;color:var(--white);margin-bottom:1.25rem;">We Opened the Doors.<br>Carmel Valley Filled Them.</h2>
+          <p style="font-family:var(--font-body);font-size:1rem;font-weight:300;color:var(--cream);opacity:0.85;line-height:1.8;margin-bottom:1.5rem;">This is what our grand opening looked like. Kids. Adults. Neighbors who'd never met sitting across the board from each other. The room was full from the moment we unlocked the door. I knew right then that this was needed here.</p>
           <p style="font-family:var(--font-body);font-size:0.95rem;font-style:italic;font-weight:300;color:var(--cream);opacity:0.8;line-height:1.75;border-left:3px solid var(--red);padding-left:1.25rem;margin-bottom:2rem;">"This club is such a blessing to our kids."<br><span style="font-style:normal;font-size:0.75rem;opacity:0.8;">— CV Chess Club Parent</span></p>
-          <a href="friday-nights.html" style="display:inline-flex;align-items:center;gap:0.5rem;background:var(--red);color:var(--white);font-family:var(--font-title);font-size:0.85rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;padding:0.85rem 1.75rem;border-radius:2px;">Join Us Any Friday →</a>
+          <a href="friday-nights.html" style="display:inline-flex;align-items:center;gap:0.5rem;background:var(--red);color:var(--white);font-family:var(--font-title);font-size:0.85rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;padding:0.85rem 1.75rem;border-radius:2px;">Come Any Friday Night →</a>
         </div>
         <div style="border-radius:4px;overflow:hidden;height:500px;">
           <img src="assets/club-full.jpg" alt="Carmel Valley Chess Club grand opening — packed room" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
@@ -1457,17 +1486,17 @@
         </div>
         <div>
           <p class="section-eyebrow">Meet Your Coach</p>
-          <h2 class="section-title">Chess Found JB Before He Could Read.</h2>
+          <h2 class="section-title">I Learned Chess in Kindergarten.</h2>
           <blockquote class="coach-quote">
-            "Chess gave him the ability to focus. To sit still with a hard problem. To think before he moved. That early experience left a mark that never faded."
+            "What I needed wasn't a better app or another coach or more tournaments. I needed other kids who played chess. A community. I never got it. So I'm building it now."
           </blockquote>
           <p class="coach-bio-preview">
-            Growing up in Monterey County, JB had a tough start in school. He struggled. He fell behind. And somewhere in that uncertain stretch of childhood, before he'd cracked the code of reading, he learned to play chess. He's convinced it saved him.
+            My dad bought us this big heavy marble chess set and taught me and my brother how to play. We probably learned mostly by throwing the pieces at each other. Eventually we figured it out. By third grade I was decent. By fifth grade I'd won my school's championship.
           </p>
           <p class="coach-bio-preview">
-            Today he's a trusted local realtor and father of two boys — Cyrus and Leo — raising his family right here in Carmel Valley with his wife Halleh. He built the club he always wished existed.
+            Then middle school hit and the chess community around me disappeared — and that's the experience that built this club. I'm a realtor by day, a husband to Halleh, a dad to Cyrus and Leo, and the guy who decided Carmel Valley deserved the chess club it never had.
           </p>
-          <a href="coach-jb.html" class="btn-primary">Read Coach JB's Full Story →</a>
+          <a href="coach-jb.html" class="btn-primary">Read My Full Story →</a>
         </div>
       </div>
     </div>
@@ -1481,7 +1510,10 @@
           <span class="friday-tag">Adults Only</span>
           <h2 class="friday-title">$5 Fridays.<br>Every Friday Night.</h2>
           <p class="friday-desc">
-            No registration. No experience needed. Just show up at 9 Del Fino Place, Suite 201 (above Mika Sushi) any Friday from 5–9pm. Bring a beverage and snacks. All skill levels welcome.
+            No registration. No sign-up. No commitment. Show up at 9 Del Fino Place, Suite 201 — above Mika Sushi — any Friday from 5–9pm. $5 at the door. Bring a beverage if you want. Sit down across from somebody. Play chess.
+          </p>
+          <p class="friday-desc" style="margin-top:1rem;font-style:italic;opacity:0.8;">
+            We've had adults who hadn't played in 20 years walk in and renew their USCF memberships the same night. There's no wrong reason to come.
           </p>
           <div style="margin-top: 2rem;">
             <a href="friday-nights.html" class="btn-primary">Learn More →</a>
@@ -1502,7 +1534,7 @@
         <div>
           <p class="section-eyebrow">Find Us</p>
           <h2 class="section-title">Right in the Heart of Carmel Valley</h2>
-          <p class="section-subtitle">Suite 201 above Mika Sushi — you'll know it by the giant chess pieces.</p>
+          <p class="section-subtitle">Suite 201, above Mika Sushi. You'll spot the giant chess pieces from the street.</p>
 
           <div class="location-details">
             <div class="location-item">
