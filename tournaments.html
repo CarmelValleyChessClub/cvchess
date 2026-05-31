@@ -29,8 +29,12 @@
     "@type": "SportsEvent",
     "name": "Carmel Valley Sushi Slam",
     "description": "USCF dual rated 3-round quad tournament with a catered sushi lunch and a live digital lecture from WCM Clara Isabel Peña Gonzalez. Lunch and lecture included with entry.",
-    "startDate": "2026-06-20T10:00",
-    "endDate": "2026-06-20T14:45",
+    "startDate": "2026-06-20T10:00-07:00",
+    "endDate": "2026-06-20T14:45-07:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "image": "https://cvchess.com/assets/giant-chess.jpg",
+    "url": "https://cvchess.com/tournaments.html",
     "location": {
       "@type": "Place",
       "name": "Carmel Valley Chess Club",
@@ -39,18 +43,45 @@
         "streetAddress": "9 Del Fino Place, Suite 201",
         "addressLocality": "Carmel Valley",
         "addressRegion": "CA",
-        "postalCode": "93924"
+        "postalCode": "93924",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 36.4793,
+        "longitude": -121.7318
       }
     },
     "organizer": {
-      "@type": "Person",
-      "name": "Justin Bradley",
+      "@type": "Organization",
+      "name": "Carmel Valley Chess Club",
+      "url": "https://cvchess.com",
       "email": "chessclubcv@gmail.com",
       "telephone": "+18313927456"
     },
+    "performer": {
+      "@type": "Person",
+      "name": "WCM Clara Isabel Peña Gonzalez",
+      "description": "Woman Candidate Master, member of Venezuela's 2024 Chess Olympic team"
+    },
     "offers": [
-      {"@type": "Offer", "name": "Early Bird (through June 7)", "price": "50", "priceCurrency": "USD"},
-      {"@type": "Offer", "name": "Regular Registration", "price": "65", "priceCurrency": "USD"}
+      {
+        "@type": "Offer",
+        "name": "Early Bird (through June 7)",
+        "price": "50",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "validThrough": "2026-06-07T23:59-07:00",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSdJjHyYkt_KMhe8aD1VuxyZh4KN7al8qxv2jfoUIwMafLwDkg/viewform?usp=dialog"
+      },
+      {
+        "@type": "Offer",
+        "name": "Regular Registration",
+        "price": "65",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLSdJjHyYkt_KMhe8aD1VuxyZh4KN7al8qxv2jfoUIwMafLwDkg/viewform?usp=dialog"
+      }
     ]
   }
   </script>
