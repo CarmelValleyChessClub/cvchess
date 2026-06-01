@@ -268,7 +268,7 @@
     <div class="container">
       <p class="page-eyebrow">Schedule</p>
       <h1 class="page-title">Club Calendar</h1>
-      <p class="page-subtitle">Everything happening at the club — after-school classes, Friday nights, Summer Camp, the upcoming Sushi Slam tournament, and the days we're closed. Click any event for details.</p>
+      <p class="page-subtitle">Everything happening at the club — after-school classes, monthly $5 Friday Night Chess, Summer Camp, the upcoming Sushi Slam tournament, and the days we're closed. Click any event for details.</p>
       <div class="legend">
         <div class="legend-item"><div class="legend-dot youth"></div><span class="legend-label">Youth Classes (Pre-registration required)</span></div>
         <div class="legend-item"><div class="legend-dot friday"></div><span class="legend-label">$5 Friday Night Chess</span></div>
@@ -346,13 +346,9 @@
             </div>
           </div>
 
-          <div class="weekly-day">
-            <p class="weekly-day-name">Friday</p>
-            <div class="weekly-event friday">
-              <span class="weekly-event-name">♟ $5 Fridays Chess Night</span>
-              <span class="weekly-event-time">5:00 – 9:00 PM</span>
-            </div>
-          </div>
+          <p style="font-family:var(--font-body);font-size:0.78rem;color:var(--cream);opacity:0.6;margin-top:0.5rem;line-height:1.6;font-style:italic;">
+            $5 Friday Night Chess shifts to monthly starting July 2026 — see the "$5 Fridays" panel to the right for upcoming dates.
+          </p>
 
           <div class="reg-notice">
             <p class="reg-notice-title">⚠️ Youth Classes Require Pre-Registration</p>
@@ -409,9 +405,29 @@
           </div>
 
           <h2 class="schedule-title" style="margin-top:2.5rem;">$5 Fridays</h2>
-          <p class="schedule-sub">Adults only. Every Friday. No registration needed — just show up.</p>
+          <p class="schedule-sub">Adults only. <strong style="color:var(--white);">One Friday a month</strong> starting July 2026. 5–6pm beginner instruction with Coach JB. 6–9pm open play.</p>
           <div class="weekly-event friday" style="margin-top:1rem;">
-            <span class="weekly-event-name">Every Friday Night</span>
+            <span class="weekly-event-name">Friday, July 17, 2026</span>
+            <span class="weekly-event-time">5:00 – 9:00 PM</span>
+          </div>
+          <div class="weekly-event friday" style="margin-top:0.4rem;">
+            <span class="weekly-event-name">Friday, August 14, 2026</span>
+            <span class="weekly-event-time">5:00 – 9:00 PM</span>
+          </div>
+          <div class="weekly-event friday" style="margin-top:0.4rem;">
+            <span class="weekly-event-name">Friday, September 25, 2026</span>
+            <span class="weekly-event-time">5:00 – 9:00 PM</span>
+          </div>
+          <div class="weekly-event friday" style="margin-top:0.4rem;">
+            <span class="weekly-event-name">Friday, October 23, 2026</span>
+            <span class="weekly-event-time">5:00 – 9:00 PM</span>
+          </div>
+          <div class="weekly-event friday" style="margin-top:0.4rem;">
+            <span class="weekly-event-name">Friday, November 20, 2026</span>
+            <span class="weekly-event-time">5:00 – 9:00 PM</span>
+          </div>
+          <div class="weekly-event friday" style="margin-top:0.4rem;">
+            <span class="weekly-event-name">Friday, December 18, 2026</span>
             <span class="weekly-event-time">5:00 – 9:00 PM</span>
           </div>
           <p style="font-family:var(--font-body);font-size:0.8rem;color:var(--cream);opacity:0.65;margin-top:0.75rem;line-height:1.6;">
@@ -427,7 +443,7 @@
     <div class="container">
       <p class="page-eyebrow">Club Closures</p>
       <h2 style="font-family:var(--font-title);font-size:2rem;font-weight:900;color:var(--white);margin-bottom:0.5rem;">When We're Closed</h2>
-      <p style="font-family:var(--font-body);font-size:0.9rem;color:var(--cream);opacity:0.75;max-width:500px;">Youth classes are closed during the following periods. $5 Friday Night Chess may still run — check the calendar above or contact us to confirm.</p>
+      <p style="font-family:var(--font-body);font-size:0.9rem;color:var(--cream);opacity:0.75;max-width:500px;">Youth classes are closed during the following periods. Monthly $5 Friday Night Chess dates are listed in the panel above — those nights run regardless of school breaks.</p>
       <div class="closures-grid">
         <div class="closure-card">
           <p class="closure-dates">July 1–8, 2026</p>
@@ -513,6 +529,22 @@
       { start: new Date(2026,6,1), end: new Date(2026,6,8), label: 'Summer Break' },
       { start: new Date(2026,9,12), end: new Date(2026,9,16), label: 'Fall Break' },
     ];
+
+    // Friday Night Chess: weekly through June 30, 2026; monthly thereafter
+    const FRIDAY_NIGHTS_WEEKLY_THROUGH = new Date(2026,5,30); // June 30, 2026
+    const FRIDAY_NIGHTS_MONTHLY = [
+      new Date(2026,6,17),  // July 17
+      new Date(2026,7,14),  // August 14
+      new Date(2026,8,25),  // September 25
+      new Date(2026,9,23),  // October 23
+      new Date(2026,10,20), // November 20
+      new Date(2026,11,18), // December 18
+    ];
+    function isFridayNight(d) {
+      if (d.getDay() !== 5) return false;
+      if (d <= FRIDAY_NIGHTS_WEEKLY_THROUGH) return true;
+      return FRIDAY_NIGHTS_MONTHLY.some(md => md.getTime() === d.getTime());
+    }
 
     // Tournament dates
     const TOURNAMENT_DATE = new Date(2026, 5, 20); // June 20 2026 — Sushi Slam
@@ -609,8 +641,8 @@
           if (dow === 4) {
             html += `<span class="event-pill youth" data-type="youth-thu" data-date="${date.toDateString()}">♟ Youth 3:15pm</span>`;
           }
-          // Friday nights
-          if (dow === 5) {
+          // Friday nights (weekly through June, monthly after — see isFridayNight())
+          if (isFridayNight(date)) {
             html += `<span class="event-pill friday" data-type="friday" data-date="${date.toDateString()}">♟ $5 Friday 5–9pm</span>`;
           }
         }
@@ -694,11 +726,11 @@
 
       if (type === 'friday') {
         tag.className = 'modal-tag friday';
-        tag.textContent = 'Adults Only';
+        tag.textContent = 'Adults Only · Once a Month';
         title.textContent = '$5 Fridays Chess Night';
         date.textContent = `${dateFormatted} · 5:00 – 9:00 PM`;
-        desc.textContent = 'Every Friday night — adults of all skill levels gather for casual chess, community, and good company. No experience needed. Just show up. Bring a beverage and snacks.';
-        notice.innerHTML = `<strong>No registration required.</strong><br>Just show up at 9 Del Fino Place, Suite 201 (above Mika Sushi), Carmel Valley. $5 at the door.`;
+        desc.textContent = 'Monthly $5 Friday Night Chess. 5–6pm is a beginner hour with Coach JB — never played? Come learn. 6–9pm is open play for adults of every skill level. Bring a beverage and snacks.';
+        notice.innerHTML = `<strong>No registration required.</strong><br>Just show up at 9 Del Fino Place, Suite 201 (above Mika Sushi), Carmel Valley. $5 at the door. Adults only (18+).`;
         btn.textContent = 'Learn More About $5 Fridays →';
         btn.href = 'friday-nights.html';
         btn.className = 'modal-btn friday-btn';
