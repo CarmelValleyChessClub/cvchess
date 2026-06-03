@@ -162,6 +162,51 @@
       .closures-grid { grid-template-columns: 1fr 1fr; }
     }
 
+    /* Narrow phones — force the 7-col calendar to fit within viewport.
+       Key: minmax(0, 1fr) overrides grid's implicit min-content sizing
+       so columns can shrink below the natural width of "Youth 3:15pm". */
+    @media (max-width: 700px) {
+      .calendar-section { padding: 2rem 0.75rem 4rem; }
+      .calendar-grid { border-radius: 4px; overflow: hidden; }
+      .cal-header { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+      .cal-days { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+      .cal-day {
+        min-height: 78px;
+        padding: 0.3rem 0.18rem;
+        min-width: 0;
+        overflow: hidden;
+      }
+      .cal-header-cell {
+        font-size: 0.5rem;
+        padding: 0.5rem 0.1rem;
+        letter-spacing: 0.06em;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .day-num {
+        font-size: 0.72rem;
+        width: 20px;
+        height: 20px;
+        margin-bottom: 0.2rem;
+      }
+      .event-pill {
+        font-size: 0.5rem;
+        padding: 0.1rem 0.25rem;
+        margin-bottom: 0.12rem;
+        border-left-width: 2px;
+        line-height: 1.15;
+        border-radius: 1px;
+      }
+      .closed-banner {
+        font-size: 0.46rem;
+        padding: 0.08rem 0.22rem;
+        letter-spacing: 0.04em;
+      }
+      .legend { gap: 0.5rem 0.85rem; }
+      .legend-label { font-size: 0.65rem; }
+      .page-hero { padding: 7rem 1rem 3rem; }
+    }
+
     /* ── HAMBURGER ── */
     .hamburger {
       display: none;
