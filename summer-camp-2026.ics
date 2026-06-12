@@ -1,0 +1,25 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Carmel Valley Chess Club//Summer Camp 2026//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:summer-camp-2026@cvchess.com
+DTSTAMP:20260612T170000Z
+DTSTART:20260615T160000Z
+DTEND:20260615T220000Z
+RRULE:FREQ=DAILY;COUNT=5
+SUMMARY:Summer Chess Camp 2026 — Carmel Valley Chess Club
+LOCATION:9 Del Fino Place\, Suite 201\, Carmel Valley\, CA 93924
+DESCRIPTION:Daily 9:00 AM–3:00 PM\, June 15–19. Meet at 9 Del Fino Pla
+ ce\, Suite 201\; we walk together to the park and pool. Pool days Tuesday
+  & Thursday — bring a swimsuit and towel. Breakfast\, lunch\, snacks\, 
+ and drinks provided. Early drop-off 8 AM / late pickup 5 PM for those enr
+ olled. Questions: chessclubcv@gmail.com or (831) 392-7456.
+BEGIN:VALARM
+TRIGGER:-PT1H
+ACTION:DISPLAY
+DESCRIPTION:Summer Chess Camp today
+END:VALARM
+END:VEVENT
+END:VCALENDAR
