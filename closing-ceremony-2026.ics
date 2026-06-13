@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Carmel Valley Chess Club//Camp Closing Ceremony//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:camp-closing-ceremony-2026@cvchess.com
+DTSTAMP:20260612T170000Z
+DTSTART:20260619T213000Z
+DTEND:20260619T220000Z
+SUMMARY:Summer Camp Closing Ceremony & Trophy Presentation — Carmel Vall
+ ey Chess Club
+LOCATION:9 Del Fino Place\, Suite 201\, Carmel Valley\, CA 93924
+DESCRIPTION:Awards and recognitions ceremony for our first Summer Chess Ca
+ mp\, ending with the Summer Championship trophy presentation. Friday\, Ju
+ ne 19 at 2:30 PM — come a little before the usual 3:00 PM pickup so you
+  don't miss it. Questions: chessclubcv@gmail.com or (831) 392-7456.
+BEGIN:VALARM
+TRIGGER:-PT2H
+ACTION:DISPLAY
+DESCRIPTION:Camp closing ceremony at 2:30 PM today
+END:VALARM
+END:VEVENT
+END:VCALENDAR
