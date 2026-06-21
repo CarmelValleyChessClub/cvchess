@@ -594,8 +594,13 @@
       new Date(2026,10,20), // November 20
       new Date(2026,11,18), // December 18
     ];
+    // One-off dates with NO Friday night (closures/skips)
+    const FRIDAY_NIGHTS_SKIP = [
+      new Date(2026,5,26), // June 26 2026 — no adult night
+    ];
     function isFridayNight(d) {
       if (d.getDay() !== 5) return false;
+      if (FRIDAY_NIGHTS_SKIP.some(sd => sd.getTime() === d.getTime())) return false;
       if (d <= FRIDAY_NIGHTS_WEEKLY_THROUGH) return true;
       return FRIDAY_NIGHTS_MONTHLY.some(md => md.getTime() === d.getTime());
     }
