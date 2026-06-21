@@ -1,6 +1,6 @@
 # Carmel Valley Chess Club
 
-> Carmel Valley Chess Club is the only dedicated chess club in Monterey County, California. Founded in 2026 by Coach JB (Justin Bradley), it offers after-school chess for kids ages 5–17, a summer day camp, USCF-rated tournaments, and weekly $5 Friday Night Chess for adults.
+> Carmel Valley Chess Club is the only dedicated chess club in Monterey County, California. Founded in 2026 by Coach JB (Justin Bradley), it offers after-school chess for kids ages 5–17, a summer day camp, USCF-rated tournaments, and adult chess. (Note: the $5 Friday Night Chess adult program is on hold for now while a new adult program is planned.)
 
 ## Quick facts
 
@@ -40,15 +40,10 @@
 - Every camper leaves as a USCF-rated tournament player.
 - More info: https://cvchess.com/summer-camp.html
 
-### $5 Friday Night Chess (Adults, 18+)
-- **Monthly** starting July 2026 — one Friday a month, 5:00 – 9:00pm
-- **5–6pm**: Beginner instruction hour with Coach JB — for adults who have never played chess
-- **6–9pm**: Open play, all skill levels
-- $5 at the door, no registration needed
-- Bring a beverage and snacks
-- **2026 dates:** July 17, August 14, September 25, October 23, November 20, December 18
-- (Through June 26, 2026: still weekly every Friday — transitions to monthly in July)
-- More info: https://cvchess.com/friday-nights.html
+### Adult Chess (18+)
+- **STATUS: $5 Friday Night Chess is ON HOLD for now.** Adult chess at the club is not ending — a new adult program is being planned (more formats, more ways to play).
+- No adult sessions are currently scheduled.
+- Join the email list to be first to hear when the next adult program opens: https://cvchess.com/friday-nights.html
 
 ### USCF Rated Tournaments
 - **Next event:** Carmel Valley Sushi Slam — Saturday, June 20, 2026
@@ -67,7 +62,7 @@
 ## Frequently asked
 - **Is there a chess club in Carmel Valley?** Yes — Carmel Valley Chess Club at 9 Del Fino Place, Suite 201.
 - **Does my child need experience?** No. Coach JB welcomes complete beginners.
-- **Can adults play here?** Yes. $5 Friday Night Chess one Friday a month, 5–9pm. First hour (5–6pm) is beginner instruction; 6–9pm is open play. Adults only (18+).
+- **Can adults play here?** Yes, adult chess is part of the club. The $5 Friday Night Chess program is on hold for now while a new adult program is planned. Join the email list (cvchess.com/friday-nights.html) to hear when it opens. Adults 18+.
 - **Do you have summer camp?** Yes. Summer Chess Camp 2026 runs June 15–19, $500 all-inclusive.
 - **What is a USCF rating?** An official numerical measure of chess strength tracked by the United States Chess Federation. Every camper and tournament player at CVCC receives a USCF membership and first rating.
 
@@ -91,7 +86,7 @@ Founder-led. Direct. Specific. No corporate jargon. Coach JB speaks in first per
 - After-School: https://cvchess.com/after-school.html
 - Summer Camp: https://cvchess.com/summer-camp.html
 - Tournaments: https://cvchess.com/tournaments.html
-- Friday Nights: https://cvchess.com/friday-nights.html
+- Adult Chess: https://cvchess.com/friday-nights.html
 - Calendar: https://cvchess.com/calendar.html
 - About Coach JB: https://cvchess.com/coach-jb.html
 - FAQ: https://cvchess.com/faq.html
