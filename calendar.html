@@ -276,7 +276,7 @@
     <ul class="nav-links">
       <li><a href="after-school.html">After-School</a></li>
       <li><a href="summer-camp.html">Summer Camp</a></li>
-      <li><a href="friday-nights.html">Adults</a></li>
+      <li><a href="friday-nights.html">Family Nights</a></li>
       <li><a href="tournaments.html">Tournaments</a></li>
       <li><a href="calendar.html">Calendar</a></li>
       <li><a href="blog.html">Blog</a></li>
@@ -293,7 +293,7 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="after-school.html" onclick="toggleMenu()">After-School</a>
     <a href="summer-camp.html" onclick="toggleMenu()">Summer Camp</a>
-    <a href="friday-nights.html" onclick="toggleMenu()">Adults</a>
+    <a href="friday-nights.html" onclick="toggleMenu()">Family Nights</a>
     <a href="tournaments.html" onclick="toggleMenu()">Tournaments</a>
     <a href="calendar.html" onclick="toggleMenu()">Calendar</a>
     <a href="blog.html" onclick="toggleMenu()">Blog</a>
@@ -314,9 +314,10 @@
     <div class="container">
       <p class="page-eyebrow">Schedule</p>
       <h1 class="page-title">Club Calendar</h1>
-      <p class="page-subtitle">Everything happening at the club — after-school classes, Summer Camp, USCF rated tournaments, and the days we're closed. Click any event for details.</p>
+      <p class="page-subtitle">Everything happening at the club — after-school classes, Summer Camp, monthly Family Chess Nights, USCF rated tournaments, and the days we're closed. Click any event for details.</p>
       <div class="legend">
         <div class="legend-item"><div class="legend-dot youth"></div><span class="legend-label">Youth Classes (Pre-registration required)</span></div>
+        <div class="legend-item"><div class="legend-dot friday"></div><span class="legend-label">👪 Family Chess Night (All Ages)</span></div>
         <div class="legend-item"><div class="legend-dot camp"></div><span class="legend-label">Summer Camp 2026</span></div>
         <div class="legend-item"><div class="legend-dot past"></div><span class="legend-label">✓ Past Tournament</span></div>
         <div class="legend-item"><div class="legend-dot closed"></div><span class="legend-label">Club Closed</span></div>
@@ -391,7 +392,7 @@
           </div>
 
           <p style="font-family:var(--font-body);font-size:0.78rem;color:var(--cream);opacity:0.6;margin-top:0.5rem;line-height:1.6;font-style:italic;">
-            $5 Friday Night Chess is on hold for now — see the "Adult Chess" panel to the right for what's coming next.
+            Family Chess Nights (all ages) run one Friday a month — see the "Family Chess Nights" panel to the right for dates.
           </p>
 
           <div class="reg-notice">
@@ -432,9 +433,15 @@
             <a href="tournaments.html" class="btn-primary" style="background:#c4831a;">Tournaments &amp; the Story →</a>
           </div>
 
-          <h2 class="schedule-title" style="margin-top:2.5rem;">Adult Chess</h2>
-          <p class="schedule-sub"><strong style="color:var(--white);">$5 Friday Nights are on hold for now.</strong> Adult chess at the club isn't going anywhere — we're planning the next program. Join the email list and you'll be first to know when it opens.</p>
-          <a href="friday-nights.html" class="btn-primary" style="margin-top:1rem;">What's Next for Adults →</a>
+          <h2 class="schedule-title" style="margin-top:2.5rem;">👪 Family Chess Nights</h2>
+          <p class="schedule-sub"><strong style="color:var(--white);">One Friday a month, 5–9pm — all ages, all levels.</strong> 5–6pm beginner instruction with Coach JB, 6–9pm open play. Donation-based, benefiting our youth scholarship fund. First one: <strong style="color:var(--white);">Friday, July 17</strong>.</p>
+          <div class="weekly-event friday" style="margin-top:1rem;"><span class="weekly-event-name">Friday, July 17, 2026</span><span class="weekly-event-time">5:00 – 9:00 PM</span></div>
+          <div class="weekly-event friday" style="margin-top:0.4rem;"><span class="weekly-event-name">Friday, August 14, 2026</span><span class="weekly-event-time">5:00 – 9:00 PM</span></div>
+          <div class="weekly-event friday" style="margin-top:0.4rem;"><span class="weekly-event-name">Friday, September 25, 2026</span><span class="weekly-event-time">5:00 – 9:00 PM</span></div>
+          <div class="weekly-event friday" style="margin-top:0.4rem;"><span class="weekly-event-name">Friday, October 23, 2026</span><span class="weekly-event-time">5:00 – 9:00 PM</span></div>
+          <div class="weekly-event friday" style="margin-top:0.4rem;"><span class="weekly-event-name">Friday, November 20, 2026</span><span class="weekly-event-time">5:00 – 9:00 PM</span></div>
+          <div class="weekly-event friday" style="margin-top:0.4rem;"><span class="weekly-event-name">Friday, December 18, 2026</span><span class="weekly-event-time">5:00 – 9:00 PM</span></div>
+          <a href="friday-nights.html" class="btn-primary" style="margin-top:1rem;">About Family Chess Nights →</a>
         </div>
       </div>
     </div>
@@ -540,29 +547,17 @@
       { start: new Date(2026,9,12), end: new Date(2026,9,16), label: 'Fall Break' },
     ];
 
-    // Friday Night Chess: weekly through June 30, 2026; monthly thereafter
-    const FRIDAY_NIGHTS_WEEKLY_THROUGH = new Date(2026,5,30); // June 30, 2026
-    const FRIDAY_NIGHTS_MONTHLY = [
-      new Date(2026,6,17),  // July 17
+    // Family Chess Nights: one Friday a month, all ages, donation-based (youth scholarship fund).
+    const FAMILY_CHESS_NIGHTS = [
+      new Date(2026,6,17),  // July 17 — first one
       new Date(2026,7,14),  // August 14
       new Date(2026,8,25),  // September 25
       new Date(2026,9,23),  // October 23
       new Date(2026,10,20), // November 20
       new Date(2026,11,18), // December 18
     ];
-    // One-off dates with NO Friday night (closures/skips)
-    const FRIDAY_NIGHTS_SKIP = [
-      new Date(2026,5,26), // June 26 2026 — no adult night
-    ];
-    // Adult $5 Fridays are ON HOLD — no Friday nights shown on the calendar.
-    // (Schedule data above is kept for easy re-enable when an adult program returns.)
-    const ADULT_NIGHTS_ON_HOLD = true;
-    function isFridayNight(d) {
-      if (ADULT_NIGHTS_ON_HOLD) return false;
-      if (d.getDay() !== 5) return false;
-      if (FRIDAY_NIGHTS_SKIP.some(sd => sd.getTime() === d.getTime())) return false;
-      if (d <= FRIDAY_NIGHTS_WEEKLY_THROUGH) return true;
-      return FRIDAY_NIGHTS_MONTHLY.some(md => md.getTime() === d.getTime());
+    function isFamilyChessNight(d) {
+      return FAMILY_CHESS_NIGHTS.some(md => md.getTime() === d.getTime());
     }
 
     // Tournament dates
@@ -658,9 +653,9 @@
           if (dow === 4) {
             html += `<span class="event-pill youth" data-type="youth-thu" data-date="${date.toDateString()}">♟ Youth 3:15pm</span>`;
           }
-          // Friday nights (weekly through June, monthly after — see isFridayNight())
-          if (isFridayNight(date)) {
-            html += `<span class="event-pill friday" data-type="friday" data-date="${date.toDateString()}">♟ $5 Friday 5–9pm</span>`;
+          // Family Chess Nights — one Friday a month (see isFamilyChessNight())
+          if (isFamilyChessNight(date)) {
+            html += `<span class="event-pill friday" data-type="friday" data-date="${date.toDateString()}">👪 Family Chess 5–9pm</span>`;
           }
         }
 
@@ -743,12 +738,12 @@
 
       if (type === 'friday') {
         tag.className = 'modal-tag friday';
-        tag.textContent = 'Adults Only · Once a Month';
-        title.textContent = '$5 Fridays Chess Night';
+        tag.textContent = 'All Ages · Once a Month';
+        title.textContent = 'Family Chess Night';
         date.textContent = `${dateFormatted} · 5:00 – 9:00 PM`;
-        desc.textContent = 'Monthly $5 Friday Night Chess. 5–6pm is a beginner hour with Coach JB — never played? Come learn. 6–9pm is open play for adults of every skill level. Bring a beverage and snacks.';
-        notice.innerHTML = `<strong>No registration required.</strong><br>Just show up at 9 Del Fino Place, Suite 201 (above Mika Sushi), Carmel Valley. $5 at the door. Adults only (18+).`;
-        btn.textContent = 'Learn More About $5 Fridays →';
+        desc.textContent = 'All-ages chess night. 5–6pm is a beginner hour with Coach JB — never played? Come learn. 6–9pm is open play for every age and level. Bring the whole family and a snack to share.';
+        notice.innerHTML = `<strong>Donation-based — give what you like.</strong><br>Every dollar goes to our youth scholarship fund. No registration; just show up at 9 Del Fino Place, Suite 201 (above Mika Sushi), Carmel Valley. All ages welcome.`;
+        btn.textContent = 'About Family Chess Nights →';
         btn.href = 'friday-nights.html';
         btn.className = 'modal-btn friday-btn';
       }
