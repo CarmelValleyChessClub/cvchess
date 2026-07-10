@@ -34,7 +34,9 @@
     --ui:'Raleway',system-ui,sans-serif;
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  html{-webkit-text-size-adjust:100%}
+  /* overflow-x on body alone doesn't stop <html> scrolling — the oversized act
+     numerals and the .grain layer both hang past the right edge. */
+  html{-webkit-text-size-adjust:100%; overflow-x:hidden}
   body{background:var(--ink); color:var(--cream); font-family:var(--ui);
     overflow-x:hidden; -webkit-font-smoothing:antialiased}
   body.locked{overflow:hidden; height:100vh}
@@ -87,8 +89,8 @@
   /* big faint act numeral — editorial layering, in the sports serif */
   .act-num{position:absolute; z-index:-1; font-family:var(--sport);
     font-size:clamp(9rem,26vw,22rem); line-height:.8; color:rgba(231,220,206,.045);
-    top:50%; transform:translateY(-50%); left:-.08em; pointer-events:none; user-select:none}
-  .act.right .act-num{left:auto; right:-.08em}
+    top:50%; transform:translateY(-50%); left:0; pointer-events:none; user-select:none}
+  .act.right .act-num{left:auto; right:0}
   .act.center .act-num{left:50%; transform:translate(-50%,-50%)}
 
   .eyebrow{font-family:var(--ui); font-weight:600; font-size:.62rem;
@@ -99,11 +101,18 @@
   .eyebrow::before{content:''; width:2.2rem; height:1px; background:var(--gold); flex:none}
   .act.right .eyebrow::before{order:2}
 
+  /* line-height must clear Bodoni's ink, not just its em box. Measured at
+     107px: roman descender 28px + italic ascender 81px = 109px, so anything
+     under 1.014 makes the "g" of "game." collide with "New room." below it. */
   .display{font-family:var(--display); font-weight:900; font-optical-sizing:auto;
-    font-size:clamp(2.7rem,8.4vw,8.2rem); line-height:.92; letter-spacing:-.02em;
-    color:var(--white); margin-bottom:1.6rem}
+    font-size:clamp(2.7rem,8.4vw,8.2rem); line-height:1.06; letter-spacing:-.02em;
+    color:var(--white); margin-bottom:1.6rem;
+    /* soft halo, not a drop shadow — holds the hairlines against busy artwork */
+    text-shadow:0 1px 2px rgba(6,14,12,.30), 0 6px 34px rgba(6,14,12,.55)}
   .display .gold{color:var(--gold-lt)}
-  .display em{font-style:italic; font-weight:500}
+  /* Bodoni is a Didone: at weight 500 the italic strokes are hairlines and
+     vanish over a photograph. Match the roman's presence. */
+  .display em{font-style:italic; font-weight:700}
 
   /* the sports moment */
   .kicker{font-family:var(--sport); text-transform:uppercase;
@@ -161,7 +170,7 @@
     .act.right{text-align:left; justify-content:flex-start}
     .act.right .eyebrow{justify-content:flex-start}
     .act.right .lede{margin-left:0}
-    .act.right .act-num{right:auto; left:-.08em}
+    .act.right .act-num{right:auto; left:0}
     .pillars{grid-template-columns:1fr}
     .act-inner::before{inset:-10% -14%}
     .topbar{mix-blend-mode:normal; background:linear-gradient(to bottom,rgba(11,26,23,.85),transparent)}
