@@ -82,9 +82,26 @@
   .act.center{justify-content:center; text-align:center}
   .act-inner{max-width:min(640px,92vw); position:relative}
   .act.center .act-inner{max-width:min(880px,92vw)}
-  .act-inner::before{content:''; position:absolute; inset:-14% -22%; z-index:-1;
-    background:radial-gradient(ellipse at center, rgba(9,20,17,.82) 0%, rgba(9,20,17,.56) 46%, transparent 78%);
-    filter:blur(6px)}
+  /* Full-bleed directional scrim.
+     The old scrim was a radial ellipse tied to the 640px text column, so it
+     faded out before it covered the headline. The camera pushes INTO the
+     paintings, so at some scroll positions a white balloon or a lit shirt
+     slides directly under the type — measured 206 avg / 255 peak luminance
+     behind "New room.", i.e. white text on white. This gradient is anchored
+     to the act, not the column: the text side stays dark whatever the camera
+     is looking at, while the far side keeps the artwork fully visible. */
+  .act::before{content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
+    background:linear-gradient(to right,
+      rgba(9,20,17,.94) 0%,  rgba(9,20,17,.90) 26%, rgba(9,20,17,.78) 44%,
+      rgba(9,20,17,.56) 60%, rgba(9,20,17,.24) 78%, rgba(9,20,17,0) 94%)}
+  .act.right::before{background:linear-gradient(to left,
+      rgba(9,20,17,.94) 0%,  rgba(9,20,17,.90) 26%, rgba(9,20,17,.78) 44%,
+      rgba(9,20,17,.56) 60%, rgba(9,20,17,.24) 78%, rgba(9,20,17,0) 94%)}
+  /* Centred acts are the hard case: the lit king (Act I) and the board (Act VII)
+     sit directly behind centred type, so the dark core has to be wide. */
+  .act.center::before{background:radial-gradient(ellipse 88% 72% at 50% 50%,
+      rgba(9,20,17,.94) 0%,  rgba(9,20,17,.88) 42%, rgba(9,20,17,.62) 68%,
+      rgba(9,20,17,.24) 86%, rgba(9,20,17,0) 100%)}
 
   /* big faint act numeral — editorial layering, in the sports serif */
   .act-num{position:absolute; z-index:-1; font-family:var(--sport);
@@ -172,7 +189,13 @@
     .act.right .lede{margin-left:0}
     .act.right .act-num{right:auto; left:0}
     .pillars{grid-template-columns:1fr}
-    .act-inner::before{inset:-10% -14%}
+    /* .act.right is re-aligned left on mobile, so its scrim has to flip with
+       it. Text also spans nearly the full width here, so the gradient never
+       reaches transparent — it just thins out. */
+    .act::before,
+    .act.right::before,
+    .act.center::before{background:linear-gradient(to right,
+      rgba(9,20,17,.94) 0%, rgba(9,20,17,.90) 38%, rgba(9,20,17,.82) 68%, rgba(9,20,17,.70) 100%)}
     .topbar{mix-blend-mode:normal; background:linear-gradient(to bottom,rgba(11,26,23,.85),transparent)}
   }
   @media (prefers-reduced-motion:reduce){ .grain,.hint::after{animation:none} }
