@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Museum of the Game | Carmel Valley Chess Club</title>
+<meta name="description" content="An immersive scroll through five centuries of chess — Renaissance masterworks, floating marble pieces, and the room above Mika Sushi where the game keeps going. Carmel Valley Chess Club.">
+<!-- PREVIEW: not indexed and not linked from the site until you approve it.
+     Flip to "index, follow" (and add to sitemap.xml) when we go live. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://cvchess.com/experience.html">
+<meta property="og:title" content="The Museum of the Game — Carmel Valley Chess Club">
+<meta property="og:description" content="Five centuries of chess, from Anguissola's 1555 masterpiece to a room above a sushi restaurant in Carmel Valley.">
+<meta property="og:image" content="https://cvchess.com/assets/art/anguissola.jpg">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=League+Spartan:wght@400;700;800;900&family=Raleway:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.165.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/"
+  }
+}
+</script>
+
+<style>
+  :root{
+    --ink:#0b1a17; --deep:#0d1f1b; --green:#14332d; --cream:#e7dcce;
+    --white:#fdfdfd; --red:#a0231d; --gold:#c4831a; --gold-lt:#f4d090;
+    --display:'Playfair Display',Georgia,serif;
+    --sport:'League Spartan',system-ui,sans-serif;
+    --body:'Raleway',system-ui,sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--ink); color:var(--cream); font-family:var(--body);
+    overflow-x:hidden; -webkit-font-smoothing:antialiased;
+  }
+  body.locked{overflow:hidden;height:100vh}
+
+  /* ---------- LOADER ---------- */
+  #loader{
+    position:fixed; inset:0; z-index:100; background:var(--ink);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:1.6rem; transition:opacity .9s cubic-bezier(.4,0,.2,1);
+  }
+  #loader.done{opacity:0; pointer-events:none}
+  .load-mark{font-family:var(--display); font-weight:900; font-size:clamp(2rem,6vw,3.6rem); color:var(--white); letter-spacing:-.02em; text-align:center; line-height:1}
+  .load-mark em{display:block; font-style:normal; font-family:var(--sport); font-size:.28em; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); margin-top:1rem}
+  .load-bar{width:min(240px,50vw); height:1px; background:rgba(231,220,206,.18); overflow:hidden}
+  .load-fill{height:100%; width:0%; background:var(--gold); transition:width .35s ease}
+  .load-pct{font-family:var(--sport); font-size:.65rem; letter-spacing:.28em; color:rgba(231,220,206,.5)}
+
+  /* ---------- CANVAS + ATMOSPHERE ---------- */
+  #scene{position:fixed; inset:0; width:100%; height:100%; z-index:0; display:block}
+  .vignette{position:fixed; inset:0; z-index:1; pointer-events:none;
+    background:radial-gradient(ellipse at 50% 50%, transparent 42%, rgba(6,14,12,.72) 100%)}
+  .grain{position:fixed; inset:-50%; z-index:2; pointer-events:none; opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation:grain 8s steps(6) infinite}
+  @keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-2%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+
+  /* ---------- NAV ---------- */
+  .topbar{position:fixed; top:0; left:0; right:0; z-index:20;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1.15rem clamp(1rem,3vw,2.5rem); mix-blend-mode:difference}
+  .topbar a{color:var(--cream); text-decoration:none; font-family:var(--sport);
+    font-size:.68rem; font-weight:700; letter-spacing:.24em; text-transform:uppercase}
+  .topbar a:hover{color:var(--white)}
+  .topbar .brand{display:flex; align-items:center; gap:.6rem}
+  .topbar .brand span{opacity:.55}
+
+  /* ---------- SCROLL / ACTS ---------- */
+  #scroll{position:relative; z-index:5}
+  .act{min-height:100svh; display:flex; align-items:center;
+    padding:7rem clamp(1.25rem,6vw,7rem)}
+  .act.tall{min-height:130svh}
+  .act.right{justify-content:flex-end; text-align:right}
+  .act.center{justify-content:center; text-align:center}
+  .act-inner{max-width:min(640px,92vw); position:relative}
+  .act.center .act-inner{max-width:min(880px,92vw)}
+
+  /* readability scrim so type survives over art */
+  .act-inner::before{content:''; position:absolute; inset:-14% -22%; z-index:-1;
+    background:radial-gradient(ellipse at center, rgba(9,20,17,.80) 0%, rgba(9,20,17,.55) 45%, transparent 78%);
+    filter:blur(6px)}
+
+  .eyebrow{font-family:var(--sport); font-weight:700; font-size:.62rem;
+    letter-spacing:.32em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:1.4rem; display:flex; align-items:center; gap:.85rem}
+  .act.right .eyebrow{justify-content:flex-end}
+  .act.center .eyebrow{justify-content:center}
+  .eyebrow::before{content:''; width:2.2rem; height:1px; background:var(--gold); flex:none}
+  .act.right .eyebrow::before{order:2}
+
+  .display{font-family:var(--display); font-weight:900;
+    font-size:clamp(2.7rem,8.6vw,8.4rem); line-height:.9; letter-spacing:-.035em;
+    color:var(--white); margin-bottom:1.6rem}
+  .display .gold{color:var(--gold-lt)}
+  .display .out{color:transparent; -webkit-text-stroke:1.5px rgba(231,220,206,.5)}
+  .display em{font-style:italic; font-weight:400}
+
+  .kicker{font-family:var(--sport); font-weight:900; text-transform:uppercase;
+    font-size:clamp(1.6rem,4.4vw,3.4rem); line-height:.95; letter-spacing:-.02em;
+    color:var(--white); margin-bottom:1.2rem}
+
+  .lede{font-family:var(--body); font-weight:300; font-size:clamp(1rem,1.35vw,1.28rem);
+    line-height:1.8; color:var(--cream); opacity:.9; max-width:46ch}
+  .act.right .lede,.act.center .lede{margin-left:auto}
+  .act.center .lede{margin-right:auto}
+  .lede + .lede{margin-top:1.1rem}
+  .lede strong{color:var(--white); font-weight:600}
+
+  .caption{margin-top:1.9rem; font-family:var(--sport); font-size:.6rem;
+    letter-spacing:.22em; text-transform:uppercase; color:rgba(231,220,206,.45); line-height:1.9}
+  .caption b{color:var(--gold); font-weight:700}
+
+  /* pillars */
+  .pillars{display:grid; grid-template-columns:repeat(2,1fr); gap:1px;
+    margin-top:2.4rem; background:rgba(231,220,206,.12); border:1px solid rgba(231,220,206,.12)}
+  .pillar{background:rgba(11,26,23,.72); padding:1.35rem 1.4rem; backdrop-filter:blur(4px)}
+  .pillar h3{font-family:var(--sport); font-weight:900; text-transform:uppercase;
+    font-size:.8rem; letter-spacing:.14em; color:var(--gold-lt); margin-bottom:.5rem}
+  .pillar p{font-size:.86rem; line-height:1.65; opacity:.78; font-weight:300}
+
+  /* CTA */
+  .actions{display:flex; gap:.9rem; flex-wrap:wrap; margin-top:2.4rem}
+  .act.center .actions{justify-content:center}
+  .btn{display:inline-flex; align-items:center; gap:.5rem; text-decoration:none;
+    font-family:var(--sport); font-weight:800; font-size:.78rem; letter-spacing:.12em;
+    text-transform:uppercase; padding:1.05rem 2.1rem; border-radius:2px; transition:all .25s ease}
+  .btn-gold{background:var(--gold); color:var(--ink)}
+  .btn-gold:hover{background:var(--gold-lt); transform:translateY(-2px)}
+  .btn-ghost{border:1px solid rgba(231,220,206,.35); color:var(--cream)}
+  .btn-ghost:hover{border-color:var(--cream); color:var(--white); transform:translateY(-2px)}
+
+  /* scroll hint */
+  .hint{position:fixed; left:50%; bottom:1.6rem; transform:translateX(-50%); z-index:20;
+    font-family:var(--sport); font-size:.58rem; letter-spacing:.3em; text-transform:uppercase;
+    color:rgba(231,220,206,.42); display:flex; flex-direction:column; align-items:center; gap:.6rem;
+    transition:opacity .5s ease}
+  .hint::after{content:''; width:1px; height:38px; background:linear-gradient(to bottom,var(--gold),transparent);
+    animation:drift 2.2s ease-in-out infinite}
+  @keyframes drift{0%,100%{transform:scaleY(.4);opacity:.35}50%{transform:scaleY(1);opacity:1}}
+  .hint.gone{opacity:0}
+
+  /* ---------- NO-WEBGL FALLBACK ---------- */
+  .fallback-art{display:none}
+  body.no-webgl #scene{display:none}
+  body.no-webgl .act{position:relative; overflow:hidden}
+  body.no-webgl .fallback-art{display:block; position:absolute; inset:0; z-index:-2;
+    background-size:cover; background-position:center; opacity:.32; filter:saturate(.85)}
+  body.no-webgl{background:var(--deep)}
+
+  @media (max-width:820px){
+    .act{padding:6rem 1.35rem; min-height:100svh}
+    .act.right{text-align:left; justify-content:flex-start}
+    .act.right .eyebrow{justify-content:flex-start}
+    .act.right .lede{margin-left:0}
+    .pillars{grid-template-columns:1fr}
+    .act-inner::before{inset:-10% -14%}
+    .topbar{mix-blend-mode:normal; background:linear-gradient(to bottom,rgba(11,26,23,.85),transparent)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .grain{animation:none}
+    .hint::after{animation:none}
+  }
+</style>
+</head>
+<body class="locked">
+
+<div id="loader">
+  <p class="load-mark">The Museum of the Game<em>Carmel Valley Chess Club</em></p>
+  <div class="load-bar"><div class="load-fill" id="loadFill"></div></div>
+  <p class="load-pct" id="loadPct">0%</p>
+</div>
+
+<canvas id="scene"></canvas>
+<div class="vignette"></div>
+<div class="grain"></div>
+
+<header class="topbar">
+  <a class="brand" href="index.html">Carmel Valley <span>Chess Club</span></a>
+  <a href="index.html">Exit Museum &nbsp;&times;</a>
+</header>
+
+<main id="scroll">
+
+  <!-- ACT I — OVERTURE -->
+  <section class="act center" data-act="0">
+    <div class="fallback-art" style="background-image:url('assets/art/anguissola.jpg')"></div>
+    <div class="act-inner">
+      <p class="eyebrow" data-r>Carmel Valley, California</p>
+      <h1 class="display" data-r>More Than<br><span class="gold">Just</span><br>Chess.</h1>
+      <p class="lede" data-r>Chess for kids who want to play. Chess for adults who used to play. Chess for everyone in between. This is the club I wish I'd had as a kid — built right here in Carmel Valley.</p>
+      <p class="caption" data-r>Scroll to enter</p>
+    </div>
+  </section>
+
+  <!-- ACT II — 1555 -->
+  <section class="act tall" data-act="1">
+    <div class="fallback-art" style="background-image:url('assets/art/anguissola.jpg')"></div>
+    <div class="act-inner">
+      <p class="eyebrow" data-r>Cremona, 1555</p>
+      <h2 class="display" data-r>Three sisters.<br><em>One board.</em></h2>
+      <p class="lede" data-r>Sofonisba Anguissola was twenty-three when she painted her sisters playing chess. Lucia is winning. Minerva has just lost. Europa is delighted about it. Their governess watches from the shadow.</p>
+      <p class="lede" data-r><strong>Nothing about this room has changed in four hundred and seventy-one years.</strong></p>
+      <p class="caption" data-r>Sofonisba Anguissola &middot; <b>The Chess Game</b> &middot; 1555 &middot; National Museum, Poznań</p>
+    </div>
+  </section>
+
+  <!-- ACT III — OLDER THAN ALL OF US -->
+  <section class="act right tall" data-act="2">
+    <div class="fallback-art" style="background-image:url('assets/art/vanleyden.jpg')"></div>
+    <div class="act-inner">
+      <p class="eyebrow" data-r>Leiden, circa 1508</p>
+      <h2 class="display" data-r>The game is<br>older than<br><span class="out">all of us.</span></h2>
+      <p class="lede" data-r>Before the telescope. Before the piano. Before this country. Sixty-four squares and the same quiet argument, played across five centuries by anyone who ever pulled up a chair.</p>
+      <p class="caption" data-r>Lucas van Leyden &middot; <b>The Game of Chess</b> &middot; c. 1508 &middot; Gemäldegalerie, Berlin</p>
+    </div>
+  </section>
+
+  <!-- ACT IV — WHY CHESS -->
+  <section class="act tall" data-act="3">
+    <div class="act-inner">
+      <p class="eyebrow" data-r>Why Chess</p>
+      <h2 class="kicker" data-r>Chess builds what school<br>can't teach alone.</h2>
+      <p class="lede" data-r>Every move on the board is your kid's. The brilliant ones and the blunders. Chess teaches them to think, to own their decisions, and to keep going when they lose. Which they will. Often.</p>
+      <div class="pillars" data-r>
+        <div class="pillar"><h3>Focus</h3><p>Sitting still with a hard problem is a skill most kids don't get to practice anymore. Chess makes them practice it for fun.</p></div>
+        <div class="pillar"><h3>Resilience</h3><p>Losing happens. Every game. Even grandmasters lose. What chess teaches is how to lose and come back tomorrow.</p></div>
+        <div class="pillar"><h3>Strategy</h3><p>Think three moves ahead. Then change your plan because your opponent did something you didn't expect. That's chess. That's also life.</p></div>
+        <div class="pillar"><h3>Confidence</h3><p>It comes from solving the puzzle yourself, after twenty tries. Chess gives kids that — at the board, every week.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACT V — THE ROOM -->
+  <section class="act right tall" data-act="4">
+    <div class="fallback-art" style="background-image:url('assets/art/athens.jpg')"></div>
+    <div class="act-inner">
+      <p class="eyebrow" data-r>Rome, 1511</p>
+      <h2 class="display" data-r>Raphael built<br>a room for<br><span class="gold">thinking.</span></h2>
+      <p class="lede" data-r>He filled it with every mind he admired and let them argue under one vaulted ceiling. That's all a chess club is. A room built for thinking, and the people you get to think beside.</p>
+      <p class="caption" data-r>Raphael &middot; <b>The School of Athens</b> &middot; 1511 &middot; Apostolic Palace, Vatican City</p>
+    </div>
+  </section>
+
+  <!-- ACT VI — 2026 -->
+  <section class="act tall" data-act="5">
+    <div class="fallback-art" style="background-image:url('assets/club-full.jpg')"></div>
+    <div class="act-inner">
+      <p class="eyebrow" data-r>Carmel Valley, 2026</p>
+      <h2 class="display" data-r>Same game.<br><em>New room.</em></h2>
+      <p class="lede" data-r>Four hundred and seventy-one years after Anguissola set down her brush, in a room above a sushi restaurant on Del Fino Place, three generations lean over a board and argue about a knight.</p>
+      <p class="lede" data-r><strong>We hung both paintings in the same museum. Because they are the same painting.</strong></p>
+      <p class="caption" data-r>Carmel Valley Chess Club &middot; <b>Open House</b> &middot; 2026 &middot; 9 Del Fino Place, Suite 201</p>
+    </div>
+  </section>
+
+  <!-- ACT VII — PULL UP A CHAIR -->
+  <section class="act center" data-act="6">
+    <div class="act-inner">
+      <p class="eyebrow" data-r>The Invitation</p>
+      <h2 class="display" data-r>Pull up<br>a <span class="gold">chair.</span></h2>
+      <p class="lede" data-r>Whether you want to play once and never again, drop in on a Friday, or someday earn a rating of your own — there's a seat for you at the Carmel Valley Chess Club.</p>
+      <div class="actions" data-r>
+        <a class="btn btn-gold" href="after-school.html">Enroll Your Kid &rarr;</a>
+        <a class="btn btn-ghost" href="friday-nights.html">Family Chess Nights &rarr;</a>
+        <a class="btn btn-ghost" href="index.html">Visit the Full Site &rarr;</a>
+      </div>
+      <p class="caption" data-r>Artwork public domain &middot; Museum built with three.js</p>
+    </div>
+  </section>
+
+</main>
+
+<div class="hint" id="hint">Scroll</div>
+
+<!-- GSAP + Lenis -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+
+<script type="module">
+import * as THREE from 'three';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+/* ============================================================
+   0. CAPABILITY + BUDGET
+   ============================================================ */
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const MOBILE  = matchMedia('(max-width: 820px)').matches || navigator.maxTouchPoints > 1;
+
+function webglOK(){
+  try{ const c=document.createElement('canvas');
+    return !!(window.WebGLRenderingContext && (c.getContext('webgl2')||c.getContext('webgl'))); }
+  catch(e){ return false; }
+}
+
+const BUDGET = {
+  pieces:    MOBILE ? 7 : 14,
+  particles: MOBILE ? 420 : 1600,
+  bloom:     !MOBILE && !REDUCED,
+  dpr:       Math.min(window.devicePixelRatio || 1, MOBILE ? 1.5 : 2),
+  segments:  MOBILE ? 32 : 64
+};
+
+const loader = document.getElementById('loader');
+const fill   = document.getElementById('loadFill');
+const pct    = document.getElementById('loadPct');
+const hint   = document.getElementById('hint');
+
+/* Graceful exit if no WebGL — the story still reads. */
+if (!webglOK()){
+  document.body.classList.add('no-webgl');
+  finish();
+  initScrollOnly();
+} else {
+  boot();
+}
+
+function finish(){
+  fill.style.width = '100%'; pct.textContent = '100%';
+  setTimeout(()=>{
+    loader.classList.add('done');
+    document.body.classList.remove('locked');
+    ScrollTrigger.refresh();
+    setTimeout(()=>loader.remove(), 900);
+  }, 320);
+}
+
+/* ============================================================
+   1. THE MUSEUM
+   ============================================================ */
+function boot(){
+
+const canvas = document.getElementById('scene');
+
+/* The pane/tab can be zero-sized at boot (hidden iframe, background tab).
+   Never let width/height be 0 — an aspect of 0/0 is NaN and kills the render. */
+function viewSize(){
+  const w = canvas.clientWidth  || window.innerWidth  || 1;
+  const h = canvas.clientHeight || window.innerHeight || 1;
+  return { w: Math.max(1, w), h: Math.max(1, h) };
+}
+const first = viewSize();
+
+const renderer = new THREE.WebGLRenderer({ canvas, antialias:!MOBILE, powerPreference:'high-performance' });
+renderer.setPixelRatio(BUDGET.dpr);
+renderer.setSize(first.w, first.h, false);   // false = leave the CSS size alone
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 0.86;
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0b1a17);
+scene.fog = new THREE.FogExp2(0x0b1a17, 0.055);
+
+const camera = new THREE.PerspectiveCamera(42, first.w/first.h, 0.1, 120);
+/* GSAP tweens these plain objects; the camera reads them each frame.
+   Tweening camera.position directly would fight the pointer-parallax offset. */
+const camPos    = { x:0, y:0.35, z:9.5 };
+const camTarget = { x:0, y:0.10, z:0   };
+camera.position.set(camPos.x, camPos.y, camPos.z);
+
+/* Realistic PBR reflections without shipping an HDR file. */
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+/* ---- Lighting: candlelit gallery ---- */
+scene.add(new THREE.HemisphereLight(0xbfd6cc, 0x0a1512, 0.55));
+const key = new THREE.DirectionalLight(0xffe9c4, 1.5);
+key.position.set(4, 7, 6); scene.add(key);
+const rim = new THREE.DirectionalLight(0x9fd0c0, 0.5);
+rim.position.set(-6, 2, -8); scene.add(rim);
+const glow = new THREE.PointLight(0xc4831a, 15, 26, 2.1);
+glow.position.set(0, 1.4, -12); scene.add(glow);
+
+/* ============================================================
+   2. CHESS PIECES — procedural lathe geometry (turned marble)
+   ============================================================ */
+const V = (x,y)=>new THREE.Vector2(x,y);
+
+const PROFILES = {
+  pawn:[V(0,0),V(.30,0),V(.30,.05),V(.21,.09),V(.185,.15),V(.125,.25),V(.115,.33),V(.175,.38),V(.175,.42),V(.105,.46),V(.10,.52),V(.155,.60),V(.16,.66),V(.11,.74),V(0,.80)],
+  rook:[V(0,0),V(.33,0),V(.33,.06),V(.235,.11),V(.20,.20),V(.195,.55),V(.245,.60),V(.285,.65),V(.285,.78),V(.20,.78),V(.20,.70),V(0,.70)],
+  bishop:[V(0,0),V(.31,0),V(.31,.055),V(.22,.10),V(.19,.17),V(.13,.32),V(.16,.42),V(.115,.48),V(.145,.55),V(.135,.66),V(.095,.80),V(.115,.86),V(.055,.96),V(.045,1.0),V(0,1.04)],
+  queen:[V(0,0),V(.34,0),V(.34,.06),V(.24,.11),V(.205,.19),V(.14,.36),V(.175,.46),V(.12,.53),V(.155,.62),V(.145,.76),V(.185,.90),V(.235,.98),V(.235,1.04),V(.12,1.06),V(.115,1.12),V(0,1.16)],
+  king:[V(0,0),V(.35,0),V(.35,.06),V(.25,.11),V(.21,.20),V(.145,.38),V(.18,.49),V(.125,.56),V(.16,.66),V(.15,.82),V(.195,.96),V(.245,1.04),V(.245,1.10),V(.13,1.12),V(.125,1.20),V(0,1.22)]
+};
+
+const MAT = {
+  marble: new THREE.MeshPhysicalMaterial({ color:0xf2ebdf, roughness:.34, metalness:.02, clearcoat:.55, clearcoatRoughness:.28, sheen:.4, sheenColor:0xffe9c4 }),
+  onyx:   new THREE.MeshPhysicalMaterial({ color:0x11171a, roughness:.22, metalness:.10, clearcoat:.9,  clearcoatRoughness:.12 }),
+  gold:   new THREE.MeshStandardMaterial({ color:0xc4831a, roughness:.26, metalness:1.0, emissive:0x2a1a05, emissiveIntensity:.35 })
+};
+
+function makePiece(kind, mat){
+  const g = new THREE.Group();
+  const geo = new THREE.LatheGeometry(PROFILES[kind], BUDGET.segments);
+  geo.computeVertexNormals();
+  g.add(new THREE.Mesh(geo, mat));
+
+  if (kind === 'rook'){                      // crenellations
+    for (let i=0;i<6;i++){
+      const a = (i/6)*Math.PI*2;
+      const b = new THREE.Mesh(new THREE.BoxGeometry(.085,.09,.085), mat);
+      b.position.set(Math.cos(a)*.235, .815, Math.sin(a)*.235);
+      b.rotation.y = -a; g.add(b);
+    }
+  }
+  if (kind === 'queen'){                     // crown of pearls
+    for (let i=0;i<8;i++){
+      const a=(i/8)*Math.PI*2;
+      const s=new THREE.Mesh(new THREE.SphereGeometry(.032,10,10), MAT.gold);
+      s.position.set(Math.cos(a)*.185,1.05,Math.sin(a)*.185); g.add(s);
+    }
+    const orb=new THREE.Mesh(new THREE.SphereGeometry(.05,14,14), MAT.gold);
+    orb.position.y=1.20; g.add(orb);
+  }
+  if (kind === 'king'){                      // cross
+    const v=new THREE.Mesh(new THREE.BoxGeometry(.045,.17,.045), MAT.gold);
+    v.position.y=1.30; g.add(v);
+    const h=new THREE.Mesh(new THREE.BoxGeometry(.12,.045,.045), MAT.gold);
+    h.position.y=1.31; g.add(h);
+  }
+  return g;
+}
+
+const KINDS = ['pawn','bishop','pawn','rook','queen','pawn','king'];
+const pieces = [];
+const piecesGroup = new THREE.Group();
+scene.add(piecesGroup);
+
+for (let i=0;i<BUDGET.pieces;i++){
+  const kind = KINDS[i % KINDS.length];
+  const mat = i % 3 === 0 ? MAT.onyx : MAT.marble;
+  const p = makePiece(kind, mat);
+  const s = 0.85 + Math.random()*0.75;
+  p.scale.setScalar(s);
+  // scatter along the camera's path through the gallery
+  p.position.set(
+    (Math.random()-0.5) * 7.5,
+    (Math.random()-0.5) * 3.4,
+    2 - (i / BUDGET.pieces) * 30 - Math.random()*2
+  );
+  p.rotation.set(Math.random()*0.5-0.25, Math.random()*Math.PI*2, Math.random()*0.4-0.2);
+  p.userData = {
+    spin: (Math.random()-0.5) * 0.16,
+    bob:  0.10 + Math.random()*0.16,
+    tilt: 0.05 + Math.random()*0.09,
+    seed: Math.random()*Math.PI*2,
+    baseY: p.position.y
+  };
+  pieces.push(p); piecesGroup.add(p);
+}
+
+/* ============================================================
+   3. THE PAINTINGS — gold-framed, floating, lit
+   ============================================================ */
+const manager = new THREE.LoadingManager();
+manager.onProgress = (_u, done, total)=>{
+  const p = Math.round((done/total)*100);
+  fill.style.width = p + '%'; pct.textContent = p + '%';
+};
+manager.onLoad = ()=>{ finish(); };
+manager.onError = ()=>{ finish(); };
+const texLoader = new THREE.TextureLoader(manager);
+
+const frameMat = new THREE.MeshStandardMaterial({ color:0xc4831a, roughness:.34, metalness:.95 });
+
+/* aspect = height / width of the source image, so nothing gets squashed. */
+function hangPainting(url, w, aspect, pos, rotY, emissive=0.14){
+  const group = new THREE.Group();
+  const h = w * aspect;
+  const tex = texLoader.load(url);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.anisotropy = Math.min(4, renderer.capabilities.getMaxAnisotropy());
+
+  const img = new THREE.Mesh(
+    new THREE.PlaneGeometry(w, h),
+    new THREE.MeshStandardMaterial({ map:tex, roughness:.85, metalness:0,
+      emissiveMap:tex, emissive:0xffffff, emissiveIntensity:emissive })
+  );
+  group.add(img);
+
+  // frame: four gilded bars
+  const t = w*0.045, d = 0.06, W = w + t*2, H = h + t*2;
+  const bars = [
+    [W, t, d,  0,  h/2 + t/2, 0],
+    [W, t, d,  0, -h/2 - t/2, 0],
+    [t, H, d, -w/2 - t/2, 0, 0],
+    [t, H, d,  w/2 + t/2, 0, 0]
+  ];
+  bars.forEach(([bw,bh,bd,x,y,z])=>{
+    const bar = new THREE.Mesh(new THREE.BoxGeometry(bw,bh,bd), frameMat);
+    bar.position.set(x,y,z-0.005); group.add(bar);
+  });
+
+  // a warm picture light so it reads as a lit gallery wall
+  const lamp = new THREE.PointLight(0xffdca8, 3.2, 7, 2);
+  lamp.position.set(0, h*0.55, 1.1); group.add(lamp);
+
+  group.position.set(pos[0], pos[1], pos[2]);
+  group.rotation.y = rotY;
+  scene.add(group);
+  return group;
+}
+
+//                    file                       width  h/w      position              rotY   emissive
+hangPainting('assets/art/anguissola.jpg', 3.5, 1011/1280, [ 0.0, 0.15,  -1.2],  0.00);
+hangPainting('assets/art/vanleyden.jpg',  3.0, 1006/1280, [-3.1, 0.25,  -8.5],  0.42);
+hangPainting('assets/art/athens.jpg',     3.9,  990/1280, [ 3.4, 0.20, -17.5], -0.44, 0.11);
+/* The modern masterpiece — hung in the same museum, in the same gilded frame. */
+hangPainting('assets/club-full.jpg',      4.2,  901/1600, [-0.2, 0.15, -25.5],  0.06, 0.30);
+
+/* ============================================================
+   3b. THE FINALE — pieces settle onto a board. "Pull up a chair."
+   ============================================================ */
+const boardGroup = new THREE.Group();
+boardGroup.position.set(0, -0.95, -31.2);
+scene.add(boardGroup);
+
+// procedural 8×8 checker — no texture file needed
+const cvs = document.createElement('canvas'); cvs.width = cvs.height = 512;
+const ctx2d = cvs.getContext('2d');
+for (let y=0;y<8;y++) for (let x=0;x<8;x++){
+  ctx2d.fillStyle = ((x+y)%2) ? '#1c2421' : '#e3d8c7';
+  ctx2d.fillRect(x*64, y*64, 64, 64);
+}
+const boardTex = new THREE.CanvasTexture(cvs);
+boardTex.colorSpace = THREE.SRGBColorSpace;
+
+const edgeMat = new THREE.MeshStandardMaterial({ color:0x6b4a1e, roughness:.4, metalness:.7 });
+const topMat  = new THREE.MeshPhysicalMaterial({ map:boardTex, roughness:.26, clearcoat:.65, clearcoatRoughness:.2 });
+// BoxGeometry material order: +x, -x, +y(top), -y, +z, -z
+const board = new THREE.Mesh(
+  new THREE.BoxGeometry(3.4, 0.14, 3.4),
+  [edgeMat, edgeMat, topMat, edgeMat, edgeMat, edgeMat]
+);
+boardGroup.add(board);
+
+const CELL = 3.4/8, TOP = 0.07;
+const cell = (c, r) => [ (c-3.5)*CELL, TOP, (r-3.5)*CELL ];
+[ ['king','marble',4,6], ['queen','marble',3,6], ['bishop','marble',2,7], ['rook','marble',0,7],
+  ['pawn','marble',3,5], ['king','onyx',3,1], ['queen','onyx',4,1], ['bishop','onyx',5,0],
+  ['rook','onyx',7,0], ['pawn','onyx',4,2]
+].forEach(([kind, tone, c, r])=>{
+  const p = makePiece(kind, tone === 'onyx' ? MAT.onyx : MAT.marble);
+  const [x,y,z] = cell(c,r);
+  p.position.set(x, y, z);
+  p.scale.setScalar(0.62);
+  p.rotation.y = Math.random()*Math.PI*2;
+  boardGroup.add(p);
+});
+
+// warm overhead light so the finale reads as a table, not a void
+const finaleLamp = new THREE.PointLight(0xffd9a0, 14, 12, 2);
+finaleLamp.position.set(0.4, 2.6, 0.8); boardGroup.add(finaleLamp);
+const finaleFill = new THREE.PointLight(0x9fd0c0, 4, 10, 2);
+finaleFill.position.set(-1.8, 1.2, 1.6); boardGroup.add(finaleFill);
+
+/* ============================================================
+   4. DUST MOTES
+   ============================================================ */
+const dustGeo = new THREE.BufferGeometry();
+const dpos = new Float32Array(BUDGET.particles*3);
+for (let i=0;i<BUDGET.particles;i++){
+  dpos[i*3]   = (Math.random()-0.5)*22;
+  dpos[i*3+1] = (Math.random()-0.5)*12;
+  dpos[i*3+2] = 4 - Math.random()*36;
+}
+dustGeo.setAttribute('position', new THREE.BufferAttribute(dpos,3));
+const dust = new THREE.Points(dustGeo, new THREE.PointsMaterial({
+  color:0xf4d090, size:0.022, transparent:true, opacity:0.5,
+  blending:THREE.AdditiveBlending, depthWrite:false, sizeAttenuation:true
+}));
+scene.add(dust);
+
+/* ============================================================
+   5. POST — bloom
+   ============================================================ */
+const composer = new EffectComposer(renderer);
+composer.setPixelRatio(BUDGET.dpr);
+composer.setSize(first.w, first.h);
+composer.addPass(new RenderPass(scene, camera));
+let bloom = null;
+if (BUDGET.bloom){
+  bloom = new UnrealBloomPass(new THREE.Vector2(first.w, first.h), 0.52, 0.62, 0.78);
+  composer.addPass(bloom);
+}
+composer.addPass(new OutputPass());
+
+/* Self-healing size: checked every frame, so the scene recovers the instant
+   the pane becomes visible — no resize event required. */
+function syncSize(){
+  const { w, h } = viewSize();
+  const needW = Math.floor(w * BUDGET.dpr);
+  const needH = Math.floor(h * BUDGET.dpr);
+  if (canvas.width !== needW || canvas.height !== needH){
+    renderer.setSize(w, h, false);
+    composer.setSize(w, h);
+    if (bloom) bloom.setSize(w, h);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  }
+}
+
+/* ============================================================
+   6. SMOOTH SCROLL (Lenis) + CINEMATIC TIMELINE (GSAP)
+   ============================================================ */
+gsap.registerPlugin(ScrollTrigger);
+
+let lenis = null;
+if (!REDUCED){
+  lenis = new Lenis({ lerp: 0.085, wheelMultiplier: 0.92, smoothWheel: true, syncTouch: false });
+  lenis.on('scroll', ScrollTrigger.update);
+  gsap.ticker.add(t => lenis.raf(t*1000));
+  gsap.ticker.lagSmoothing(0);
+}
+
+/* Camera choreography: one scrubbed film reel across the whole page. */
+const EASE = 'power2.inOut';
+const reel = gsap.timeline({
+  defaults:{ ease:EASE, duration:1 },
+  scrollTrigger:{ trigger:'#scroll', start:'top top', end:'bottom bottom', scrub: REDUCED ? true : 1.15 }
+});
+
+/* Each shot APPENDS (no position arg on the first tween) so the reel plays
+   in sequence; the rest ride along with '<' so they run in parallel. */
+const shot = (cx,cy,cz, tx,ty,tz, fog, bloomStr)=>{
+  reel.to(camPos,    { x:cx, y:cy, z:cz })
+      .to(camTarget, { x:tx, y:ty, z:tz }, '<')
+      .to(scene.fog, { density:fog      }, '<');
+  if (bloom) reel.to(bloom, { strength:bloomStr }, '<');
+};
+
+// I. overture → II. Anguissola
+shot( 0.15, 0.25,  4.6,   0.0, 0.15, -1.2, 0.052, 0.50);
+// III. van Leyden
+shot(-1.35, 0.45, -4.6,  -3.1, 0.25, -8.5, 0.046, 0.58);
+// IV. why chess — drift into the piece cluster
+shot( 0.55, 1.05, -10.5,  0.0, 0.30, -13.8, 0.040, 0.72);
+// V. School of Athens
+shot( 1.45, 0.35, -13.6,  3.4, 0.20, -17.5, 0.044, 0.62);
+// VI. 2026 — the modern masterpiece
+shot(-0.15, 0.20, -21.6, -0.2, 0.15, -25.5, 0.038, 0.55);
+// VII. pull up a chair — the board, lit
+shot( 0.00, 0.78, -27.7,  0.0,-0.32, -31.1, 0.046, 0.44);
+
+/* Editorial type reveals */
+gsap.utils.toArray('.act').forEach(act=>{
+  const bits = act.querySelectorAll('[data-r]');
+  gsap.from(bits, {
+    y: REDUCED ? 0 : 46, opacity: 0, filter:'blur(6px)',
+    duration: 1.05, ease:'power3.out', stagger: 0.09,
+    scrollTrigger:{ trigger:act, start:'top 72%', toggleActions:'play none none reverse' }
+  });
+});
+
+/* hide the scroll hint once we're moving */
+ScrollTrigger.create({ trigger:'#scroll', start:'top -8%', onEnter:()=>hint.classList.add('gone'), onLeaveBack:()=>hint.classList.remove('gone') });
+
+/* ============================================================
+   7. RENDER LOOP
+   ============================================================ */
+const clock = new THREE.Clock();
+let visible = true;
+document.addEventListener('visibilitychange', ()=> visible = !document.hidden);
+
+/* subtle parallax from pointer — depth without motion sickness */
+const ptr = { x:0, y:0, tx:0, ty:0 };
+if (!MOBILE && !REDUCED){
+  addEventListener('pointermove', e=>{
+    ptr.tx = (e.clientX/innerWidth - 0.5) * 0.5;
+    ptr.ty = (e.clientY/innerHeight - 0.5) * 0.3;
+  });
+}
+
+/* ?debug=1 exposes internals + a pause switch for automated inspection. */
+if (location.search.includes('debug')){
+  window.__museum = { renderer, composer, scene, camera, pieces, camPos, camTarget, BUDGET, pause:false };
+}
+
+function frame(){
+  requestAnimationFrame(frame);
+  if (!visible) return;
+  if (window.__museum && window.__museum.pause) return;
+  syncSize();
+
+  const t = clock.getElapsedTime();
+
+  // pieces: physics-inspired float — bob, spin, gentle tilt
+  for (const p of pieces){
+    const d = p.userData;
+    p.rotation.y += d.spin * 0.010;
+    p.position.y  = d.baseY + Math.sin(t*0.45 + d.seed) * d.bob;
+    p.rotation.z  = Math.sin(t*0.30 + d.seed) * d.tilt * 0.5;
+    p.rotation.x  = Math.cos(t*0.26 + d.seed) * d.tilt * 0.32;
+  }
+
+  dust.rotation.y = t * 0.008;
+  dust.position.y = Math.sin(t*0.14) * 0.24;
+
+  ptr.x += (ptr.tx - ptr.x) * 0.045;
+  ptr.y += (ptr.ty - ptr.y) * 0.045;
+
+  // read the scrubbed reel, then add parallax as an offset (never accumulates)
+  camera.position.set(camPos.x + ptr.x*0.10, camPos.y - ptr.y*0.07, camPos.z);
+  camera.lookAt(camTarget.x, camTarget.y, camTarget.z);
+
+  composer.render();
+}
+frame();
+
+/* ============================================================
+   8. RESIZE
+   ============================================================ */
+/* syncSize() handles the canvas every frame; this only re-measures scroll. */
+let rt;
+addEventListener('resize', ()=>{
+  clearTimeout(rt);
+  rt = setTimeout(()=> ScrollTrigger.refresh(), 200);
+});
+
+/* safety: never leave the visitor locked out if a texture stalls */
+setTimeout(()=>{ if(!loader.classList.contains('done')) finish(); }, 7000);
+
+} /* end boot */
+
+/* Fallback path: story + reveals, no 3D. */
+function initScrollOnly(){
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.utils.toArray('.act').forEach(act=>{
+    gsap.from(act.querySelectorAll('[data-r]'), {
+      y:30, opacity:0, duration:.9, ease:'power3.out', stagger:.08,
+      scrollTrigger:{ trigger:act, start:'top 75%' }
+    });
+  });
+}
+</script>
+</body>
+</html>
