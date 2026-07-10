@@ -65,6 +65,87 @@
     .nav-links { display: flex; align-items: center; gap: 1.75rem; list-style: none; }
     .nav-links a { font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; color: var(--cream); text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
+
+    /* ── NAV DROPDOWNS ── */
+    .nav-group { position: relative; }
+    .nav-trigger {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: none;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-group:hover .nav-trigger,
+    .nav-group.open .nav-trigger,
+    .nav-group:focus-within .nav-trigger { color: var(--white); }
+
+    .nav-caret {
+      width: 0; height: 0;
+      opacity: 0.65;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid currentColor;
+      transition: transform 0.2s;
+    }
+    .nav-group:hover .nav-caret,
+    .nav-group.open .nav-caret { transform: rotate(180deg); }
+
+    .nav-menu {
+      position: absolute;
+      top: calc(100% + 0.9rem);
+      left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      min-width: 13.5rem;
+      list-style: none;
+      padding: 0.45rem 0;
+      background: rgba(23, 45, 40, 0.98);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(231, 220, 206, 0.14);
+      border-radius: 3px;
+      box-shadow: 0 18px 44px rgba(0,0,0,0.45);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      z-index: 1100;
+    }
+    /* invisible bridge: keeps hover alive across the gap under the trigger */
+    .nav-menu::before {
+      content: '';
+      position: absolute;
+      top: -0.9rem; left: 0; right: 0;
+      height: 0.9rem;
+    }
+    .nav-group:hover .nav-menu,
+    .nav-group:focus-within .nav-menu,
+    .nav-group.open .nav-menu {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+    .nav-menu li { list-style: none; }
+    .nav-menu a {
+      display: block;
+      padding: 0.62rem 1.3rem;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+    .nav-menu a:hover { background: rgba(231, 220, 206, 0.08); }
+
+    /* the story page — gold, so it reads as a feature not another program */
+    .nav-links .nav-feature { color: #c4831a; }
+    .nav-links .nav-feature:hover { color: #f4d090; }
     .nav-cta { background: var(--red) !important; color: var(--white) !important; padding: 0.5rem 1.25rem !important; border-radius: 2px !important; font-weight: 700 !important; }
     .article-hero { padding: 9rem 2.5rem 5rem; background: var(--green); }
     .container { max-width: 800px; margin: 0 auto; }
@@ -111,6 +192,27 @@
     .mobile-menu a { font-family: var(--font-title); font-size: 2rem; font-weight: 800; color: var(--white); text-decoration: none; letter-spacing: -0.02em; transition: color 0.2s; }
     .mobile-menu a:hover { color: var(--red); }
     .mobile-menu .mobile-cta { background: var(--red); color: var(--white) !important; padding: 0.75rem 2rem; border-radius: 2px; font-size: 1.25rem !important; }
+
+    /* Grouped and scrollable: 11 links no longer fit a phone screen centred. */
+    .mobile-menu {
+      justify-content: flex-start;
+      padding: 5.5rem 1.5rem 2.5rem;
+      overflow-y: auto;
+      gap: 0.85rem;
+    }
+    .mobile-menu a { font-size: 1.55rem; }
+    .mobile-label {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(231, 220, 206, 0.45);
+      margin-top: 1.1rem;
+    }
+    .mobile-menu .mobile-label:first-child { margin-top: 0; }
+    .mobile-menu .nav-feature { color: #c4831a; }
+    .mobile-menu .mobile-cta { margin-top: 1.4rem; }
     .mc-outer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; overflow: hidden; max-width: 100vw; }
@@ -130,15 +232,26 @@
       <div class="nav-logo-text">Carmel Valley <span>Chess Club</span></div>
     </a>
     <ul class="nav-links">
-      <li><a href="after-school.html">After-School</a></li>
-      <li><a href="summer-camp.html">Summer Camp</a></li>
-      <li><a href="friday-nights.html">Family Nights</a></li>
-      <li><a href="tournaments.html">Tournaments</a></li>
+      <li class="nav-group">
+        <button class="nav-trigger" aria-expanded="false" aria-haspopup="true">Programs<span class="nav-caret"></span></button>
+        <ul class="nav-menu">
+          <li><a href="after-school.html">After-School</a></li>
+          <li><a href="summer-camp.html">Summer Camp</a></li>
+          <li><a href="friday-nights.html">Family Nights</a></li>
+          <li><a href="tournaments.html">Tournaments</a></li>
+        </ul>
+      </li>
       <li><a href="calendar.html">Calendar</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="coach-jb.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li class="nav-group">
+        <button class="nav-trigger" aria-expanded="false" aria-haspopup="true">Club<span class="nav-caret"></span></button>
+        <ul class="nav-menu">
+          <li><a href="coach-jb.html">About Coach JB</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </li>
+      <li><a href="experience.html" class="nav-feature">The Long Game</a></li>
       <li><a href="after-school.html" class="nav-cta">Enroll Now</a></li>
     </ul>
     <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Open menu">
@@ -146,15 +259,18 @@
     </button>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
+    <span class="mobile-label">Programs</span>
     <a href="after-school.html" onclick="toggleMenu()">After-School</a>
     <a href="summer-camp.html" onclick="toggleMenu()">Summer Camp</a>
     <a href="friday-nights.html" onclick="toggleMenu()">Family Nights</a>
     <a href="tournaments.html" onclick="toggleMenu()">Tournaments</a>
+    <span class="mobile-label">The Club</span>
     <a href="calendar.html" onclick="toggleMenu()">Calendar</a>
     <a href="blog.html" onclick="toggleMenu()">Blog</a>
+    <a href="coach-jb.html" onclick="toggleMenu()">About Coach JB</a>
     <a href="faq.html" onclick="toggleMenu()">FAQ</a>
-    <a href="coach-jb.html" onclick="toggleMenu()">About</a>
     <a href="contact.html" onclick="toggleMenu()">Contact</a>
+    <a href="experience.html" class="nav-feature" onclick="toggleMenu()">The Long Game</a>
     <a href="after-school.html" class="mobile-cta" onclick="toggleMenu()">Enroll Now</a>
   </div>
   <script>
@@ -318,5 +434,36 @@
   <!-- Mailchimp -->
   <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/87a8c9ce62f608e29ac06ecb1/2448991586edb7873bd736314.js");</script>
   <script src="assets/track.js" defer></script>
+<script>
+  /* Nav dropdowns: hover + focus-within handle mouse and keyboard via CSS.
+     This adds click, which is the only thing that works on a touch laptop
+     or an iPad in landscape, where :hover never fires. */
+  (function () {
+    var groups = Array.prototype.slice.call(document.querySelectorAll('.nav-group'));
+    function closeAll() {
+      groups.forEach(function (g) {
+        g.classList.remove('open');
+        var t = g.querySelector('.nav-trigger');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      });
+    }
+    groups.forEach(function (g) {
+      var btn = g.querySelector('.nav-trigger');
+      if (!btn) return;
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var wasOpen = g.classList.contains('open');
+        closeAll();
+        if (!wasOpen) {
+          g.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+    document.addEventListener('click', closeAll);
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+  })();
+</script>
 </body>
+
 </html>
