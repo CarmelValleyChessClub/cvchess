@@ -44,6 +44,21 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Charcuterie & Queens — Learn to Play Chess Women's Night",
+    "description": "A women's night at Carmel Valley Chess Club: candlelight, charcuterie, and a welcoming, guided introduction to chess for all levels. Hosted by Halleh Bradley.",
+    "startDate": "2026-09-11T19:00-07:00",
+    "endDate": "2026-09-11T20:30-07:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {"@type": "Place", "name": "Carmel Valley Chess Club", "address": {"@type": "PostalAddress", "streetAddress": "9 Del Fino Place, Suite 201", "addressLocality": "Carmel Valley", "addressRegion": "CA", "postalCode": "93924"}},
+    "organizer": {"@type": "Organization", "name": "Carmel Valley Chess Club", "url": "https://cvchess.com"},
+    "image": "https://cvchess.com/assets/womens-night-hero.jpg"
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700;800;900&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
   <style>
@@ -484,6 +499,60 @@
       </div>
     </div>
   </section>
+
+  <!-- CHARCUTERIE & QUEENS -->
+  <section class="section cq-section" id="charcuterie-queens">
+    <div class="container">
+      <div class="cq-grid">
+        <div class="cq-copy">
+          <p class="section-eyebrow">New · Women's Night</p>
+          <h2 class="section-title">Charcuterie &amp; Queens</h2>
+          <p class="cq-tagline">Learn to Play Chess — A Women's Night</p>
+          <p class="section-subtitle" style="margin-bottom:1.75rem;">An evening for women to learn the game in the most inviting way possible — candlelight, a charcuterie spread, and a board waiting just for you. Hosted by Halleh Bradley, <strong style="color:var(--white);">Charcuterie &amp; Queens</strong> is a relaxed, welcoming introduction to chess. No experience needed, nothing to prove. Come with a friend or come on your own — you'll leave knowing how to play.</p>
+          <div class="cq-details">
+            <div class="cq-detail"><span class="cq-detail-label">When</span><span class="cq-detail-value">Friday, September 11, 2026 · 7:00 – 8:30 PM</span></div>
+            <div class="cq-detail"><span class="cq-detail-label">Where</span><span class="cq-detail-value">Carmel Valley Chess Club · 9 Del Fino Place, Suite 201</span></div>
+            <div class="cq-detail"><span class="cq-detail-label">Who</span><span class="cq-detail-value">Women of every level — beginners most welcome</span></div>
+            <div class="cq-detail"><span class="cq-detail-label">Included</span><span class="cq-detail-value">Charcuterie, candlelight &amp; a guided intro to chess</span></div>
+          </div>
+          <div class="cq-cta">
+            <span class="cq-cta-badge">Registration Coming Soon</span>
+            <a href="#signup" class="cq-cta-link">Join the email list to be first to know →</a>
+          </div>
+        </div>
+        <div class="cq-hero">
+          <img src="assets/womens-night-hero.jpg" alt="A drink beside a candlelit chessboard at the Carmel Valley Chess Club women's night" width="1125" height="1500" loading="lazy">
+        </div>
+      </div>
+      <div class="cq-gallery">
+        <img src="assets/womens-night-window.jpg" alt="Chessboards set with candles by the window at dusk" width="1125" height="1500" loading="lazy">
+        <img src="assets/womens-night-board.jpg" alt="A candlelit chessboard ready for play" width="1125" height="1500" loading="lazy">
+        <img src="assets/womens-night-room.jpg" alt="The Carmel Valley Chess Club room set with candlelit boards for the evening" width="1125" height="1500" loading="lazy">
+      </div>
+    </div>
+  </section>
+  <style>
+    .cq-section { background: #10221d; }
+    .cq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .cq-tagline { font-family: var(--font-title); font-size: 1.05rem; font-weight: 700; letter-spacing: 0.02em; color: #c4831a; margin-bottom: 1.25rem; }
+    .cq-details { display: flex; flex-direction: column; margin-bottom: 2rem; }
+    .cq-detail { display: flex; flex-direction: column; gap: 0.15rem; padding: 0.85rem 0; border-bottom: 1px solid rgba(231,220,206,0.1); }
+    .cq-detail-label { font-family: var(--font-body); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); }
+    .cq-detail-value { font-family: var(--font-body); font-size: 1rem; color: var(--cream); line-height: 1.5; }
+    .cq-cta { display: flex; flex-direction: column; gap: 0.85rem; align-items: flex-start; }
+    .cq-cta-badge { display: inline-block; background: rgba(196,131,26,0.15); border: 1px solid rgba(196,131,26,0.5); color: #f4c97a; font-family: var(--font-title); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.7rem 1.25rem; border-radius: 2px; }
+    .cq-cta-link { font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; color: var(--cream); text-decoration: none; border-bottom: 1px solid rgba(231,220,206,0.35); padding-bottom: 1px; transition: color 0.2s; }
+    .cq-cta-link:hover { color: var(--white); }
+    .cq-hero img { width: 100%; height: 560px; object-fit: cover; border-radius: 4px; display: block; }
+    .cq-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3rem; }
+    .cq-gallery img { width: 100%; height: 340px; object-fit: cover; border-radius: 4px; display: block; }
+    @media (max-width: 900px) {
+      .cq-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .cq-hero img { height: 420px; }
+      .cq-gallery { grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+      .cq-gallery img { height: 240px; }
+    }
+  </style>
 
   <!-- LOCATION -->
   <section class="section location-section">
