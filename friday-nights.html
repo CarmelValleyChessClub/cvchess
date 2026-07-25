@@ -49,13 +49,14 @@
     "@context": "https://schema.org",
     "@type": "Event",
     "name": "Charcuterie & Queens — Learn to Play Chess Women's Night",
-    "description": "A women's night at Carmel Valley Chess Club: candlelight, charcuterie, and a welcoming, guided introduction to chess for all levels. Hosted by Halleh Bradley.",
+    "description": "A women's night at Carmel Valley Chess Club: candlelight, charcuterie and mocktails catered by Carmel Valley Creamery, and a welcoming, guided introduction to chess for all levels. Hosted by Halleh Bradley.",
     "startDate": "2026-09-11T19:00-07:00",
     "endDate": "2026-09-11T20:30-07:00",
     "eventStatus": "https://schema.org/EventScheduled",
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "location": {"@type": "Place", "name": "Carmel Valley Chess Club", "address": {"@type": "PostalAddress", "streetAddress": "9 Del Fino Place, Suite 201", "addressLocality": "Carmel Valley", "addressRegion": "CA", "postalCode": "93924"}},
     "organizer": {"@type": "Organization", "name": "Carmel Valley Chess Club", "url": "https://cvchess.com"},
+    "offers": {"@type": "Offer", "url": "https://forms.gle/PJ5S8xMoKvK9BS8DA", "availability": "https://schema.org/LimitedAvailability"},
     "image": "https://cvchess.com/assets/womens-night-hero.jpg"
   }
   </script>
@@ -170,9 +171,9 @@
     }
     .friday-hero-bg {
       position: absolute; inset: 0;
-      background-image: url('assets/friday-adults.jpg');
+      background-image: url('assets/womens-night-window.jpg');
       background-size: cover; background-position: center;
-      opacity: 0.2;
+      opacity: 0.28;
     }
     .friday-hero-content { max-width: 1200px; margin: 0 auto; width: 100%; position: relative; z-index: 2; display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: center; }
     .friday-tag { display: inline-block; background: var(--red); font-family: var(--font-title); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); padding: 0.35rem 0.75rem; border-radius: 2px; margin-bottom: 1.5rem; }
@@ -322,7 +323,7 @@
         <ul class="nav-menu">
           <li><a href="after-school.html">After-School</a></li>
           <li><a href="summer-camp.html">Summer Camp</a></li>
-          <li><a href="friday-nights.html">Family Nights</a></li>
+          <li><a href="friday-nights.html">Friday Nights</a></li>
           <li><a href="tournaments.html">Tournaments</a></li>
         </ul>
       </li>
@@ -348,7 +349,7 @@
     <span class="mobile-label">Programs</span>
     <a href="after-school.html" onclick="toggleMenu()">After-School</a>
     <a href="summer-camp.html" onclick="toggleMenu()">Summer Camp</a>
-    <a href="friday-nights.html" onclick="toggleMenu()">Family Nights</a>
+    <a href="friday-nights.html" onclick="toggleMenu()">Friday Nights</a>
     <a href="tournaments.html" onclick="toggleMenu()">Tournaments</a>
     <span class="mobile-label">The Club</span>
     <a href="calendar.html" onclick="toggleMenu()">Calendar</a>
@@ -425,6 +426,38 @@
   </section>
   <style>@media (max-width:900px){.dates-grid{grid-template-columns:1fr 1fr !important;}}</style>
 
+  <!-- CHARCUTERIE & QUEENS -->
+  <section class="section cq-section" id="charcuterie-queens">
+    <div class="container">
+      <div class="cq-grid">
+        <div class="cq-copy">
+          <p class="section-eyebrow">New · Women's Night</p>
+          <h2 class="section-title">Charcuterie &amp; Queens</h2>
+          <p class="cq-tagline">Learn to Play Chess — A Women's Night</p>
+          <p class="section-subtitle" style="margin-bottom:1.75rem;">An evening for women to learn the game in the most inviting way possible — candlelight, a charcuterie spread with mocktails catered by Carmel Valley Creamery, and a board waiting just for you. Hosted by Halleh Bradley, <strong style="color:var(--white);">Charcuterie &amp; Queens</strong> is a relaxed, welcoming introduction to chess. No experience needed, nothing to prove. Come with a friend or come on your own — you'll leave knowing how to play.</p>
+          <div class="cq-details">
+            <div class="cq-detail"><span class="cq-detail-label">When</span><span class="cq-detail-value">Friday, September 11, 2026 · 7:00 – 8:30 PM</span></div>
+            <div class="cq-detail"><span class="cq-detail-label">Where</span><span class="cq-detail-value">Carmel Valley Chess Club · 9 Del Fino Place, Suite 201</span></div>
+            <div class="cq-detail"><span class="cq-detail-label">Who</span><span class="cq-detail-value">Women of every level — beginners most welcome</span></div>
+            <div class="cq-detail"><span class="cq-detail-label">Catering</span><span class="cq-detail-value">Charcuterie &amp; mocktails by Carmel Valley Creamery</span></div>
+          </div>
+          <div class="cq-cta">
+            <a href="https://forms.gle/PJ5S8xMoKvK9BS8DA" target="_blank" rel="noopener" class="btn-primary">Register Now →</a>
+            <span class="cq-cta-badge">Space is limited</span>
+          </div>
+        </div>
+        <div class="cq-hero">
+          <img src="assets/womens-night-hero.jpg" alt="A drink beside a candlelit chessboard at the Carmel Valley Chess Club women's night" width="1125" height="1500" loading="lazy">
+        </div>
+      </div>
+      <div class="cq-gallery">
+        <img src="assets/womens-night-window.jpg" alt="Chessboards set with candles by the window at dusk" width="1125" height="1500" loading="lazy">
+        <img src="assets/womens-night-board.jpg" alt="A candlelit chessboard ready for play" width="1125" height="1500" loading="lazy">
+        <img src="assets/womens-night-room.jpg" alt="The Carmel Valley Chess Club room set with candlelit boards for the evening" width="1125" height="1500" loading="lazy">
+      </div>
+    </div>
+  </section>
+
   <!-- VIBES -->
   <section class="section vibe-section">
     <div class="container">
@@ -500,37 +533,6 @@
     </div>
   </section>
 
-  <!-- CHARCUTERIE & QUEENS -->
-  <section class="section cq-section" id="charcuterie-queens">
-    <div class="container">
-      <div class="cq-grid">
-        <div class="cq-copy">
-          <p class="section-eyebrow">New · Women's Night</p>
-          <h2 class="section-title">Charcuterie &amp; Queens</h2>
-          <p class="cq-tagline">Learn to Play Chess — A Women's Night</p>
-          <p class="section-subtitle" style="margin-bottom:1.75rem;">An evening for women to learn the game in the most inviting way possible — candlelight, a charcuterie spread, and a board waiting just for you. Hosted by Halleh Bradley, <strong style="color:var(--white);">Charcuterie &amp; Queens</strong> is a relaxed, welcoming introduction to chess. No experience needed, nothing to prove. Come with a friend or come on your own — you'll leave knowing how to play.</p>
-          <div class="cq-details">
-            <div class="cq-detail"><span class="cq-detail-label">When</span><span class="cq-detail-value">Friday, September 11, 2026 · 7:00 – 8:30 PM</span></div>
-            <div class="cq-detail"><span class="cq-detail-label">Where</span><span class="cq-detail-value">Carmel Valley Chess Club · 9 Del Fino Place, Suite 201</span></div>
-            <div class="cq-detail"><span class="cq-detail-label">Who</span><span class="cq-detail-value">Women of every level — beginners most welcome</span></div>
-            <div class="cq-detail"><span class="cq-detail-label">Included</span><span class="cq-detail-value">Charcuterie, candlelight &amp; a guided intro to chess</span></div>
-          </div>
-          <div class="cq-cta">
-            <span class="cq-cta-badge">Registration Coming Soon</span>
-            <a href="#signup" class="cq-cta-link">Join the email list to be first to know →</a>
-          </div>
-        </div>
-        <div class="cq-hero">
-          <img src="assets/womens-night-hero.jpg" alt="A drink beside a candlelit chessboard at the Carmel Valley Chess Club women's night" width="1125" height="1500" loading="lazy">
-        </div>
-      </div>
-      <div class="cq-gallery">
-        <img src="assets/womens-night-window.jpg" alt="Chessboards set with candles by the window at dusk" width="1125" height="1500" loading="lazy">
-        <img src="assets/womens-night-board.jpg" alt="A candlelit chessboard ready for play" width="1125" height="1500" loading="lazy">
-        <img src="assets/womens-night-room.jpg" alt="The Carmel Valley Chess Club room set with candlelit boards for the evening" width="1125" height="1500" loading="lazy">
-      </div>
-    </div>
-  </section>
   <style>
     .cq-section { background: #10221d; }
     .cq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }

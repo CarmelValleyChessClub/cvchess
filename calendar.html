@@ -144,6 +144,7 @@
     .legend-dot { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }
     .legend-dot.youth { background: var(--red); }
     .legend-dot.friday { background: #c4831a; }
+    .legend-dot.charcuterie { background: #9a3b63; }
     .legend-dot.camp { background: #1a7a4a; }
     .legend-dot.closed { background: #555; }
     .legend-dot.past { background: rgba(196,131,26,0.4); border:1px solid rgba(196,131,26,0.6); }
@@ -381,7 +382,7 @@
         <ul class="nav-menu">
           <li><a href="after-school.html">After-School</a></li>
           <li><a href="summer-camp.html">Summer Camp</a></li>
-          <li><a href="friday-nights.html">Family Nights</a></li>
+          <li><a href="friday-nights.html">Friday Nights</a></li>
           <li><a href="tournaments.html">Tournaments</a></li>
         </ul>
       </li>
@@ -407,7 +408,7 @@
     <span class="mobile-label">Programs</span>
     <a href="after-school.html" onclick="toggleMenu()">After-School</a>
     <a href="summer-camp.html" onclick="toggleMenu()">Summer Camp</a>
-    <a href="friday-nights.html" onclick="toggleMenu()">Family Nights</a>
+    <a href="friday-nights.html" onclick="toggleMenu()">Friday Nights</a>
     <a href="tournaments.html" onclick="toggleMenu()">Tournaments</a>
     <span class="mobile-label">The Club</span>
     <a href="calendar.html" onclick="toggleMenu()">Calendar</a>
@@ -434,6 +435,7 @@
       <div class="legend">
         <div class="legend-item"><div class="legend-dot youth"></div><span class="legend-label">Youth Classes (Pre-registration required)</span></div>
         <div class="legend-item"><div class="legend-dot friday"></div><span class="legend-label">👪 Family Chess Night (All Ages)</span></div>
+        <div class="legend-item"><div class="legend-dot charcuterie"></div><span class="legend-label">👑 Charcuterie &amp; Queens (Women's Night)</span></div>
         <div class="legend-item"><div class="legend-dot camp"></div><span class="legend-label">Summer Camp 2026</span></div>
         <div class="legend-item"><div class="legend-dot past"></div><span class="legend-label">✓ Past Tournament</span></div>
         <div class="legend-item"><div class="legend-dot closed"></div><span class="legend-label">Club Closed</span></div>
@@ -676,6 +678,9 @@
       return FAMILY_CHESS_NIGHTS.some(md => md.getTime() === d.getTime());
     }
 
+    // Charcuterie & Queens — women's night, one-time (Sep 11 2026, 7–8:30pm)
+    const CHARCUTERIE_QUEENS = new Date(2026, 8, 11);
+
     // Tournament dates
     const TOURNAMENT_DATE = new Date(2026, 5, 20); // June 20 2026 — Sushi Slam
     const INAUGURAL_TOURNAMENT_DATE = new Date(2026, 4, 23); // May 23 2026 — Inaugural USCF Membership Drive
@@ -772,6 +777,10 @@
           // Family Chess Nights — one Friday a month (see isFamilyChessNight())
           if (isFamilyChessNight(date)) {
             html += `<span class="event-pill friday" data-type="friday" data-date="${date.toDateString()}">👪 Family Chess 5–9pm</span>`;
+          }
+          // Charcuterie & Queens — women's night (one-time)
+          if (date.getTime() === CHARCUTERIE_QUEENS.getTime()) {
+            html += `<span class="event-pill" style="background:rgba(154,59,99,0.2);color:#e79ab8;border-left:2px solid #9a3b63;" data-type="charcuterie" data-date="${date.toDateString()}">👑 Charcuterie &amp; Queens 7pm</span>`;
           }
         }
 
@@ -870,6 +879,19 @@
         btn.textContent = 'About Family Chess Nights →';
         btn.href = 'friday-nights.html';
         btn.className = 'modal-btn friday-btn';
+      }
+
+      if (type === 'charcuterie') {
+        tag.className = 'modal-tag'; tag.style.background = '#9a3b63';
+        tag.textContent = "Women's Night";
+        title.textContent = 'Charcuterie & Queens';
+        date.textContent = `${dateFormatted} · 7:00 – 8:30 PM`;
+        desc.textContent = "A women's night to learn chess — candlelight, plus a charcuterie spread and mocktails catered by Carmel Valley Creamery. Hosted by Halleh Bradley, it's a relaxed, welcoming intro to the game for every level, beginners most of all. Come with a friend or come on your own.";
+        notice.innerHTML = `<strong>Space is limited.</strong><br>At 9 Del Fino Place, Suite 201 (above Mika Sushi), Carmel Valley. Register now to save your spot.`;
+        btn.textContent = 'Register Now →';
+        btn.href = 'https://forms.gle/PJ5S8xMoKvK9BS8DA';
+        btn.className = 'modal-btn';
+        btn.style.background = '#9a3b63';
       }
 
       if (type.startsWith('camp')) {
