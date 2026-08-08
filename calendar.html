@@ -498,7 +498,7 @@
               <span class="weekly-event-time">3:15 – 4:15 PM</span>
             </div>
             <div class="weekly-event youth">
-              <span class="weekly-event-name">♟️ All-Girls — Recreational League</span>
+              <span class="weekly-event-name">♟️ Youth Chess — Recreational</span>
               <span class="weekly-event-time">4:30 – 5:30 PM</span>
             </div>
           </div>
@@ -770,7 +770,7 @@
           // Tuesday youth classes
           if (dow === 2) {
             html += `<span class="event-pill youth" data-type="youth-tue-315" data-date="${date.toDateString()}">♟ Youth 3:15pm</span>`;
-            html += `<span class="event-pill youth" data-type="youth-tue-430" data-date="${date.toDateString()}">♟ All-Girls 4:30pm</span>`;
+            html += `<span class="event-pill youth" data-type="youth-tue-430" data-date="${date.toDateString()}">♟ Youth 4:30pm</span>`;
           }
           // Thursday youth class
           if (dow === 4) {
@@ -826,10 +826,7 @@
         const time = type.includes('315') ? '3:15 – 4:15 PM' : type.includes('430') ? '4:30 – 5:30 PM' : '3:15 – 4:15 PM';
         let league = 'Recreational League';
         let leagueDesc = `Structured chess instruction for kids ages 5–17. Small groups of 8 students maximum. Coach JB works directly with each student on chess fundamentals, tactics, and game play.`;
-        if (type === 'youth-tue-430') {
-          league = 'All-Girls Recreational Chess League';
-          leagueDesc = `A recreational chess league just for girls. Structured instruction in a supportive, all-girls setting — small groups of 8 students maximum. Coach JB works directly with each student on chess fundamentals, tactics, and game play.`;
-        } else if (type === 'youth-thu') {
+        if (type === 'youth-thu') {
           league = 'Middle &amp; High School Recreational Chess League';
           leagueDesc = `A recreational chess league for middle and high school students. Structured instruction in small groups of 8 students maximum. Coach JB works directly with each student on chess fundamentals, tactics, and game play.`;
         }
