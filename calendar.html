@@ -517,7 +517,7 @@
 
           <div class="reg-notice">
             <p class="reg-notice-title">⚠️ Youth Classes Require Pre-Registration</p>
-            <p class="reg-notice-text">All Monday, Tuesday, and Thursday youth chess classes require pre-registration and written authorization from Coach JB before attending. Walk-ins cannot be accommodated. Classes are capped at 8 students.</p>
+            <p class="reg-notice-text">All Monday, Tuesday, and Thursday youth chess classes require pre-registration and written authorization from Coach JB before attending. Walk-ins cannot be accommodated.</p>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVZObine13tcW1bq5qtUl6tnpQ-Ooimrx_6XDc-kifdbe1Xg/viewform?usp=header" target="_blank" class="btn-primary">Register for Youth Classes →</a>
           </div>
         </div>
@@ -825,10 +825,10 @@
         const dayName = type.includes('mon') ? 'Monday' : type.includes('tue') ? 'Tuesday' : 'Thursday';
         const time = type.includes('315') ? '3:15 – 4:15 PM' : type.includes('430') ? '4:30 – 5:30 PM' : '3:15 – 4:15 PM';
         let league = 'Recreational League';
-        let leagueDesc = `Structured chess instruction for kids ages 5–17. Small groups of 8 students maximum. Coach JB works directly with each student on chess fundamentals, tactics, and game play.`;
+        let leagueDesc = `Structured chess instruction for kids ages 5–17. Small groups with individual attention. Coach JB works directly with each student on chess fundamentals, tactics, and game play.`;
         if (type === 'youth-thu') {
           league = 'Middle &amp; High School Recreational Chess League';
-          leagueDesc = `A recreational chess league for middle and high school students. Structured instruction in small groups of 8 students maximum. Coach JB works directly with each student on chess fundamentals, tactics, and game play.`;
+          leagueDesc = `A recreational chess league for middle and high school students. Structured instruction in small groups. Coach JB works directly with each student on chess fundamentals, tactics, and game play.`;
         }
 
         tag.className = 'modal-tag youth';
